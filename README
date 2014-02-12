@@ -1,0 +1,104 @@
+
+About:
+======
+
+This is a Free Open Source Software for GameDesign, Game Programation and Game Art. 
+
+Instalation:
+============
+
+If you are looking this, it's problably that you have downloaded UnNivelMas SDK. First you need all dependencies for UnNivelMas:
+
+SDL 2.0:
+========
+
+Linux: 
+------
+	- You need to install some dependencies before compile SDL2. Looking for those dependencies, I end up with the following list. Try to install all. I don't know if there are many others that you're going to need, like OpenGL ES (EGL).
+
+	sudo apt install 
+
+		build-essential 
+		xorg-dev libudev-dev 
+		libts-dev 
+		libgl1-mesa-dev 
+		libglu1-mesa-dev 
+		libasound2-dev 
+		libpulse-dev 
+		libopenal-dev 
+		libogg-dev 
+		libvorbis-dev 
+		libaudiofile-dev 
+		libpng12-dev 
+		libfreetype6-dev 
+		libusb-dev 
+		libdbus-1-dev 
+		zlib1g-dev 
+		libdirectfb-dev
+
+
+	You can download source code here: http://www.libsdl.org/download-2.0.php , after this type:
+
+	./configure
+
+	make
+
+	sudo make install
+
+
+Windows:
+-------
+	on Windows you will need MinGW or Cymgw to compile source code, it's the as Easy as linux mode.
+
+
+SDL_image 2.0:
+==============
+
+	You can download source code here: http://www.libsdl.org/projects/SDL_image/ , after this type:
+
+	./configure
+
+	make
+
+	sudo make install
+
+SDL_mixer 2.0:
+==============
+
+	You can download source code here: http://www.libsdl.org/projects/SDL_mixer/ , after this type:
+
+	./configure
+
+	make
+
+	sudo make install
+
+SDL_net 2.0:
+============
+
+	You can download source code here: http://www.libsdl.org/projects/SDL_net/ , after this type:
+
+	./configure
+
+	make
+
+	sudo make install
+
+SDL_ttf 2.0:
+============
+
+	You can download source code here: http://www.libsdl.org/projects/SDL_ttf/ , after this type:
+
+	./configure
+
+	make
+
+	sudo make install
+
+Glew 1.10.0:
+============
+	You can download source code here: http://glew.sourceforge.net/ , after this type:
+
+	make
+
+	sudo make install
