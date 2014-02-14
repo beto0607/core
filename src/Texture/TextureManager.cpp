@@ -14,26 +14,8 @@
 
 using namespace unnivelmas;
 
-GLvoid print_init_flags(GLint flags)
-{
-	if(flags&IMG_INIT_JPG)
-		printf("JPG ");
-	if(flags&IMG_INIT_PNG)
-		printf("PNG ");
-	if(flags&IMG_INIT_TIF)
-		printf("TIF ");
-	if(!flags)
-		printf("None");
-	printf("\n");
-}
-
 TextureManager::TextureManager() {
-    GLint initted=IMG_Init(0);
-    //printf("Before IMG_Init SDL_image supported: ");
-    //print_init_flags(initted);
-    initted=IMG_Init(~0); /*~0 is all bits set */
-    //printf("After  IMG_Init SDL_image supported: ");
-    //print_init_flags(initted);
+    GLint initted=IMG_Init(~0);
     textures = new std::map<std::string,Texture*>();
     this->loadNullTexture();
 }
@@ -60,7 +42,11 @@ GLvoid TextureManager::loadTexture(const GLchar* name,const GLchar* file_path)
     }
     else
     {    
-        glTexImage2D(GL_TEXTURE_2D,0 , GL_RGBA, image->w, image->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
+        int Mode = GL_RGB;
+        if(image->format->BytesPerPixel == 4) {
+            Mode = GL_RGBA;
+        }
+        glTexImage2D(GL_TEXTURE_2D,0 , Mode, image->w, image->h, 0, Mode, GL_UNSIGNED_BYTE, image->pixels);
         glGenerateMipmap(GL_TEXTURE_2D);
 
         textures->insert(std::pair<std::string,Texture*>(std::string(name), auxtexture));

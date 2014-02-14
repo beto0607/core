@@ -11,7 +11,7 @@ ifeq ($(OS),Windows_NT)
     all: directories copy_dll core input collision animation audio renderer scene command net engine example animation_example audio_example net_client_example net_server_example demo_example
 else
     EXTENSION=
-    all: directories engine example animation_example audio_example net_client_example net_server_example demo_example
+    all: directories engine examples 
 endif
 	
 # MAKE creation folders
@@ -72,94 +72,21 @@ build_libraries:
 	make -f src/Shader/Makefile
 	make -f src/Texture/Makefile
 	
-engine.a: build_libraries
+engine: build_libraries
 	ar -r  -s build/lib/libengine.a build/Animation/*.o build/Audio/*.o build/Collision/*.o build/Command/*.o build/Core/*.o build/Input/*.o build/Log/*.o build/Networking/*.o build/Renderer/*.o build/Scene/*.o build/Shader/*.o build/Texture/*.o
 
-engine: engine.a
-	
 ifeq ($(OS),Windows_NT)
 
 directories: root_folder
+
+examples:
+	make -f examples/Makefile
 
 else
 
 directories: root_folder
 
 endif
-	
-# Example Collision
-	
-ejemplo_pruebashader.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/prueba/shader/PruebaShader.cpp -o build/examples/prueba/pruebashader.o 
-
-ejemplo_simplematerial.o: 
-	g++ -O2 $(SDL_INCLUDE) -c examples/prueba/material/SimpleMaterial.cpp -o build/examples/prueba/simplematerial.o 
-	
-example_main.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/prueba/main.cpp -o build/examples/prueba/main.o 
-	
-example: example_main.o ejemplo_simplematerial.o ejemplo_pruebashader.o
-	g++ -Lbuild/lib -Lexternal/lib -Iexternal/include build/examples/prueba/main.o build/examples/prueba/pruebashader.o build/examples/prueba/simplematerial.o -o build/examples/prueba/ejemplo -s -lengine -lSDL2_mixer -lSDL2_net -lSDL2_image -lGL -lGLU `external/sdl2-config --static-libs` -lSDL2_ttf -lfreetype
-
-# End Example
-
-# Example Animation
-
-animation_material.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/animation/material/SimpleMaterial.cpp -o build/examples/animation/simplematerial.o 
-
-animation_shader.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/animation/shader/AnimationShader.cpp -o build/examples/animation/animationshader.o 
-
-animation_ninja.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/animation/class/AnimatedNinja.cpp -o build/examples/animation/ninja.o 
-
-animation_main.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/animation/main.cpp -o build/examples/animation/main.o 
-
-animation_example: animation_main.o animation_ninja.o animation_shader.o animation_material.o
-	g++ -Lbuild/lib -Lexternal/lib -Iexternal/include build/examples/animation/main.o build/examples/animation/ninja.o build/examples/animation/animationshader.o build/examples/animation/simplematerial.o -o build/examples/animation/animation -s -lengine -lSDL2_mixer -lSDL2_net -lSDL2_image -lGL -lGLU `external/sdl2-config --static-libs` -lSDL2_ttf -lfreetype
-# end Example Animation
-
-# Example Audio
-
-audio_main.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/audio/main.cpp -o build/examples/audio/main.o 
-
-audio_example: audio_main.o 
-	g++ -Lbuild/lib -Lexternal/lib -Iexternal/include  build/examples/audio/main.o -o build/examples/audio/audio -s -lengine -lSDL2_mixer -lSDL2_net -lSDL2_image -lGL -lGLU `external/sdl2-config --static-libs` -lSDL2_ttf -lfreetype
-# end Example Animation
-
-# Example Networking
-
-net_client.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/net/client.cpp -o build/examples/net/client.o 
-
-net_server.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/net/server.cpp -o build/examples/net/server.o 
-
-net_client_example: net_client.o
-	g++ -Lbuild/lib -Lexternal/lib -Iexternal/include build/examples/net/client.o -o build/examples/net/netclient -s -lengine -lSDL2_mixer -lSDL2_net -lSDL2_image -lGL -lGLU `external/sdl2-config --static-libs` -lSDL2_ttf -lfreetype
-
-net_server_example: net_server.o
-	g++ -Lbuild/lib -Lexternal/lib -Iexternal/include build/examples/net/server.o -o build/examples/net/netserver -s -lengine -lSDL2_mixer -lSDL2_net -lSDL2_image -lGL -lGLU `external/sdl2-config --static-libs` -lSDL2_ttf -lfreetype
-# end Example Networking
-
-# Example Demo
-
-player_demo.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/demo/class/Player.cpp -o build/examples/demo/player.o 
-demo_main.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/demo/main.cpp -o build/examples/demo/main.o 
-demo_material.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/demo/material/SimpleMaterial.cpp -o build/examples/demo/simplematerial.o 
-demo_shader.o:
-	g++ -O2 $(SDL_INCLUDE) -c examples/demo/shader/AnimationShader.cpp -o build/examples/demo/animationshader.o 
-
-demo_example: demo_main.o player_demo.o demo_material.o demo_shader.o
-	g++ -Lbuild/lib -Lexternal/lib -Iexternal/include build/examples/demo/main.o build/examples/demo/simplematerial.o build/examples/demo/animationshader.o build/examples/demo/player.o -o build/examples/demo/testdemo -s -lengine -lSDL2_mixer -lSDL2_net -lSDL2_image -lGL -lGLU `external/sdl2-config --static-libs` -lSDL2_ttf -lfreetype
-
-# end Example Demo
 
 clean: 
 	rm -R build
