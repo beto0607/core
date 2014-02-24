@@ -12,6 +12,8 @@
 
 namespace unnivelmas
 {
+    class Renderable;
+    
     class SceneReal : public Scene{
     public:
         SceneReal();
@@ -23,6 +25,7 @@ namespace unnivelmas
         GLvoid moveObject(const GLchar*, GLfloat,GLfloat);
         GLvoid addCollider(Shape*);
         GLvoid addCollidable(Shape*);
+        Renderable* getRenderable(const GLchar*);
         
     private:
 

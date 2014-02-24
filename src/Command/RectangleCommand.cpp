@@ -7,8 +7,10 @@
 
 #include <Command/Command.h>
 #include <Command/RectangleCommand.h>
-#include <Core/Core.h>
+#include <Renderer/RenderBuilder.h>
 #include <Renderer/Rectangle.h>
+#include <Renderer/Render.h>
+#include <Core/Core.h>
 #include <string>
 #include <iostream>
 
@@ -22,12 +24,14 @@ RectangleCommand::~RectangleCommand() {
 
 GLvoid RectangleCommand::execute()
 {
-    GLint weigth, heigth;
+    GLfloat weigth, heigth;
     std::string id;
     std::cin >> id; 
     std::cin >> heigth;
     std::cin >> weigth;
-    (Core::getInstance())->addRenderable(id.c_str(),new Rectangle(heigth,weigth));
-    std::cout << "Rectangle was Created Sussefully id: " << id << "\n";
+    SDL_GL_MakeCurrent((Core::getInstance())->getRenderManager()->getWindow(), (Core::getInstance())->getRenderManager()->getThreadContext());
+    (Core::getInstance())->getRenderBuilder()->createRectangle(id.c_str(),heigth,weigth);
+    SDL_GL_MakeCurrent((Core::getInstance())->getRenderManager()->getWindow(), NULL);
+    std::cout << "Rectangle was Created Sussefully ID: " << id.c_str() << "\n";
 }
 

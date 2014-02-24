@@ -14,7 +14,7 @@
 
 using namespace unnivelmas;
 
-Text::Text(Font* _font): Rectangle(1.1,1.1){
+Text::Text(const GLchar* _name,Font* _font): Rectangle(_name,1.1,1.1){
     my_font = _font;
     this->material = new TextMaterial();
     glGenTextures(1,&texture_id);
@@ -22,7 +22,7 @@ Text::Text(Font* _font): Rectangle(1.1,1.1){
     this->setText(" ");
 }
 
-Text::Text(): Rectangle(1.1,1.1)
+Text::Text(const GLchar* _name): Rectangle(_name,1.1,1.1)
 {
     this->material = new TextMaterial();
     glGenTextures(1,&texture_id);

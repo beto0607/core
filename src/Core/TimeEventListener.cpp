@@ -14,8 +14,3 @@ TimeEventListener::TimeEventListener() {
 
 TimeEventListener::~TimeEventListener() {
 }
-
-GLvoid TimeEventListener::update(GLfloat tick_time)
-{
-
-}

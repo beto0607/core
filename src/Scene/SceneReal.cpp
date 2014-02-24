@@ -77,3 +77,18 @@ GLvoid SceneReal::addCollidable(Shape* _shape)
 {
     this->collision_manager->addColliding(_shape);
 }
+
+Renderable* SceneReal::getRenderable(const GLchar* _id)
+{
+    std::string local_id = std::string(_id);
+    Renderable* resu;
+    if(renderables->find(local_id) == renderables->end())
+    {
+        std::cout << "(ERROR) we coudn't find " << _id << "\n";
+    }
+    else
+    {
+        resu = renderables->find(local_id)->second;
+    }
+    return resu;
+}

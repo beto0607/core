@@ -9,20 +9,14 @@
 #define	RECTANGLE_H
 
 #include <Renderer/Model2D.h>
-#include <Input/MouseEventListener.h>
-#include <Core/TimeEventListener.h>
 
 namespace unnivelmas
 {
-    class Rectangle : public Model2D, public MouseEventListener, public TimeEventListener
+    class Rectangle : public Model2D
     {
         public:
-            Rectangle(GLfloat,GLfloat);
+            Rectangle(const GLchar*,GLfloat,GLfloat);
             virtual ~Rectangle();
-            
-            GLvoid keyPressed();
-            GLvoid mouseMoved(GLfloat,GLfloat);
-            GLvoid update(GLfloat);
             
             GLvoid topCollision(Renderable*);
             GLvoid bottomCollision(Renderable*);

@@ -19,7 +19,8 @@ namespace unnivelmas
  
         GLvoid execute();
     private:
-
+        SDL_Window* window;
+        SDL_GLContext context;
     };
 }
 #endif	/* RECTANGLECOMMAND_H */

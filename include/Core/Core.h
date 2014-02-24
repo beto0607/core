@@ -23,6 +23,8 @@ namespace unnivelmas
         class KeyBoardListener;
         class TextManager;
         class MeshLoader;
+        class RenderBuilder;
+        class Renderable;
         
 	class Core
 	{
@@ -36,23 +38,28 @@ namespace unnivelmas
                                         AudioManager* audio;
                                         TextManager* text;
                                         MeshLoader* meshloader;
+                                        RenderBuilder* render_builder;
                                         static Core* instance;
                                         GLboolean end_flag;
 
                                         
 					Core();
 		public:
+                    			virtual ~Core();	
+                    
                                         static Core* getInstance();
                                         Logger* getLogger();
                                         Clock*  getClock();
                                         TextureManager* getTextureManager();
-					virtual ~Core();	
+					Render* getRenderManager();
+                                        RenderBuilder* getRenderBuilder();
+                                        Renderable* getRenderable(const GLchar*);
                                         
                                         GLvoid start();
                                         GLvoid stop();
                                         GLvoid update();
                                         
-                                        GLvoid addRenderable(const GLchar*,Renderable*);
+                                        GLvoid addRenderable(Renderable*);
                                         GLvoid addScene(Scene*);
                                         GLvoid addAudio(Audio*);
                                         Texture* getTexture(const GLchar*);

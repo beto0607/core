@@ -13,6 +13,7 @@
 
 #include "../external/include/GL/glew.h"
 #include "../external/include/SDL.h"
+#include "../external/include/SDL_syswm.h"
 #include "../external/include/SDL_mixer.h"
 #include "../external/include/SDL_thread.h"
 #include "../external/include/SDL_timer.h"
@@ -23,6 +24,9 @@
 #include "../external/include/glm/glm.hpp"
 #include "../external/include/glm/gtc/type_ptr.hpp"
 #include "../external/include/glm/gtc/matrix_transform.hpp"
-
+extern "C"
+{
+    #include "../external/include/lua.hpp"
+}
 #endif	/* UNNIVELMAS_CONF_H */
 

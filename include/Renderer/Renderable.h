@@ -3,15 +3,17 @@
 #define	RENDERABLE_H
 
 #include "../Unnivelmas_conf.h"
-#include "../../external/include/glm/glm.hpp"
+#include <Core/TimeEventListener.h>
+#include <Input/MouseEventListener.h>
 #include <string>
 
 namespace unnivelmas
 {
     class Shape;
     class Animation;
+    class Renderablelua;
     
-	class Renderable
+	class Renderable : public MouseEventListener, public TimeEventListener
 	{
 		public:
 			
@@ -70,6 +72,15 @@ namespace unnivelmas
                         GLvoid play(const GLchar*);
                         virtual GLvoid draw()=0;
                         
+                        GLvoid openLUAfile(const GLchar*);
+                        
+                        // Eventos relacionados con el Mouse
+                        GLvoid mouseMoved(GLfloat, GLfloat);
+                        GLvoid keyPressed();
+                        
+                        // Eventos relacionados con el Tick
+                        GLvoid update(GLfloat);
+                        
                 protected:  
                         GLuint buffer_id, uv_id;
                         GLuint vertex_buffer_id;
@@ -81,8 +92,8 @@ namespace unnivelmas
                         glm::mat3 angle_matrix;
                         glm::mat3 scale_matrix;
                         glm::mat4 projection_matrix;
-                        glm::mat4 viewport_matrix;
-            
-	};
+                        Renderablelua* lua;
+                        
+        };
 }; // Close Namespace Tag
 #endif

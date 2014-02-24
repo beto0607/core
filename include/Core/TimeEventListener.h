@@ -17,7 +17,7 @@ namespace unnivelmas{
         TimeEventListener();
         virtual ~TimeEventListener();
     
-        virtual GLvoid update(GLfloat);
+        virtual GLvoid update(GLfloat)=0;
     private:
 
     };

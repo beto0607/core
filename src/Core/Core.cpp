@@ -2,6 +2,7 @@
 #include <Core/Clock.h>
 #include <Renderer/Render.h>
 #include <Renderer/Renderable.h>
+#include <Renderer/Rectangle.h>
 #include <Texture/Font.h>
 #include <Command/CommandManager.h>
 #include <Input/Input.h>
@@ -92,6 +93,16 @@ Logger* Core::getLogger()
     return logger;
 }
 
+Render* Core::getRenderManager()
+{
+    return render;
+}
+ 
+RenderBuilder* Core::getRenderBuilder()
+{
+    return render_builder;
+}
+
 GLvoid Core::start()
 {
     clock->setFPSTextFont(new Font("resources/fonts/fantasy.ttf", 16));
@@ -126,9 +137,14 @@ TextureManager* Core::getTextureManager()
     return texture;
 }
 
-GLvoid Core::addRenderable(const GLchar* renderable_id, Renderable* ren)
+Renderable* Core::getRenderable(const GLchar* _render_name)
 {
-    render->addRenderable(renderable_id, ren);
+    return render->getActiveScene()->getRenderable(_render_name);
+}
+
+GLvoid Core::addRenderable(Renderable* ren)
+{
+    render->addRenderable(ren->getName().c_str(), ren);
 }
 
 GLvoid Core::scaleObject(const GLchar* id, GLfloat scale)

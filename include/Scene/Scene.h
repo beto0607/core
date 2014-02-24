@@ -22,6 +22,7 @@ namespace unnivelmas{
     class Material;
     class Shape;
     class CollisionManager;
+    class Renderable;
 
     class Scene {
     public:
@@ -34,6 +35,7 @@ namespace unnivelmas{
         virtual GLvoid addCollidable(Shape*);
         virtual GLvoid scaleObject(const GLchar*, GLfloat);
         virtual GLvoid moveObject(const GLchar*, GLfloat,GLfloat);  
+        virtual Renderable* getRenderable(const GLchar*);
                         
     protected:
         Camera* camera;

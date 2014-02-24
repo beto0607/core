@@ -15,7 +15,3 @@ MouseEventListener::MouseEventListener() {
 
 MouseEventListener::~MouseEventListener() {
 }
-
-GLvoid MouseEventListener::keyPressed(){ }
-
-GLvoid MouseEventListener::mouseMoved(GLfloat x, GLfloat y){ }

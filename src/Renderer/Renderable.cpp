@@ -1,18 +1,27 @@
 
 #include <Renderer/Renderable.h>
 #include <Animation/Animation.h>
+#include <Core/Core.h>
+#include <Log/Logger.h>
+#include <Scripting/Renderablelua.h>
+#include <sstream>
 
 using namespace unnivelmas;
 
-Renderable::Renderable(){
+Renderable* self;
+
+Renderable::Renderable():MouseEventListener(),TimeEventListener(){
     animation = new Animation();
     scale_matrix = glm::mat3(1.0f);
+    lua = new Renderablelua(this);
     width = 0;
     heigth = 0;
     radius = 0;
+    self = this;
 }
 
 Renderable::~Renderable() {
+    lua->~Renderablelua();
 }
 
 GLvoid Renderable::move(GLfloat x, GLfloat y)
@@ -206,4 +215,24 @@ GLvoid Renderable::setUVCoordinates(GLfloat* new_uv_coordinates)
 GLvoid Renderable::play(const GLchar* _name)
 {
     animation->play(_name);
+}
+
+GLvoid Renderable::openLUAfile(const GLchar* _filename)
+{
+    lua->openLUAFile(_filename);
+}
+
+GLvoid Renderable::mouseMoved(GLfloat x, GLfloat y)
+{
+    lua->mouseMoved(x,y);
+}
+
+GLvoid Renderable::keyPressed()
+{
+
+}                        
+
+GLvoid Renderable::update(GLfloat _tick)
+{
+
 }

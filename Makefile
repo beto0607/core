@@ -29,6 +29,7 @@ root_folder:
 	mkdir build/Collision
 	mkdir build/examples
 	mkdir build/Command
+	mkdir build/Scripting
 	mkdir build/Animation
 	mkdir build/Networking
 	mkdir build/Audio
@@ -71,9 +72,10 @@ build_libraries:
 	make -f src/Scene/Makefile
 	make -f src/Shader/Makefile
 	make -f src/Texture/Makefile
+	make -f src/Scripting/Makefile
 	
 engine: build_libraries
-	ar -r  -s build/lib/libengine.a build/Animation/*.o build/Audio/*.o build/Collision/*.o build/Command/*.o build/Core/*.o build/Input/*.o build/Log/*.o build/Networking/*.o build/Renderer/*.o build/Scene/*.o build/Shader/*.o build/Texture/*.o
+	ar -r  -s build/lib/libengine.a build/Animation/*.o build/Audio/*.o build/Collision/*.o build/Command/*.o build/Core/*.o build/Input/*.o build/Log/*.o build/Networking/*.o build/Renderer/*.o build/Scene/*.o build/Shader/*.o build/Texture/*.o build/Scripting/*.o
 
 ifeq ($(OS),Windows_NT)
 

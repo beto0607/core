@@ -47,4 +47,9 @@ GLvoid Scene::addCollidable(Shape* _shape)
 {
 
 }
+
+Renderable* Scene::getRenderable(const GLchar* _file_name)
+{
+    
+}
         

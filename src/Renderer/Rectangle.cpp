@@ -8,24 +8,27 @@
 #include <Renderer/Model2D.h>
 #include <Input/MouseEventListener.h>
 #include <Renderer/Rectangle.h>
+#include <Renderer/Render.h>
 #include <Core/Core.h>
 #include <Log/Logger.h>
 #include <Collision/RectangleShape.h>
 #include <sstream>
 
+
 using namespace unnivelmas;
 
-Rectangle::Rectangle(GLfloat width, GLfloat heigth):Model2D(),MouseEventListener() {
+Rectangle::Rectangle(const GLchar* _name, GLfloat width, GLfloat heigth):Model2D(){
     this->heigth = heigth/2;
     this->width = width/2;
     this->shape = new RectangleShape();    
     this->shape->setRenderable(this); 
+    this->name = std::string(_name);
             
     GLint bufferSize, uv_size;
     
-    glGenBuffers(1,&buffer_id);
-    glGenBuffers(1,&uv_id);
-    
+    buffer_id = (Core::getInstance())->getRenderManager()->getNextVertexBufferObjectNumber();
+    uv_id = (Core::getInstance())->getRenderManager()->getNextUVBufferObjectNumber();
+
     width *= 0.5;
     heigth *= 0.5;
     
@@ -41,46 +44,22 @@ Rectangle::Rectangle(GLfloat width, GLfloat heigth):Model2D(),MouseEventListener
     texture_coordenates[4] =1.0;texture_coordenates[5] =1.0;
     texture_coordenates[6] =1.0;texture_coordenates[7] =0.0;
     
-    glBindBuffer(GL_ARRAY_BUFFER,buffer_id);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*12, vertex, GL_STATIC_DRAW);
-    glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &bufferSize);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,buffer_id);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLfloat)*12, vertex, GL_STATIC_DRAW);
+    glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &bufferSize);
     
-    glBindBuffer(GL_ARRAY_BUFFER,uv_id);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*8, texture_coordenates, GL_STATIC_DRAW);
-    glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &uv_size);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,uv_id);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLfloat)*8, texture_coordenates, GL_STATIC_DRAW);
+    glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &uv_size);
     
     delete vertex;
     delete texture_coordenates;
-    std::string message;
-    std::stringstream number;
-    message.append("Rectangle was created id: ");
-    number << buffer_id;
-    message.append(number.str());
-    message.append(" uv_id: ");
-    std::stringstream number1;
-    number1 << uv_id;
-    message.append(number1.str());
-    (Core::getInstance())->getLogger()->infoLog(message);
+    std::stringstream message;
+    message << "  Rectangle " << name << " was created with ID: " << buffer_id << " UV_ID: " << uv_id << " VertexBufferSize: " << bufferSize << " UV BufferSize: " << uv_size;
+    (Core::getInstance())->getLogger()->infoLog(message.str().c_str());
 }
 
 Rectangle::~Rectangle() {
-}
-
-GLvoid Rectangle::keyPressed()
-{
-    this->move(this->getX()+10,this->getY()+10);
-}
-
-GLvoid Rectangle::mouseMoved(GLfloat x, GLfloat y)
-{
-    this->move(x,y);
-}
-
-GLvoid Rectangle::update(GLfloat tick)
-{
-   /* this->move(400, this->getY()+180*tick);
-    if(this->getY() > 600)
-        this->setY(200);*/
 }
 
 GLvoid Rectangle::topCollision(Renderable* _collider)

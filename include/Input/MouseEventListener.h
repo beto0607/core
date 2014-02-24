@@ -17,8 +17,8 @@ namespace unnivelmas{
         MouseEventListener();
         virtual ~MouseEventListener();
 
-        virtual GLvoid mouseMoved(GLfloat, GLfloat);
-        virtual GLvoid keyPressed();
+        virtual GLvoid mouseMoved(GLfloat, GLfloat)=0;
+        virtual GLvoid keyPressed()=0;
         
     protected:
 

@@ -17,8 +17,8 @@ namespace unnivelmas
     
     class Text : public Rectangle{
     public:
-        Text(Font*);
-        Text();
+        Text(const GLchar*,Font*);
+        Text(const GLchar*);
         virtual ~Text();
         
         GLvoid draw();
