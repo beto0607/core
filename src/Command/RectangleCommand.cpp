@@ -14,7 +14,7 @@
 #include <string>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 RectangleCommand::RectangleCommand() {
 }

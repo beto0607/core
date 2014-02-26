@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Texture::Texture(const GLchar* _name, GLuint _id) {
     name = std::string(_name);

@@ -10,7 +10,7 @@
 #include <Scene/Material.h>
 #include <Texture/Texture.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 TextMaterial::TextMaterial() : Material(){
     this->texture = new Texture("text",0);

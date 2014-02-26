@@ -10,7 +10,7 @@
 #include <Animation/TrackStateChanged.h>
 #include <Unnivelmas_conf.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 TrackState::TrackState() {
 }

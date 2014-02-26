@@ -10,7 +10,7 @@
 #include <sstream>
 
 
-namespace unnivelmas
+namespace kaikai
 {
     Font::Font(const GLchar* _file, GLint _size) {
         font_style = TTF_OpenFont(_file, _size);

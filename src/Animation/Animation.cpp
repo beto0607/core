@@ -9,7 +9,7 @@
 #include <Animation/Sprite.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Animation::Animation() {
     

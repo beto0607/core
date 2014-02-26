@@ -11,7 +11,7 @@
 #include <string>
 #include <sstream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Conection::Conection() {
     if (!(packet = SDLNet_AllocPacket(64)))

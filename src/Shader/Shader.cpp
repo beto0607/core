@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 std::string textFileRead(const GLchar *fileName) {
 	std::string fileString = std::string(); 

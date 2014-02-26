@@ -6,9 +6,7 @@
 #include <Scripting/Renderablelua.h>
 #include <sstream>
 
-using namespace unnivelmas;
-
-Renderable* self;
+using namespace kaikai;
 
 Renderable::Renderable():MouseEventListener(),TimeEventListener(){
     animation = new Animation();
@@ -17,7 +15,6 @@ Renderable::Renderable():MouseEventListener(),TimeEventListener(){
     width = 0;
     heigth = 0;
     radius = 0;
-    self = this;
 }
 
 Renderable::~Renderable() {

@@ -7,7 +7,7 @@
 
 #include <Command/Command.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Command::Command() {
 }

@@ -10,14 +10,17 @@
 
 #include "../Unnivelmas_conf.h"
 #include <Input/JostickManager.h>
+#include <map>
 
-namespace unnivelmas
+namespace kaikai
 {
     class MouseInputHandler;
     class MouseEventListener;
     class JostickManager;
     class KeyBoardManager;
     class Clock;
+    class InputController;
+    typedef GLvoid (InputController::*InputControllerFunctionPointer)(SDL_Event,GLvoid*);
     
         class Input {
         public:
@@ -38,6 +41,8 @@ namespace unnivelmas
             MouseInputHandler* mouse;
             JostickManager* jostick;
             KeyBoardManager* keyboard;
+            std::map<GLint,InputControllerFunctionPointer> functions;
+            std::map<GLint,InputController*> controllers;
             SDL_Event event_handler;
         };
 }; // Namespace

@@ -13,7 +13,7 @@
 #include <string>
 #include <map>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Create::Create():Command(){
     functions.insert(std::pair<std::string,Command*>("rectangle", new RectangleCommand()));

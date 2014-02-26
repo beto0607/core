@@ -9,7 +9,7 @@
 #include <Audio/Audio.h>
 #include <Audio/Sound.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Sound::Sound(const GLchar* _name,const GLchar* _filepath): Audio(_name) {
     phaserChannel = -1;

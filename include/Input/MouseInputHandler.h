@@ -9,22 +9,23 @@
 #define	MOUSEINPUTHANDLER_H
 
 #include "../Unnivelmas_conf.h"
+#include <Input/InputController.h>
 #include <list>
 #include <string>
 
-namespace unnivelmas
+namespace kaikai
 {
     class MouseEventListener;    
     
-    class MouseInputHandler {
+    class MouseInputHandler : public InputController{
     public:
         MouseInputHandler();
         virtual ~MouseInputHandler();
 
-        GLvoid moveEvent(GLfloat, GLfloat);
-        GLvoid keypresedEvent();
-        GLvoid keyreleaseEvent();
-        GLvoid whellEvent();
+        GLvoid mouseBotonDown(SDL_Event,GLvoid*);
+        GLvoid mouseBotonUp(SDL_Event,GLvoid*);
+        GLvoid mouseMotion(SDL_Event,GLvoid*); 
+        GLvoid mouseWhell(SDL_Event,GLvoid*);
         
         GLvoid addKeyPressedLisener(MouseEventListener*);
         GLvoid addKeyReleaseLisener(MouseEventListener*);

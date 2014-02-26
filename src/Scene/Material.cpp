@@ -11,7 +11,7 @@
 #include <list>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Material::Material() {
 }

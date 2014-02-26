@@ -13,7 +13,7 @@
 #include <fstream>
 #include <string>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Logger {
     public:

@@ -10,7 +10,7 @@
 
 #include <Renderer/Model2D.h>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Rectangle : public Model2D
     {

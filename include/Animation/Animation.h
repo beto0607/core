@@ -13,7 +13,7 @@
 #include <string>
 #include "../Unnivelmas_conf.h"
 
-namespace unnivelmas
+namespace kaikai
 {
     class Renderable;
     class Sprite;

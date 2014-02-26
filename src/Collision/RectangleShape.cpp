@@ -10,7 +10,7 @@
 #include <Renderer/Renderable.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 RectangleShape::RectangleShape():Shape() {
 }

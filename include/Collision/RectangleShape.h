@@ -10,7 +10,7 @@
 
 #include <Collision/Shape.h>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Renderable;
     

@@ -7,7 +7,7 @@
 #include <Input/MouseEventListener.h>
 #include <string>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Shape;
     class Animation;

@@ -7,7 +7,7 @@
 
 #include <Scene/SceneManager.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 SceneManager::SceneManager() {
 }

@@ -10,7 +10,7 @@
 
 #include <Scene/Scene.h>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Renderable;
     

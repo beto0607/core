@@ -10,7 +10,7 @@
 
 #include <Command/Command.h>
 
-namespace unnivelmas
+namespace kaikai
 {
     class RectangleCommand : public Command{
     public:

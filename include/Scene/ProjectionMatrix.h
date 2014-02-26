@@ -10,7 +10,7 @@
 
 #include "../Unnivelmas_conf.h"
 
-namespace unnivelmas{
+namespace kaikai{
     
     class ProjectionMatrix {
     public:

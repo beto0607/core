@@ -12,7 +12,7 @@
 #include <Texture/Texture.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 GLchar* text_shader_vertex = {
 "#version 120\n"

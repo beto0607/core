@@ -9,21 +9,22 @@
 #define	JOSTICKMANAGER_H
 
 #include "../Unnivelmas_conf.h"
+#include <Input/InputController.h>
 #include <list>
 
-namespace unnivelmas
+namespace kaikai
 {
     class JoystickListener;
     
-    class JostickManager {
+    class JostickManager : public InputController{
     public:
         JostickManager();
         virtual ~JostickManager();
         
-        GLvoid createJoystick();
-        GLvoid buttonDown(SDL_JoyButtonEvent);
-        GLvoid buttonUp(SDL_JoyButtonEvent);
-        GLvoid axisMove(SDL_JoyAxisEvent);
+        GLvoid joyAxisMotion(SDL_Event,GLvoid*);
+        GLvoid joyButtonUp(SDL_Event,GLvoid*);
+        GLvoid joyDeviceAdded(SDL_Event,GLvoid*);
+        GLvoid joyButtonDown(SDL_Event,GLvoid*);
         
         GLvoid addButtonDownListener(JoystickListener*);
         GLvoid addButtonUpListener(JoystickListener*);

@@ -13,7 +13,7 @@
 #include <sstream>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Clock::Clock(GLint time) {
     frame_time = 1000 / time;

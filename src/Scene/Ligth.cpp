@@ -7,7 +7,7 @@
 
 #include <Scene/Ligth.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Ligth::Ligth() {
 }

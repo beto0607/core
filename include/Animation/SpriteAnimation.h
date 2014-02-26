@@ -12,7 +12,7 @@
 #include <map>
 #include <string>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Track;
     class Sprite;

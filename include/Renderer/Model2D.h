@@ -11,7 +11,7 @@
 #include "../Unnivelmas_conf.h"
 #include <Renderer/Renderable.h>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Material;
     

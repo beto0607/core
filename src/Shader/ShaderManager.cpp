@@ -7,7 +7,7 @@
 
 #include <Shader/ShaderManager.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 ShaderManager::ShaderManager() {
 }

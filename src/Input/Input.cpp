@@ -14,13 +14,31 @@
 #include <Log/Logger.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Input::Input() {
     resu = true;
     mouse = new MouseInputHandler();
     jostick = new JostickManager();
     keyboard = new KeyBoardManager();
+    controllers.insert(std::pair<GLint,InputController*>(SDL_MOUSEBUTTONDOWN,mouse));
+    controllers.insert(std::pair<GLint,InputController*>(SDL_MOUSEMOTION,mouse));
+    controllers.insert(std::pair<GLint,InputController*>(SDL_MOUSEWHEEL,mouse));
+    controllers.insert(std::pair<GLint,InputController*>(SDL_JOYAXISMOTION,jostick));
+    controllers.insert(std::pair<GLint,InputController*>(SDL_JOYBUTTONUP,jostick));
+    controllers.insert(std::pair<GLint,InputController*>(SDL_JOYDEVICEADDED,jostick));
+    controllers.insert(std::pair<GLint,InputController*>(SDL_JOYBUTTONDOWN,jostick));
+    controllers.insert(std::pair<GLint,InputController*>(SDL_KEYDOWN,keyboard));
+    controllers.insert(std::pair<GLint,InputController*>(SDL_KEYUP,keyboard));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_MOUSEBUTTONDOWN,&InputController::mouseBotonDown));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_MOUSEMOTION,&InputController::mouseMotion));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_MOUSEWHEEL,&InputController::mouseWhell));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_JOYAXISMOTION,&InputController::joyAxisMotion));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_JOYBUTTONUP,&InputController::joyButtonUp));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_JOYDEVICEADDED,&InputController::joyDeviceAdded));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_JOYBUTTONDOWN,&InputController::joyButtonDown));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_KEYDOWN,&InputController::keyDown));
+    functions.insert(std::pair<GLint,InputControllerFunctionPointer>(SDL_KEYUP,&InputController::keyUp));
 }
 
 Input::~Input() {
@@ -56,42 +74,19 @@ GLboolean Input::checkInput()
 {
    if(SDL_PollEvent(&event_handler))
    {
-       switch (event_handler.type)
-        {
-            case SDL_QUIT:
-                resu = false;
-                break;;
-            case SDL_MOUSEBUTTONDOWN:
-                mouse->keypresedEvent();
-                break;;
-            case SDL_MOUSEMOTION:
-                mouse->moveEvent(event_handler.motion.x, event_handler.motion.y);
-                break;;
-            case SDL_MOUSEWHEEL:
-                mouse->whellEvent();
-                break;;
-            case SDL_JOYAXISMOTION:
-                jostick->axisMove(event_handler.jaxis);
-                break;;
-            case SDL_JOYBUTTONUP:
-                jostick->buttonUp(event_handler.jbutton);
-                break;;
-            case SDL_JOYDEVICEADDED:
-                jostick->createJoystick();
-                break;;
-            case SDL_JOYBUTTONDOWN:
-                jostick->buttonDown(event_handler.jbutton);
-                break;;    
-            case SDL_KEYDOWN:
-                keyboard->buttonDown(event_handler.key);
-                break;;
-            case SDL_KEYUP:
-                keyboard->buttonUp(event_handler.key);
-                break;;    
-            default:
-            break;
-        }
-    }
-   keyboard->update();
-   return resu;
+       if(event_handler.type == SDL_QUIT)
+       {
+           resu = false;
+       }
+       else
+       {
+           std::map<GLint,InputControllerFunctionPointer>::iterator it = functions.find(event_handler.type);
+           if(it != functions.end())
+           {
+               ((InputController*)(controllers.find(event_handler.type)->second)->*functions.find(event_handler.type)->second)(event_handler,(GLvoid*)mouse); 
+           }
+       }
+   }
+       keyboard->update();
+       return resu;
 }

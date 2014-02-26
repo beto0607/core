@@ -12,7 +12,7 @@
 #include <iostream>
 #include <sstream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 TextureManager::TextureManager() {
     GLint initted=IMG_Init(~0);

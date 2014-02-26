@@ -12,7 +12,7 @@
 #include <Texture/TextureManager.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Model2D::Model2D():Renderable() {
     material = ((Core::getInstance())->getTextureManager())->getNullMaterial();

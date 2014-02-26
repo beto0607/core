@@ -9,21 +9,22 @@
 #define	KEYBOARDMANAGER_H
 
 #include "../Unnivelmas_conf.h"
+#include <Input/InputController.h>
 #include <list>
 #include <map>
 
-namespace unnivelmas
+namespace kaikai
 {
     class KeyBoardListener;
     
-    class KeyBoardManager {
+    class KeyBoardManager : public InputController{
     public:
         KeyBoardManager();
         virtual ~KeyBoardManager();
         
-        GLvoid buttonDown(SDL_KeyboardEvent);
-        GLvoid buttonUp(SDL_KeyboardEvent);
-        GLvoid buttonPressed(SDL_KeyboardEvent);
+        GLvoid keyDown(SDL_Event,GLvoid*);
+        GLvoid keyUp(SDL_Event,GLvoid*);
+        GLvoid keyKeppedPress(SDL_Event,GLvoid*);
         
         GLvoid addPressedKeyYetListener(GLint,KeyBoardListener*);
         GLvoid addKeyReleaseListener(GLint,KeyBoardListener*);

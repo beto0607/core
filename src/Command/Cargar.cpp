@@ -9,8 +9,7 @@
 #include <Command/Command.h>
 #include <iostream>
 
-using namespace unnivelmas;
-using namespace std;
+using namespace kaikai;
 
 Cargar::Cargar() {
 }

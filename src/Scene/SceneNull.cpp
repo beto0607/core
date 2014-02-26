@@ -9,7 +9,7 @@
 #include <Scene/Scene.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 SceneNull::SceneNull():Scene() {
 }

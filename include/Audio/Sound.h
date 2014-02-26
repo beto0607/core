@@ -11,7 +11,7 @@
 #include <Audio/Audio.h>
 #include "../Unnivelmas_conf.h"
 
-namespace unnivelmas
+namespace kaikai
 {
     class Sound :public Audio{
     public:

@@ -13,7 +13,7 @@
 #include <Animation/TrackState.h>
 #include <Animation/TrackStateChanged.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Uint32 my_callbackfunc(Uint32 interval, void *param)
 {

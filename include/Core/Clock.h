@@ -11,7 +11,7 @@
 #include "../Unnivelmas_conf.h"
 #include <list>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Entity;
     class TimeEventListener;

@@ -11,7 +11,7 @@
 #include <iostream>
 #include <string>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Song::Song(const GLchar* _name,const GLchar* _filepath): Audio(_name) {
     music = Mix_LoadMUS(_filepath);

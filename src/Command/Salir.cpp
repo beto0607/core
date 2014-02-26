@@ -9,7 +9,7 @@
 #include <Command/Salir.h>
 #include <Core/Core.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Salir::Salir() {
 }

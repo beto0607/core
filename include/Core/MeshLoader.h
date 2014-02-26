@@ -14,7 +14,7 @@
 #include <iostream>
 #include <list>
 
-namespace unnivelmas{
+namespace kaikai{
     class MeshLoader {
     public:
         MeshLoader(const char * );

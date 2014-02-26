@@ -5,6 +5,9 @@ INPUT_INCLUDE= -Iinclude
 
 all: input
 
+inputcontroller.o: 
+	g++ -O2 $(INPUT_INCLUDE) -c src/Input/InputController.cpp -o build/Input/inputcontroller.o 
+
 josticklistener.o: 
 	g++ -O2 $(INPUT_INCLUDE) -c src/Input/JoystickListener.cpp -o build/Input/josticklistener.o 
 
@@ -26,7 +29,7 @@ mousehanlerinput.o:
 input.o: 
 	g++ -O2 $(INPUT_INCLUDE) -c src/Input/Input.cpp -o build/Input/input.o 
 
-input: input.o mousehanlerinput.o mouseeventhanler.o joystickmanager.o josticklistener.o keyboardmanager.o keyboardlistener.o
-	ar -r  -s build/lib/libinput.a build/Input/input.o build/Input/mouseinputhandler.o build/Input/mouseeventlistener.o build/Input/joystickmanager.o build/Input/josticklistener.o build/Input/keyboardmanager.o build/Input/keyboardlistener.o 
+input: input.o mousehanlerinput.o mouseeventhanler.o joystickmanager.o josticklistener.o keyboardmanager.o keyboardlistener.o inputcontroller.o 
+	ar -r  -s build/lib/libinput.a build/Input/input.o build/Input/mouseinputhandler.o build/Input/mouseeventlistener.o build/Input/joystickmanager.o build/Input/josticklistener.o build/Input/keyboardmanager.o build/Input/keyboardlistener.o build/Input/inputcontroller.o 
 
 # end of libinput.a

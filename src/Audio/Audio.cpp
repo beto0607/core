@@ -8,7 +8,7 @@
 #include <Audio/Audio.h>
 #include <string>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Audio::Audio(const GLchar* _name) {
     name = std::string(_name);

@@ -10,7 +10,7 @@
 #include <iostream>
 #include <Core/Core.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Escalar::Escalar():Command() {
 }

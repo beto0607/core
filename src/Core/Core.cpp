@@ -20,7 +20,7 @@
 #include <Audio/Audio.h>
 #include <stdio.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Core::Core()
 {

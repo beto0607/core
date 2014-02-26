@@ -8,7 +8,7 @@
 #ifndef RENDERABLEBUFFER_H
 #define	RENDERABLEBUFFER_H
 
-namespace unnivelmas
+namespace kaikai
 {
     class RenderableBuffer {
     public:

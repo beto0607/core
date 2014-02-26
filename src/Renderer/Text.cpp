@@ -12,7 +12,7 @@
 #include <Texture/Texture.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Text::Text(const GLchar* _name,Font* _font): Rectangle(_name,1.1,1.1){
     my_font = _font;

@@ -9,7 +9,7 @@
 #include <Audio/Audio.h>
 #include <Log/Logger.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 AudioManager::AudioManager() {
     if(Mix_Init(MIX_INIT_OGG) != MIX_INIT_OGG)

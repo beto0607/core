@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Logger::Logger() {
     log_file.open("log");

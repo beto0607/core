@@ -7,7 +7,7 @@
 
 #include <Scene/ProjectionMatrix.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 ProjectionMatrix::ProjectionMatrix() {
 }

@@ -15,7 +15,7 @@
 #include <sstream>
 
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Rectangle::Rectangle(const GLchar* _name, GLfloat width, GLfloat heigth):Model2D(){
     this->heigth = heigth/2;

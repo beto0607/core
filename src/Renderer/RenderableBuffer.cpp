@@ -8,7 +8,7 @@
 #include <Renderer/Renderable.h>
 #include <Renderer/RenderableBuffer.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 RenderableBuffer::RenderableBuffer() {
 }

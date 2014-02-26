@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <list>
 
-using namespace unnivelmas;
+using namespace kaikai;
 using namespace std;
 MeshLoader::MeshLoader(const char * file) {
     f = file;

@@ -7,7 +7,7 @@
 
 #include <Texture/TextManager.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 TextManager::TextManager() {
     if(TTF_Init()==-1) {

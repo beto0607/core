@@ -9,7 +9,7 @@
 #include <Input/MouseEventListener.h>
 #include <list>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 MouseInputHandler::MouseInputHandler() {
     (Logger::getInstance())->infoLog("MouseInputHandler was create susefully");
@@ -18,24 +18,25 @@ MouseInputHandler::MouseInputHandler() {
 MouseInputHandler::~MouseInputHandler() {
 }
 
-GLvoid MouseInputHandler::moveEvent(GLfloat x, GLfloat y)
+GLvoid MouseInputHandler::mouseMotion(SDL_Event _event,GLvoid*)
 {
     for(std::list<MouseEventListener*>::iterator it= move_liseners.begin(); it != move_liseners.end(); ++it)
-       (*it)->mouseMoved(x,y);
+       (*it)->mouseMoved(_event.motion.x,_event.motion.y);
 }
 
-GLvoid MouseInputHandler::keypresedEvent()
+GLvoid MouseInputHandler::mouseBotonDown(SDL_Event _event,GLvoid*)
 {
     for(std::list<MouseEventListener*>::iterator it= key_press_liseners.begin(); it != key_press_liseners.end(); ++it)
        (*it)->keyPressed();
 }
 
-GLvoid MouseInputHandler::keyreleaseEvent()
+GLvoid MouseInputHandler::mouseBotonUp(SDL_Event _event,GLvoid*)
 {
-    
+    for(std::list<MouseEventListener*>::iterator it= key_press_liseners.begin(); it != key_press_liseners.end(); ++it)
+       (*it)->keyRelease();
 }
 
-GLvoid MouseInputHandler::whellEvent()
+GLvoid MouseInputHandler::mouseWhell(SDL_Event _event,GLvoid*)
 {
 
 }

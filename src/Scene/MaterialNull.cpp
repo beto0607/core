@@ -10,7 +10,7 @@
 #include <Texture/Texture.h>
 #include <Shader/ShaderNull.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 MaterialNull::MaterialNull() {
     texture = new Texture("texture_null", 1);

@@ -7,7 +7,7 @@
 
 #include <Input/JoystickListener.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 JoystickListener::JoystickListener() {
 }

@@ -7,7 +7,7 @@
 
 #include <Collision/Shape.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Shape::Shape() {
 }

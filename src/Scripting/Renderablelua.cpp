@@ -10,7 +10,7 @@
 #include <Core/Core.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Renderablelua::Renderablelua(Renderable* _render) {
     renderable = _render;

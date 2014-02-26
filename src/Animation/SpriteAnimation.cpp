@@ -13,7 +13,7 @@
 #include <string>
 #include <sstream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 SpriteAnimation::SpriteAnimation(GLint _image_heigth,GLint _image_width, GLint _column, GLint _row) {
     GLint total_animations = 0;

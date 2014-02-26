@@ -7,7 +7,7 @@
 
 #include <Core/TimeEventListener.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 TimeEventListener::TimeEventListener() {
 }

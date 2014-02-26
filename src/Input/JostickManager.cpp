@@ -12,7 +12,7 @@
 #include <sstream>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 JostickManager::JostickManager() {
     SDL_InitSubSystem(SDL_INIT_JOYSTICK);
@@ -29,8 +29,7 @@ JostickManager::JostickManager() {
 JostickManager::~JostickManager() {
 }
 
-
-GLvoid JostickManager::createJoystick()
+GLvoid JostickManager::joyDeviceAdded(SDL_Event _event,GLvoid*)
 {
     SDL_Joystick* joy = SDL_JoystickOpen(jostick_id);
     if (joy) {
@@ -41,22 +40,22 @@ GLvoid JostickManager::createJoystick()
     jostick_id++;
 }
 
-GLvoid JostickManager::buttonDown(SDL_JoyButtonEvent _button)
+GLvoid JostickManager::joyButtonDown(SDL_Event _event,GLvoid*)
 {
     for(std::list<JoystickListener*>::iterator it= button_down_listeners.begin(); it != button_down_listeners.end(); ++it)
-       (*it)->buttonDown((GLint)_button.button);
+       (*it)->buttonDown((GLint)_event.jbutton.button);
 }
 
-GLvoid JostickManager::buttonUp(SDL_JoyButtonEvent _button)
+GLvoid JostickManager::joyButtonUp(SDL_Event _event,GLvoid*)
 {
     for(std::list<JoystickListener*>::iterator it= button_up_listeners.begin(); it != button_up_listeners.end(); ++it)
-       (*it)->buttonUp((GLint)_button.button);
+       (*it)->buttonUp((GLint)_event.jbutton.button);
 }
 
-GLvoid JostickManager::axisMove(SDL_JoyAxisEvent _axis)
+GLvoid JostickManager::joyAxisMotion(SDL_Event _event,GLvoid*)
 {
     for(std::list<JoystickListener*>::iterator it= button_axis_listeners.begin(); it != button_axis_listeners.end(); ++it)
-       (*it)->axisMove((GLint)_axis.axis, _axis.value);
+       (*it)->axisMove((GLint)_event.jaxis.axis, _event.jaxis.value);
 }
 
 GLvoid JostickManager::addButtonDownListener(JoystickListener* _listener)

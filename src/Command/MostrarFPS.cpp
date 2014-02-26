@@ -10,7 +10,7 @@
 #include <Core/Core.h>
 #include <Core/Clock.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 MostrarFPS::MostrarFPS() {
 }

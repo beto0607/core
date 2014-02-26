@@ -10,7 +10,7 @@
 #include <iostream>
 #include <map>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 KeyBoardManager::KeyBoardManager() {
     keys_quewe_sem = SDL_CreateSemaphore(1);
@@ -19,30 +19,30 @@ KeyBoardManager::KeyBoardManager() {
 KeyBoardManager::~KeyBoardManager() {
 }
 
-GLvoid KeyBoardManager::buttonDown(SDL_KeyboardEvent _key)
+GLvoid KeyBoardManager::keyDown(SDL_Event _event,GLvoid*)
 {
     SDL_SemWait(keys_quewe_sem);
-    if((GLint)_key.repeat == 0)
+    if((GLint)_event.key.repeat == 0)
     {
-       keys_quewe.push_back((GLint)_key.keysym.sym);
-       if(key_pressed.find(_key.keysym.sym) != key_pressed.end())
-                (key_pressed.find(_key.keysym.sym))->second->keyPressed(_key.keysym.sym);
+       keys_quewe.push_back((GLint)_event.key.keysym.sym);
+       if(key_pressed.find(_event.key.keysym.sym) != key_pressed.end())
+                (key_pressed.find(_event.key.keysym.sym))->second->keyPressed(_event.key.keysym.sym);
     }
     SDL_SemPost(keys_quewe_sem);
 }
 
-GLvoid KeyBoardManager::buttonUp(SDL_KeyboardEvent _key)
+GLvoid KeyBoardManager::keyKeppedPress(SDL_Event _event,GLvoid*)
 {
-    SDL_SemWait(keys_quewe_sem);
-    keys_quewe.remove((GLint)_key.keysym.sym);
-    if(key_release.find(_key.keysym.sym) != key_release.end())
-        key_release.find(_key.keysym.sym)->second->keyRelease(_key.keysym.sym);
-    SDL_SemPost(keys_quewe_sem);
+
 }
 
-GLvoid KeyBoardManager::buttonPressed(SDL_KeyboardEvent _key)
+GLvoid KeyBoardManager::keyUp(SDL_Event _event,GLvoid*)
 {
-    
+    SDL_SemWait(keys_quewe_sem);
+    keys_quewe.remove((GLint)_event.key.keysym.sym);
+    if(key_release.find(_event.key.keysym.sym) != key_release.end())
+        key_release.find(_event.key.keysym.sym)->second->keyRelease(_event.key.keysym.sym);
+    SDL_SemPost(keys_quewe_sem);
 }
 
 GLvoid KeyBoardManager::update()

@@ -4,7 +4,7 @@
 
 #include "../Unnivelmas_conf.h"
 
-namespace unnivelmas
+namespace kaikai
 {
         class TextureManager;
         class Texture;

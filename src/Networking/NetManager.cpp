@@ -7,7 +7,7 @@
 
 #include <Networking/NetManager.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 NetManager::NetManager() {
 }

@@ -9,7 +9,7 @@ class SDL_Window;
 class SDL_VideoInfo;
 class SDL_Renderer;
 
-namespace unnivelmas
+namespace kaikai
 {
         class Renderable;
         class Scene;

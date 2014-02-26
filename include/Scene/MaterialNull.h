@@ -10,7 +10,7 @@
 
 #include <Scene/Material.h>
 
-namespace unnivelmas
+namespace kaikai
 {
     class MaterialNull : public Material{
     public:

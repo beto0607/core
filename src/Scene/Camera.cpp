@@ -7,7 +7,7 @@
 
 #include <Scene/Camera.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Camera::Camera() {
     position = glm::mat4(1.0,0.0,0.0,0.0,

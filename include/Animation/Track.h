@@ -12,7 +12,7 @@
 #include <list>
 #include <string>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Renderable;
     class Animation;

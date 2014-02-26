@@ -9,7 +9,7 @@
 #include <Renderer/Renderable.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Sprite::Sprite(GLfloat dx, GLfloat dy, GLint _row, GLint _column) {
     uv_coords = new GLfloat[8];

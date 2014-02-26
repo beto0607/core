@@ -12,7 +12,7 @@
 #include <string>
 #include "../Unnivelmas_conf.h"
 
-namespace unnivelmas{
+namespace kaikai{
 
     class Camera;
     class Ligth;

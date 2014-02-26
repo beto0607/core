@@ -19,7 +19,7 @@
 #include <string>
 #include <map>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 CommandManager::CommandManager() {
     end_flag=true;

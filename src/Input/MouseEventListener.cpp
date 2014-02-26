@@ -8,10 +8,25 @@
 #include <Input/MouseEventListener.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 MouseEventListener::MouseEventListener() {
 }
 
 MouseEventListener::~MouseEventListener() {
+}
+
+GLvoid MouseEventListener::mouseMoved(GLfloat, GLfloat)
+{
+
+}
+
+GLvoid MouseEventListener::keyPressed()
+{
+
+}
+
+GLvoid MouseEventListener::keyRelease()
+{
+
 }

@@ -15,7 +15,7 @@
 #include <Renderer/Renderable.h>
 #include <Collision/CollisionManager.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 SceneReal::SceneReal():Scene() {
     renderables = new std::map<std::string,Renderable*>();

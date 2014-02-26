@@ -10,14 +10,14 @@
 
 #include <Shader/Shader.h>
 
-namespace unnivelmas
+namespace kaikai
 {
     class TextShader : public Shader{
     public:
         TextShader();
         virtual ~TextShader();
 
-        void setShaderVariables(unnivelmas::Renderable*, unnivelmas::Material*);
+        void setShaderVariables(kaikai::Renderable*, kaikai::Material*);
         void enableShaderVariables();
         void disableShaderVariables();
     private:

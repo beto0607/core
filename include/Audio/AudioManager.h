@@ -12,7 +12,7 @@
 #include <string>
 #include <map>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Audio;
     

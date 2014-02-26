@@ -11,7 +11,7 @@
 #include "../Unnivelmas_conf.h"
 #include <Shader/Shader.h>
 
-namespace unnivelmas
+namespace kaikai
 {
     class SpriteShader : public Shader{
     public:

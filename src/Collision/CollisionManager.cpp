@@ -11,7 +11,7 @@
 #include <iostream>
 #include <list>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 CollisionManager::CollisionManager() {
     Logger::getInstance()->infoLog("CollisionManager was created susefully");

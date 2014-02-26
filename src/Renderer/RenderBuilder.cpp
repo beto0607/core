@@ -10,7 +10,7 @@
 #include <Renderer/Rectangle.h>
 #include <Core/Core.h>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 RenderBuilder::RenderBuilder() {
 }

@@ -9,7 +9,7 @@
 #include <Renderer/RenderableBuffer.h>
 #include <list>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Scene::Scene() {
     

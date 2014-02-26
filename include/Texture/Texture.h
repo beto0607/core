@@ -11,7 +11,7 @@
 #include "../Unnivelmas_conf.h"
 #include <string>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Texture {
     public:

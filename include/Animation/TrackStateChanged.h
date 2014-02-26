@@ -11,7 +11,7 @@
 #include <Animation/TrackState.h>
 #include "../Unnivelmas_conf.h"
 
-namespace unnivelmas
+namespace kaikai
 {
     class Renderable;
     class Animation;

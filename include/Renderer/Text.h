@@ -11,7 +11,7 @@
 #include <Renderer/Rectangle.h>
 #include <string>
 
-namespace unnivelmas
+namespace kaikai
 {
     class Font;
     

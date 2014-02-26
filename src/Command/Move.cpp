@@ -9,7 +9,7 @@
 #include <Core/Core.h>
 #include <iostream>
 
-using namespace unnivelmas;
+using namespace kaikai;
 
 Move::Move():Command() {
 }
