@@ -17,7 +17,7 @@ namespace kaikai
         TextShader();
         virtual ~TextShader();
 
-        void setShaderVariables(kaikai::Renderable*, kaikai::Material*);
+        void setShaderVariables(Renderable*, Material*, Scene*);
         void enableShaderVariables();
         void disableShaderVariables();
     private:
@@ -26,6 +26,7 @@ namespace kaikai
         GLint pMat;
         GLint proM;
         GLint vUVTex;
+        GLint viewP;
     };
 }
 #endif	/* TEXTSHADER_H */

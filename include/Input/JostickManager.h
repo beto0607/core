@@ -21,10 +21,10 @@ namespace kaikai
         JostickManager();
         virtual ~JostickManager();
         
-        GLvoid joyAxisMotion(SDL_Event,GLvoid*);
-        GLvoid joyButtonUp(SDL_Event,GLvoid*);
-        GLvoid joyDeviceAdded(SDL_Event,GLvoid*);
-        GLvoid joyButtonDown(SDL_Event,GLvoid*);
+        GLvoid joyAxisMotion(SDL_Event);
+        GLvoid joyButtonUp(SDL_Event);
+        GLvoid joyDeviceAdded(SDL_Event);
+        GLvoid joyButtonDown(SDL_Event);
         
         GLvoid addButtonDownListener(JoystickListener*);
         GLvoid addButtonUpListener(JoystickListener*);

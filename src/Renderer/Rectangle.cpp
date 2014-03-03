@@ -32,13 +32,13 @@ Rectangle::Rectangle(const GLchar* _name, GLfloat width, GLfloat heigth):Model2D
     width *= 0.5;
     heigth *= 0.5;
     
-    vertex = new GLfloat[12];
+    GLfloat* vertex = new GLfloat[12];
     vertex[0]=-width;vertex[1]=heigth; vertex[2]=0.0;
     vertex[3]=-width; vertex[4]=-heigth; vertex[5]=0.0;
     vertex[6]=width;vertex[7]=heigth;vertex[8]=0.0;
     vertex[9]=width;vertex[10]=-heigth;vertex[11]=0.0;
     
-    texture_coordenates = new GLfloat[8];
+    GLfloat* texture_coordenates = new GLfloat[8];
     texture_coordenates[0] =0.0;texture_coordenates[1] =1.0;
     texture_coordenates[2] =0.0;texture_coordenates[3] =0.0;
     texture_coordenates[4] =1.0;texture_coordenates[5] =1.0;

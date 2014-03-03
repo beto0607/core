@@ -17,14 +17,16 @@ namespace kaikai
         ShaderNull();
         virtual ~ShaderNull();
 
-        void setShaderVariables(kaikai::Renderable*, kaikai::Material*);
+        void setShaderVariables(Renderable*, Material*, Scene*);
         void enableShaderVariables();
         void disableShaderVariables();
     private:
         GLint vPos;
+        GLint rMat;
         GLint sMat;
         GLint pMat;
         GLint proM;
+        GLint viewP;
     };
 }
 #endif	/* PRUEBASHADER_H */

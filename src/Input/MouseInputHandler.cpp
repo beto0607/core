@@ -18,25 +18,25 @@ MouseInputHandler::MouseInputHandler() {
 MouseInputHandler::~MouseInputHandler() {
 }
 
-GLvoid MouseInputHandler::mouseMotion(SDL_Event _event,GLvoid*)
+GLvoid MouseInputHandler::mouseMotion(SDL_Event _event)
 {
     for(std::list<MouseEventListener*>::iterator it= move_liseners.begin(); it != move_liseners.end(); ++it)
        (*it)->mouseMoved(_event.motion.x,_event.motion.y);
 }
 
-GLvoid MouseInputHandler::mouseBotonDown(SDL_Event _event,GLvoid*)
+GLvoid MouseInputHandler::mouseBotonDown(SDL_Event _event)
 {
     for(std::list<MouseEventListener*>::iterator it= key_press_liseners.begin(); it != key_press_liseners.end(); ++it)
        (*it)->keyPressed();
 }
 
-GLvoid MouseInputHandler::mouseBotonUp(SDL_Event _event,GLvoid*)
+GLvoid MouseInputHandler::mouseBotonUp(SDL_Event _event)
 {
     for(std::list<MouseEventListener*>::iterator it= key_press_liseners.begin(); it != key_press_liseners.end(); ++it)
        (*it)->keyRelease();
 }
 
-GLvoid MouseInputHandler::mouseWhell(SDL_Event _event,GLvoid*)
+GLvoid MouseInputHandler::mouseWhell(SDL_Event _event)
 {
 
 }

@@ -30,7 +30,7 @@ GLvoid SceneReal::drawBuffer()
    collision_manager->checkCollision();
    for(std::map<std::string,Renderable*>::iterator it = renderables->begin(); it != renderables->end();++it)
    {
-       ((*it).second)->drawRenderable();
+       ((*it).second)->drawRenderable(this);
    }
 
 }

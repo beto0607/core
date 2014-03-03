@@ -14,6 +14,7 @@
 namespace kaikai
 {
     class Material;
+    class Scene;
     
     class Model2D : public Renderable
     {
@@ -21,16 +22,12 @@ namespace kaikai
             Model2D();
             virtual ~Model2D();
 
-            void draw();
+            void draw(Scene*);
             void setMaterial(Material*);
-            GLfloat* getVertexBufferOffset();
             GLfloat flipX();
             GLfloat flipY();
             
         protected:
-            GLfloat* vertex;
-            GLfloat* texture_coordenates;
-            GLint* index;
             Material* material;
     };    
 }

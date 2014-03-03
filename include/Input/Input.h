@@ -20,7 +20,7 @@ namespace kaikai
     class KeyBoardManager;
     class Clock;
     class InputController;
-    typedef GLvoid (InputController::*InputControllerFunctionPointer)(SDL_Event,GLvoid*);
+    typedef GLvoid (InputController::*InputControllerFunctionPointer)(SDL_Event);
     
         class Input {
         public:

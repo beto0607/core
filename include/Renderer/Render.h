@@ -20,7 +20,7 @@ namespace kaikai
 		private: 
                         Scene* active_scene;
                         SDL_Window* main_window;
-                        SDL_VideoInfo* info;
+                        SDL_Rect display_info;
                         SDL_Renderer* renderer;
                         SDL_GLContext glRenderContext, glThreadContext;
                         bool end_flag;
@@ -32,6 +32,8 @@ namespace kaikai
                         Render();
                         virtual ~Render();	
 
+                        GLfloat getRendererX();
+                        GLfloat getRendererY();
                         GLvoid loop();
                         GLvoid stop();
                         GLvoid addRenderable(const GLchar*,Renderable*);

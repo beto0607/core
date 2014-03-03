@@ -7,9 +7,11 @@
 
 #include <Shader/Shader.h>
 #include <Shader/TextShader.h>
+#include <Scene/Scene.h>
 #include <Renderer/Renderable.h>
 #include <Scene/Material.h>
 #include <Texture/Texture.h>
+#include <Scene/Camera.h>
 #include <iostream>
 
 using namespace kaikai;
@@ -19,19 +21,20 @@ GLchar* text_shader_vertex = {
 "\n"
 "attribute vec3 vertex_position;\n"
 "attribute vec2 texture_cordinates;\n"
-"uniform mat3 scale_matrix;\n"
-"uniform mat3 position_matrix;\n"
+"uniform mat4 scale_matrix;\n"
+"uniform mat4 position_matrix;\n"
 "uniform mat4 projection_matrix;\n"
+"uniform mat4 port_view;\n"
 "varying vec2 uv_coord;\n"
 "\n"
 "void main(void)\n"
 "{\n"
-"    vec3 vertex = vertex_position;\n"
+"    vec4 vertex = vec4(vertex_position,1.0);\n"
 "    vertex *= scale_matrix;\n"
-"    vertex[0] += position_matrix[0][2];\n"
-"    vertex[1] += position_matrix[1][2];\n"
+"    vertex *= position_matrix;\n"
 "    uv_coord = texture_cordinates;\n"
-"    gl_Position = projection_matrix  * vec4(vertex, 1.0);\n"
+"    vertex *= port_view;\n"
+"    gl_Position = projection_matrix  * vertex;\n"
 "}\n"
 };
 
@@ -56,6 +59,7 @@ TextShader::TextShader():Shader(text_shader_vector) {
     sMat = getUniformLocation(program_shader_id,"scale_matrix");
     pMat = getUniformLocation(program_shader_id,"position_matrix");
     proM = getUniformLocation(program_shader_id,"projection_matrix");
+    viewP = getUniformLocation(program_shader_id,"port_view");
 }
 
 TextShader::~TextShader() {
@@ -66,11 +70,12 @@ void TextShader::enableShaderVariables()
     
 }
 
-void TextShader::setShaderVariables(Renderable* _renderable, Material* _material) {
+void TextShader::setShaderVariables(Renderable* _renderable, Material* _material, Scene* _scene) {
     this->enableShader();
-    glUniformMatrix3fv(sMat,1,GL_FALSE,_renderable->getScale());
-    glUniformMatrix3fv(pMat,1,GL_FALSE,_renderable->getPosition());
+    glUniformMatrix4fv(sMat,1,GL_FALSE,_renderable->getScale());
+    glUniformMatrix4fv(pMat,1,GL_FALSE,_renderable->getPosition());
     glUniformMatrix4fv(proM,1,GL_FALSE,_renderable->getProjectionMatrix());
+    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getPosition());
     glEnableVertexAttribArray(vPos);
     glBindBuffer(GL_ARRAY_BUFFER,_renderable->getVertexBufferID());
     glVertexAttribPointer(vPos, 3, GL_FLOAT,GL_FALSE, 0, 0);

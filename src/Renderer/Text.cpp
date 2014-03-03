@@ -57,13 +57,13 @@ GLvoid Text::setFont(Font* _font)
     my_font = _font;
 }
 
-GLvoid Text::draw()
+GLvoid Text::draw(Scene* _scene)
 {
     glPushAttrib(GL_ENABLE_BIT);
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-    Model2D::draw();
+    Model2D::draw(_scene);
     glDisable(GL_BLEND);
 }

@@ -6,14 +6,18 @@
  */
 
 #include <Texture/TextManager.h>
+#include <Log/Logger.h>
 
 using namespace kaikai;
 
 TextManager::TextManager() {
     if(TTF_Init()==-1) {
-        printf("TTF_Init: %s\n", TTF_GetError());
+        std::string mesage = std::string("TextManager has a problem: ");
+        mesage.append(TTF_GetError());
+        (Logger::getInstance())->criticalLog(mesage.c_str());
         exit(2);
     }
+    (Logger::getInstance())->infoLog("TextManager was load Susefully");
 }
 
 TextManager::~TextManager() {

@@ -16,15 +16,16 @@
 namespace kaikai
 {
     class KeyBoardListener;
+    typedef GLvoid (KeyBoardListener::*KeyBoardListenerFunctionPointer)();
     
     class KeyBoardManager : public InputController{
     public:
         KeyBoardManager();
         virtual ~KeyBoardManager();
         
-        GLvoid keyDown(SDL_Event,GLvoid*);
-        GLvoid keyUp(SDL_Event,GLvoid*);
-        GLvoid keyKeppedPress(SDL_Event,GLvoid*);
+        GLvoid keyDown(SDL_Event);
+        GLvoid keyUp(SDL_Event);
+        GLvoid keyKeppedPress(SDL_Event);
         
         GLvoid addPressedKeyYetListener(GLint,KeyBoardListener*);
         GLvoid addKeyReleaseListener(GLint,KeyBoardListener*);
@@ -37,6 +38,9 @@ namespace kaikai
         std::map<GLint,KeyBoardListener*> key_pressed;
         std::map<GLint,KeyBoardListener*> key_release;
         std::map<GLint,KeyBoardListener*> key_pressed_yet;
+        std::map<GLint,KeyBoardListenerFunctionPointer> function_down_pointer;
+        std::map<GLint,KeyBoardListenerFunctionPointer> function_up_pointer;
+        std::map<GLint,KeyBoardListenerFunctionPointer> function_pressed_pointer;
         std::list<GLint> keys_quewe;
     };
 }

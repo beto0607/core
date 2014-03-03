@@ -6,8 +6,10 @@
  */
 #include <Shader/Shader.h>
 #include <Shader/SpriteShader.h>
+#include <Scene/Scene.h>
 #include <Renderer/Renderable.h>
 #include <Scene/Material.h>
+#include <Scene/Camera.h>
 #include <Texture/Texture.h>
 #include <iostream>
 
@@ -18,21 +20,21 @@ GLchar* sprite_shader_vertex = {
 "\n"
 "attribute vec3 vertex_position;\n"
 "attribute vec2 vertex_color;\n"
-"uniform mat3 scale_matrix;\n"
+"uniform mat4 scale_matrix;\n"
 "uniform mat3 rotation_matrix;\n"
-"uniform mat3 position_matrix;\n"
+"uniform mat4 position_matrix;\n"
 "uniform mat4 projection_matrix;\n"
-"uniform mat4 port_view;\n"
 "varying vec2 uv_coord;\n"
+"uniform mat4 port_view;\n"
 "\n"
 "void main(void)\n"
 "{\n"
-"    vec3 vertex = vertex_position;\n"
+"    vec4 vertex = vec4(vertex_position,1.0);\n"
 "    vertex *= scale_matrix;\n"
-"    vertex[0] += position_matrix[0][2];\n"
-"    vertex[1] += position_matrix[1][2];\n"
+"    vertex *= position_matrix;\n"
 "    uv_coord = vertex_color;\n"
-"    gl_Position = projection_matrix  * vec4(vertex, 1.0);\n"
+"    vertex *= port_view;\n"
+"    gl_Position = projection_matrix  * vertex;\n"
 "}\n"
 };
 
@@ -57,8 +59,7 @@ SpriteShader::SpriteShader():Shader(sprite_shader_vector) {
     rMat = getUniformLocation(program_shader_id,"rotation_matrix");
     pMat = getUniformLocation(program_shader_id,"position_matrix");
     proM = getUniformLocation(program_shader_id,"projection_matrix");
-    vieP = getUniformLocation(program_shader_id,"port_view");
-    //tUni = getUniformLocation(program_shader_id,"texture_uniform_1");
+    viewP = getUniformLocation(program_shader_id,"port_view");
 }
 
 SpriteShader::~SpriteShader() {
@@ -69,17 +70,13 @@ void SpriteShader::enableShaderVariables()
     
 }
 
-void SpriteShader::setShaderVariables(Renderable* _renderable, Material* _material) {
+void SpriteShader::setShaderVariables(Renderable* _renderable, Material* _material, Scene* _scene) {
     this->enableShader();
-    glm::vec3 eye = glm::vec3(0.0f,0.0f,10.0f);
-    glm::vec3 center = glm::vec3(0.0f,0.0f,0.0f);
-    glm::vec3 up = glm::vec3(0.0f,1.0f,0.0f);
-    glm::mat4 viewport_matrix = glm::lookAt(eye,center,up);
-    glUniformMatrix3fv(sMat,1,GL_FALSE,_renderable->getScale());
+    glUniformMatrix4fv(sMat,1,GL_FALSE,_renderable->getScale());
     glUniformMatrix3fv(rMat,1,GL_FALSE,_renderable->getRotation());
-    glUniformMatrix3fv(pMat,1,GL_FALSE,_renderable->getPosition());
+    glUniformMatrix4fv(pMat,1,GL_FALSE,_renderable->getPosition());
     glUniformMatrix4fv(proM,1,GL_FALSE,_renderable->getProjectionMatrix());
-    glUniformMatrix4fv(vieP,1,GL_FALSE,glm::value_ptr(viewport_matrix));
+    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getPosition());
     glEnableVertexAttribArray(vPos);
     glBindBuffer(GL_ARRAY_BUFFER,_renderable->getVertexBufferID());
     glVertexAttribPointer(vPos, 3, GL_FLOAT,GL_FALSE, 0, 0);

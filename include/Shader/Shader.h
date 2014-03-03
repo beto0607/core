@@ -14,6 +14,7 @@ namespace kaikai{
     
     class Material;
     class Renderable;
+    class Scene;
     
     class Shader {
     public:
@@ -28,7 +29,7 @@ namespace kaikai{
         GLint getUniformLocation(GLuint, const GLchar*);
         
         virtual GLvoid enableShaderVariables()=0;
-        virtual GLvoid setShaderVariables(Renderable*, Material*)=0;
+        virtual GLvoid setShaderVariables(Renderable*, Material*, Scene*)=0;
         virtual GLvoid disableShaderVariables()=0;
         
     protected:

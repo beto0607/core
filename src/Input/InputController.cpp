@@ -20,62 +20,62 @@ InputController::~InputController() {
 //    (((InputController*)this)->*function)();
 //}
 
-GLvoid InputController::systemQuit(SDL_Event, GLvoid*)
+GLvoid InputController::systemQuit(SDL_Event)
 {
 
 }
 
-GLvoid InputController::mouseBotonDown(SDL_Event, GLvoid*)
+GLvoid InputController::mouseBotonDown(SDL_Event)
 {
 
 }
 
-GLvoid InputController::mouseMotion(SDL_Event, GLvoid*)
+GLvoid InputController::mouseMotion(SDL_Event)
 {
 
 }
 
-GLvoid InputController::mouseWhell(SDL_Event, GLvoid*)
+GLvoid InputController::mouseWhell(SDL_Event)
 {
 
 }
 
-GLvoid InputController::mouseBotonUp(SDL_Event, GLvoid*)
+GLvoid InputController::mouseBotonUp(SDL_Event)
 {
 
 }
 
-GLvoid InputController::joyAxisMotion(SDL_Event, GLvoid*)
+GLvoid InputController::joyAxisMotion(SDL_Event)
 {
 
 }
 
-GLvoid InputController::joyButtonUp(SDL_Event, GLvoid*)
+GLvoid InputController::joyButtonUp(SDL_Event)
 {
 
 }
 
-GLvoid InputController::joyDeviceAdded(SDL_Event, GLvoid*)
+GLvoid InputController::joyDeviceAdded(SDL_Event)
 {
 
 }
 
-GLvoid InputController::joyButtonDown(SDL_Event, GLvoid*)
+GLvoid InputController::joyButtonDown(SDL_Event)
 {
 
 }
 
-GLvoid InputController::keyDown(SDL_Event, GLvoid*)
+GLvoid InputController::keyDown(SDL_Event)
 {
 
 }
 
-GLvoid InputController::keyUp(SDL_Event, GLvoid*)
+GLvoid InputController::keyUp(SDL_Event)
 {
 
 }
 
-GLvoid InputController::keyKeppedPress(SDL_Event, GLvoid*)
+GLvoid InputController::keyKeppedPress(SDL_Event)
 {
 
 }

@@ -2,9 +2,8 @@
 
 function onMouseMoved(x,y)
 	render = Core.getRenderable("rec1");
-	print(render.getX)
-	render.setX("rec3",x)
-	render.setY("rec3",y)
+	render.setX("rec1",x)
+	render.setY("rec1",y)
 	return 0
 end
 

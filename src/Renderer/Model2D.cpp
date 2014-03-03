@@ -8,31 +8,30 @@
 #include <Renderer/Model2D.h>
 #include <Scene/Material.h>
 #include <Scene/MaterialNull.h>
+#include <Scene/Scene.h>
 #include <Core/Core.h>
 #include <Texture/TextureManager.h>
 #include <iostream>
+#include <Renderer/Render.h>
 
 using namespace kaikai;
 
 Model2D::Model2D():Renderable() {
     material = ((Core::getInstance())->getTextureManager())->getNullMaterial();
-    projection_matrix = glm::ortho(0.0f, 800.0f, 600.0f, 0.0f, 0.0f, 100.0f);
+    GLfloat x = Core::getInstance()->getRenderManager()->getRendererX();
+    GLfloat y = Core::getInstance()->getRenderManager()->getRendererY();
+    projection_matrix = glm::ortho(0.0f,x, y, 0.0f, 0.0f, 1.0f);
 }
 
 Model2D::~Model2D() {
 }
 
-void Model2D::draw()
+void Model2D::draw(Scene* _scene)
 {
-    material->setVariables(this);
+    material->setVariables(this,_scene);
     //glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,index);
     glDrawArrays(GL_TRIANGLE_STRIP,0,4);
     material->disableVariables();
-}
-
-GLfloat* Model2D::getVertexBufferOffset()
-{
-    return vertex;
 }
 
 GLvoid Model2D::setMaterial(Material* _mat)

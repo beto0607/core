@@ -52,4 +52,13 @@ Renderable* Scene::getRenderable(const GLchar* _file_name)
 {
     
 }
+
+GLvoid Scene::setCamera(Camera* _camera)
+{
+    camera = _camera;
+}
         
+Camera* Scene::getCamera()
+{
+    return camera;
+}

@@ -22,10 +22,10 @@ namespace kaikai
         MouseInputHandler();
         virtual ~MouseInputHandler();
 
-        GLvoid mouseBotonDown(SDL_Event,GLvoid*);
-        GLvoid mouseBotonUp(SDL_Event,GLvoid*);
-        GLvoid mouseMotion(SDL_Event,GLvoid*); 
-        GLvoid mouseWhell(SDL_Event,GLvoid*);
+        GLvoid mouseBotonDown(SDL_Event);
+        GLvoid mouseBotonUp(SDL_Event);
+        GLvoid mouseMotion(SDL_Event); 
+        GLvoid mouseWhell(SDL_Event);
         
         GLvoid addKeyPressedLisener(MouseEventListener*);
         GLvoid addKeyReleaseLisener(MouseEventListener*);

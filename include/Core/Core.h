@@ -25,6 +25,7 @@ namespace kaikai
         class MeshLoader;
         class RenderBuilder;
         class Renderable;
+        class Camera;
         
 	class Core
 	{
@@ -54,12 +55,14 @@ namespace kaikai
 					Render* getRenderManager();
                                         RenderBuilder* getRenderBuilder();
                                         Renderable* getRenderable(const GLchar*);
+                                        Camera* getCamera();
                                         
                                         GLvoid start();
                                         GLvoid stop();
                                         GLvoid update();
                                         
                                         GLvoid addRenderable(Renderable*);
+                                        GLvoid addCamera(Camera*);
                                         GLvoid addScene(Scene*);
                                         GLvoid addAudio(Audio*);
                                         Texture* getTexture(const GLchar*);

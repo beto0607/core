@@ -21,7 +21,7 @@ namespace kaikai
         Text(const GLchar*);
         virtual ~Text();
         
-        GLvoid draw();
+        GLvoid draw(Scene*);
         GLvoid setText(const GLchar*);
         GLvoid setColor(GLfloat,GLfloat,GLfloat, GLfloat);
         GLvoid setFont(Font*);

@@ -99,7 +99,7 @@ Shader::Shader(const char *vertex_filename, const char *fragment_filename) {
     glAttachShader(program_shader_id, fragment_shader_id); 
 
     glLinkProgram(program_shader_id); 
-    validateProgram(program_shader_id); 
+    validateProgram(program_shader_id);
     
 }
 

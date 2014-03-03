@@ -83,7 +83,7 @@ GLboolean Input::checkInput()
            std::map<GLint,InputControllerFunctionPointer>::iterator it = functions.find(event_handler.type);
            if(it != functions.end())
            {
-               ((InputController*)(controllers.find(event_handler.type)->second)->*functions.find(event_handler.type)->second)(event_handler,(GLvoid*)mouse); 
+               ((InputController*)(controllers.find(event_handler.type)->second)->*functions.find(event_handler.type)->second)(event_handler); 
            }
        }
    }

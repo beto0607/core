@@ -142,9 +142,19 @@ Renderable* Core::getRenderable(const GLchar* _render_name)
     return render->getActiveScene()->getRenderable(_render_name);
 }
 
+Camera* Core::getCamera()
+{
+    return render->getActiveScene()->getCamera();
+}
+
 GLvoid Core::addRenderable(Renderable* ren)
 {
     render->addRenderable(ren->getName().c_str(), ren);
+}
+
+GLvoid Core::addCamera(Camera* _camera)
+{
+    render->getActiveScene()->setCamera(_camera);
 }
 
 GLvoid Core::scaleObject(const GLchar* id, GLfloat scale)

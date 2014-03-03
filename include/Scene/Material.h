@@ -13,6 +13,7 @@
 
 namespace kaikai{
     
+    class Scene;
     class Shader;
     class Texture;
     class Renderable;
@@ -22,7 +23,7 @@ namespace kaikai{
         Material();
         virtual ~Material();
         
-        GLvoid setVariables(Renderable*);
+        GLvoid setVariables(Renderable*, Scene*);
         GLvoid disableVariables();
         
         Texture* getTexture();

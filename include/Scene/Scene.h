@@ -36,7 +36,10 @@ namespace kaikai{
         virtual GLvoid scaleObject(const GLchar*, GLfloat);
         virtual GLvoid moveObject(const GLchar*, GLfloat,GLfloat);  
         virtual Renderable* getRenderable(const GLchar*);
-                        
+        
+        GLvoid setCamera(Camera*);
+        Camera* getCamera();
+        
     protected:
         Camera* camera;
         CollisionManager* collision_manager;

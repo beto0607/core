@@ -1,4 +1,5 @@
 #include "lua.hpp"
+#include <iostream>
 
 template <typename T> class Lunar {
   typedef struct { T *pT; } userdataType;
@@ -16,7 +17,8 @@ public:
     // store method table in globals so that
     // scripts can add functions written in Lua.
     lua_pushvalue(L, methods);
-    set(L, LUA_GLOBALSINDEX, T::className);
+    lua_rawgeti(L, LUA_REGISTRYINDEX, LUA_RIDX_GLOBALS);
+    set(L, -2, T::className);
 
     // hide metatable from Lua getmetatable()
     lua_pushvalue(L, methods);
@@ -113,7 +115,7 @@ public:
     userdataType *ud =
       static_cast<userdataType*>(luaL_checkudata(L, narg, T::className));
     if(!ud) {
-        luaL_typerror(L, narg, T::className);
+        std::cout << lua_tostring(L,-1);
         return NULL;
     }
     return ud->pT;  // pointer to T object

@@ -17,20 +17,25 @@ Render::Render()
     uvbo_count=0;
     if(SDL_Init(SDL_INIT_VIDEO || SDL_INIT_AUDIO))
     {
-        std::cout << "An Error has been ocurred\n";
+        std::cout << "SDL can't be initialized: "<< SDL_GetError() <<"\n";
         exit(1);
     }   
+    
+    SDL_InitSubSystem(SDL_INIT_VIDEO);
+    if(SDL_GetDisplayBounds(0,&display_info))
+        std::cout << SDL_GetError();
+    SDL_QuitSubSystem(SDL_INIT_VIDEO);
     
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 32);
     SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
-    main_window = SDL_CreateWindow("Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800,600,SDL_WINDOW_OPENGL |  /*SDL_WINDOW_FULLSCREEN |*/ SDL_WINDOW_RESIZABLE);
-    renderer = SDL_CreateRenderer(main_window, -1, 0);
+    main_window = SDL_CreateWindow("Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, display_info.w,display_info.h,SDL_WINDOW_OPENGL | /*SDL_WINDOW_FULLSCREEN |*/ SDL_WINDOW_RESIZABLE);
+    renderer = SDL_CreateRenderer(main_window, -1, SDL_RENDERER_ACCELERATED);
     if(renderer == 0)
     {
-        std::cout << "renderer creation fail\n";
+        std::cout << "Renderer creation fail: "<< SDL_GetError() <<"\n";
         exit(1);        
     }
     SDL_SetRenderDrawColor(renderer,230,230,230,0);
@@ -49,6 +54,16 @@ Render::Render()
     active_scene = new SceneNull();
     glGenBuffers(100,vbo);
     glGenBuffers(100,uvbo);
+}
+
+GLfloat Render::getRendererX()
+{
+    return (GLfloat) display_info.w;
+}
+
+GLfloat Render::getRendererY()
+{
+    return (GLfloat) display_info.h;
 }
 
 Render::~Render()

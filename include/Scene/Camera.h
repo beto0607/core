@@ -9,19 +9,30 @@
 #define	CAMERA_H
 
 #include "../Unnivelmas_conf.h"
+#include <Renderer/Renderable.h>
 
 namespace kaikai{
     
-    class Camera {
+    class Scene;
+    
+    class Camera : public Renderable{
     public:
         Camera();
         virtual ~Camera();
         
-        GLvoid move(GLfloat,GLfloat,GLfloat);
-        GLvoid rotate(GLfloat,GLfloat,GLfloat);
+        GLvoid setX(GLfloat);
+        GLvoid setY(GLfloat);
+        GLvoid setZ(GLfloat);
+        GLfloat getX();
+        GLfloat getY();
+        GLfloat getZ();
+        
+        GLvoid move(GLfloat, GLfloat);
+        GLvoid move(GLfloat, GLfloat, GLfloat);
+        
+        GLvoid draw(Scene*);
+        
     private:
-        glm::mat4 position;
-        glm::mat4 angle;
         
         };
 }

@@ -18,7 +18,7 @@ namespace kaikai
         SpriteShader();
         virtual ~SpriteShader();
 
-        void setShaderVariables(Renderable*, Material*);
+        void setShaderVariables(Renderable*, Material*, Scene*);
         void enableShaderVariables();
         void disableShaderVariables();
     private:
@@ -29,7 +29,7 @@ namespace kaikai
         GLint pMat;
         GLint tUni;
         GLint proM;
-        GLint vieP;
+        GLint viewP;
     };
 }
 #endif	/* PRUEBASHADER_H */

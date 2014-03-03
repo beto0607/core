@@ -18,18 +18,18 @@ public:
     InputController();
     virtual ~InputController();
     
-    virtual GLvoid systemQuit(SDL_Event,GLvoid*);
-    virtual GLvoid mouseBotonUp(SDL_Event,GLvoid*);
-    virtual GLvoid mouseBotonDown(SDL_Event,GLvoid*);
-    virtual GLvoid mouseMotion(SDL_Event,GLvoid*); 
-    virtual GLvoid mouseWhell(SDL_Event,GLvoid*);
-    virtual GLvoid joyAxisMotion(SDL_Event,GLvoid*);
-    virtual GLvoid joyButtonUp(SDL_Event,GLvoid*);
-    virtual GLvoid joyDeviceAdded(SDL_Event,GLvoid*);
-    virtual GLvoid joyButtonDown(SDL_Event,GLvoid*);
-    virtual GLvoid keyDown(SDL_Event,GLvoid*);
-    virtual GLvoid keyUp(SDL_Event,GLvoid*);
-    virtual GLvoid keyKeppedPress(SDL_Event,GLvoid*);
+    virtual GLvoid systemQuit(SDL_Event);
+    virtual GLvoid mouseBotonUp(SDL_Event);
+    virtual GLvoid mouseBotonDown(SDL_Event);
+    virtual GLvoid mouseMotion(SDL_Event); 
+    virtual GLvoid mouseWhell(SDL_Event);
+    virtual GLvoid joyAxisMotion(SDL_Event);
+    virtual GLvoid joyButtonUp(SDL_Event);
+    virtual GLvoid joyDeviceAdded(SDL_Event);
+    virtual GLvoid joyButtonDown(SDL_Event);
+    virtual GLvoid keyDown(SDL_Event);
+    virtual GLvoid keyUp(SDL_Event);
+    virtual GLvoid keyKeppedPress(SDL_Event);
     
     };
 }

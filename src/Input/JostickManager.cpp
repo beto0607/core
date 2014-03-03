@@ -29,7 +29,7 @@ JostickManager::JostickManager() {
 JostickManager::~JostickManager() {
 }
 
-GLvoid JostickManager::joyDeviceAdded(SDL_Event _event,GLvoid*)
+GLvoid JostickManager::joyDeviceAdded(SDL_Event _event)
 {
     SDL_Joystick* joy = SDL_JoystickOpen(jostick_id);
     if (joy) {
@@ -40,19 +40,19 @@ GLvoid JostickManager::joyDeviceAdded(SDL_Event _event,GLvoid*)
     jostick_id++;
 }
 
-GLvoid JostickManager::joyButtonDown(SDL_Event _event,GLvoid*)
+GLvoid JostickManager::joyButtonDown(SDL_Event _event)
 {
     for(std::list<JoystickListener*>::iterator it= button_down_listeners.begin(); it != button_down_listeners.end(); ++it)
        (*it)->buttonDown((GLint)_event.jbutton.button);
 }
 
-GLvoid JostickManager::joyButtonUp(SDL_Event _event,GLvoid*)
+GLvoid JostickManager::joyButtonUp(SDL_Event _event)
 {
     for(std::list<JoystickListener*>::iterator it= button_up_listeners.begin(); it != button_up_listeners.end(); ++it)
        (*it)->buttonUp((GLint)_event.jbutton.button);
 }
 
-GLvoid JostickManager::joyAxisMotion(SDL_Event _event,GLvoid*)
+GLvoid JostickManager::joyAxisMotion(SDL_Event _event)
 {
     for(std::list<JoystickListener*>::iterator it= button_axis_listeners.begin(); it != button_axis_listeners.end(); ++it)
        (*it)->axisMove((GLint)_event.jaxis.axis, _event.jaxis.value);

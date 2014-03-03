@@ -15,6 +15,7 @@
 #include "Shader/Shader.h"
 #include "Shader/SpriteShader.h"
 #include "Scene/Material.h"
+#include "Scene/Camera.h"
 #include "Scene/Scene.h"
 #include "Scene/SceneReal.h"
 #include "Texture/Texture.h"

@@ -26,7 +26,7 @@
 #include "../external/include/glm/gtc/matrix_transform.hpp"
 extern "C"
 {
-    #include "../external/include/lua.hpp"
+    #include "../external/include/lua.hpp"      
 }
 #endif	/* UNNIVELMAS_CONF_H */
 

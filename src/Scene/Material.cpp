@@ -34,9 +34,9 @@ GLvoid Material::setTexture(Texture* _texture)
     texture = _texture;
 }
 
-GLvoid Material::setVariables(Renderable* _renderable)
+GLvoid Material::setVariables(Renderable* _renderable, Scene* _scene)
 {
-    shader->setShaderVariables(_renderable, this);
+    shader->setShaderVariables(_renderable, this, _scene);
 }
 
 GLvoid Material::disableVariables()

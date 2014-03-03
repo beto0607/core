@@ -9,6 +9,7 @@
 #include <Scene/MaterialNull.h>
 #include <Texture/Texture.h>
 #include <Shader/ShaderNull.h>
+#include <iostream>
 
 using namespace kaikai;
 
