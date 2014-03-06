@@ -20,20 +20,33 @@ namespace kaikai{
         Camera();
         virtual ~Camera();
         
-        GLvoid setX(GLfloat);
-        GLvoid setY(GLfloat);
-        GLvoid setZ(GLfloat);
-        GLfloat getX();
-        GLfloat getY();
-        GLfloat getZ();
+        GLvoid setPositionX(GLfloat);
+        GLvoid setPositionY(GLfloat);
+        GLvoid setPositionZ(GLfloat);
+        GLfloat getPositionX();
+        GLfloat getPositionY();
+        GLfloat getPositionZ();
         
-        GLvoid move(GLfloat, GLfloat);
-        GLvoid move(GLfloat, GLfloat, GLfloat);
+        GLvoid setFocusX(GLfloat);
+        GLvoid setFocusY(GLfloat);
+        GLvoid setFocusZ(GLfloat);
+        GLfloat getFocusX();
+        GLfloat getFocusY();
+        GLfloat getFocusZ();
+        
+        GLvoid setAngleX(GLfloat);
+        GLvoid setAngleY(GLfloat);
+        GLvoid setAngleZ(GLfloat);
+        GLfloat getAngleX();
+        GLfloat getAngleY();
+        GLfloat getAngleZ();
         
         GLvoid draw(Scene*);
         
     private:
-        
+        glm::vec3 position;
+        glm::vec3 focus;
+        glm::vec3 angle;
         };
 }
 #endif	/* CAMERA_H */

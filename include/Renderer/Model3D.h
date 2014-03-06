@@ -8,8 +8,14 @@
 #ifndef MODEL3D_H
 #define	MODEL3D_H
 
+#include "../Unnivelmas_conf.h"
+#include <Renderer/Renderable.h>
+
 namespace kaikai
 {
+    class Material;
+    class Scene;
+    
     class Model3D : public Renderable{
     public:
         Model3D();
@@ -19,6 +25,11 @@ namespace kaikai
         GLvoid setMaterial(Material*);
         GLfloat flipX();
         GLfloat flipY();
+        
+        GLvoid setOrtho();
+        GLvoid setOrtho(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat,GLfloat);
+        GLvoid setPerspective();
+        GLvoid setPerspective(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat);
     private:
         Material* material;
     };

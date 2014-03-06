@@ -10,53 +10,115 @@
 
 using namespace kaikai;
 
-Camera::Camera():Renderable() {
+Camera::Camera() {
+    position = glm::vec3(0.0f,0.0f,2.0f);
+    focus = glm::vec3(0.0f,0.0f,0.0f);
+    angle = glm::vec3(0.0f,1.0f,0.0f);
+    position_matrix = glm::lookAt(position,focus,angle);
 }
 
 Camera::~Camera() {
 }
 
-GLvoid Camera::setX(GLfloat _x)
+GLvoid Camera::setPositionX(GLfloat _x)
 {
-    Renderable::setX(_x*-1);
+    position[0] = _x;
+    focus[0] = _x;
+    position_matrix = glm::lookAt(position,focus,angle);
 }
 
-GLvoid Camera::setY(GLfloat _y)
+GLvoid Camera::setPositionY(GLfloat _y)
 {
-    Renderable::setY(_y*-1);
+    position[1] = _y;
+    focus[1] = _y;
+    position_matrix = glm::lookAt(position,focus,angle);
 }
 
-GLvoid Camera::setZ(GLfloat _z)
+GLvoid Camera::setPositionZ(GLfloat _z)
 {
-    Renderable::setZ(_z*-1);
+    position[2] = _z;
+    position_matrix = glm::lookAt(position,focus,angle);
 }
 
-GLfloat Camera::getX()
+GLfloat Camera::getPositionX()
 {
-    return Renderable::getX() * -1;
+    return position[0];
 }
 
-GLfloat Camera::getY()
+GLfloat Camera::getPositionY()
 {
-   return Renderable::getY() * -1;
+   return position[1];
 }
 
-GLfloat Camera::getZ()
+GLfloat Camera::getPositionZ()
 {
-    return Renderable::getZ() * -1;
+    return position[2];
 }
 
-GLvoid Camera::move(GLfloat _x, GLfloat _y)
+GLvoid Camera::setFocusX(GLfloat _x)
 {
-    position_matrix[0][3] += (_x * -1);
-    position_matrix[1][3] += (_y * -1);
+    focus[0] = _x;
+    position_matrix = glm::lookAt(position,focus,angle);
 }
 
-GLvoid Camera::move(GLfloat _x, GLfloat _y, GLfloat _z)
+GLvoid Camera::setFocusY(GLfloat _y)
 {
-    position_matrix[0][3] += (_x * -1);
-    position_matrix[1][3] += (_y * -1);
-    position_matrix[2][3] += (_z * -1);
+    focus[1] = _y;
+    position_matrix = glm::lookAt(position,focus,angle);
+}
+
+GLvoid Camera::setFocusZ(GLfloat _z)
+{
+    focus[2] = _z;
+    position_matrix = glm::lookAt(position,focus,angle);
+}
+
+GLfloat Camera::getFocusX()
+{
+    return focus[0];
+}
+
+GLfloat Camera::getFocusY()
+{
+   return focus[1];
+}
+
+GLfloat Camera::getFocusZ()
+{
+    return focus[2];
+}
+
+GLvoid Camera::setAngleX(GLfloat _x)
+{
+    angle[0] = _x;
+    position_matrix = glm::lookAt(position,focus,angle);
+}
+
+GLvoid Camera::setAngleY(GLfloat _y)
+{
+    angle[1] = _y;
+    position_matrix = glm::lookAt(position,focus,angle);
+}
+
+GLvoid Camera::setAngleZ(GLfloat _z)
+{
+    angle[2] = _z;
+    position_matrix = glm::lookAt(position,focus,angle);
+}
+
+GLfloat Camera::getAngleX()
+{
+    return angle[0];
+}
+
+GLfloat Camera::getAngleY()
+{
+   return angle[1];
+}
+
+GLfloat Camera::getAngleZ()
+{
+    return angle[2];
 }
 
 GLvoid Camera::draw(Scene*)

@@ -26,6 +26,10 @@ namespace kaikai
             void setMaterial(Material*);
             GLfloat flipX();
             GLfloat flipY();
+            GLvoid setOrtho();
+            GLvoid setOrtho(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat,GLfloat);
+            GLvoid setPerspective();
+            GLvoid setPerspective(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat);
             
         protected:
             Material* material;

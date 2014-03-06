@@ -33,8 +33,7 @@ GLchar* text_shader_vertex = {
 "    vertex *= scale_matrix;\n"
 "    vertex *= position_matrix;\n"
 "    uv_coord = texture_cordinates;\n"
-"    vertex *= port_view;\n"
-"    gl_Position = projection_matrix  * vertex;\n"
+"    gl_Position = projection_matrix  * port_view * vertex;\n"
 "}\n"
 };
 

@@ -50,26 +50,112 @@ GLint getY (lua_State *L)
     return 1;
 }
 
-GLint getCameraX (lua_State *L)
+GLint getCameraPositionX (lua_State *L)
 {
     if( !lua_islightuserdata(L,-1))
         std::cout << "Parameter error, usage:\n" << "           Core.getCameraX(<camera_pointer>)\n";
     else
     {
         Camera* cam = (Camera*) lua_touserdata(L,-1);
-        lua_pushnumber(L,cam->getX());
+        lua_pushnumber(L,cam->getPositionX());
     }
     return 1;
 }
 
-GLint getCameraY (lua_State *L)
+
+
+GLint getCameraPositionY (lua_State *L)
 {
     if( !lua_islightuserdata(L,-1))
         std::cout << "Parameter error, usage:\n" << "           Core.getCameraY(<camera_pointer>)\n";
     else
     {
         Camera* cam = (Camera*) lua_touserdata(L,-1);
-        lua_pushnumber(L,cam->getY());
+        lua_pushnumber(L,cam->getPositionY());
+    }
+    return 1;
+}
+
+GLint getCameraPositionZ (lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getCameraPositionZ(<camera_pointer>)\n";
+    else
+    {
+        Camera* cam = (Camera*) lua_touserdata(L,-1);
+        lua_pushnumber(L,cam->getPositionZ());
+    }
+    return 1;
+}
+
+GLint getCameraFocusX (lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getCameraFocusX(<camera_pointer>)\n";
+    else
+    {
+        Camera* cam = (Camera*) lua_touserdata(L,-1);
+        lua_pushnumber(L,cam->getFocusX());
+    }
+    return 1;
+}
+
+GLint getCameraFocusY (lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getCameraFocusY(<camera_pointer>)\n";
+    else
+    {
+        Camera* cam = (Camera*) lua_touserdata(L,-1);
+        lua_pushnumber(L,cam->getFocusY());
+    }
+    return 1;
+}
+
+GLint getCameraFocusZ (lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getCameraFocusZ(<camera_pointer>)\n";
+    else
+    {
+        Camera* cam = (Camera*) lua_touserdata(L,-1);
+        lua_pushnumber(L,cam->getFocusZ());
+    }
+    return 1;
+}
+
+GLint getCameraAngleX (lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getCameraAngleX(<camera_pointer>)\n";
+    else
+    {
+        Camera* cam = (Camera*) lua_touserdata(L,-1);
+        lua_pushnumber(L,cam->getAngleX());
+    }
+    return 1;
+}
+
+GLint getCameraAngleY (lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getCameraAngleY(<camera_pointer>)\n";
+    else
+    {
+        Camera* cam = (Camera*) lua_touserdata(L,-1);
+        lua_pushnumber(L,cam->getAngleY());
+    }
+    return 1;
+}
+
+GLint getCameraAngleZ (lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getCameraAngleZ(<camera_pointer>)\n";
+    else
+    {
+        Camera* cam = (Camera*) lua_touserdata(L,-1);
+        lua_pushnumber(L,cam->getAngleZ());
     }
     return 1;
 }
@@ -91,26 +177,110 @@ GLint setX (lua_State *L)
     return 1;
 }
 
-GLint setCameraX (lua_State *L)
+GLint setCameraPositionX (lua_State *L)
 {
     if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
         std::cout << "Parameter error, usage:\n" << "           Core.setCameraX(<camera_pointer> , <float>)\n";
     else
     {
         Camera* aux = (Camera*) lua_touserdata(L,-2);
-        aux->setX(lua_tonumber(L,-1));
+        aux->setPositionX(lua_tonumber(L,-1));
     }
     return 1;
 }
 
-GLint setCameraY (lua_State *L)
+GLint setCameraPositionY (lua_State *L)
 {
     if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
         std::cout << "Parameter error, usage:\n" << "           Core.setCameraY(<camera_pointer> , <float>)\n";
     else
     {
         Camera* aux = (Camera*) lua_touserdata(L,-2);
-        aux->setY(lua_tonumber(L,-1));
+        aux->setPositionY(lua_tonumber(L,-1));
+    }
+    return 1;
+}
+
+GLint setCameraPositionZ (lua_State *L)
+{
+    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
+        std::cout << "Parameter error, usage:\n" << "           Core.setCameraPositionZ(<camera_pointer> , <float>)\n";
+    else
+    {
+        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        aux->setPositionZ(lua_tonumber(L,-1));
+    }
+    return 1;
+}
+
+GLint setCameraFocusX (lua_State *L)
+{
+    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
+        std::cout << "Parameter error, usage:\n" << "           Core.setCameraFocusX(<camera_pointer> , <float>)\n";
+    else
+    {
+        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        aux->setFocusX(lua_tonumber(L,-1));
+    }
+    return 1;
+}
+
+GLint setCameraFocusY (lua_State *L)
+{
+    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
+        std::cout << "Parameter error, usage:\n" << "           Core.setCameraFocusY(<camera_pointer> , <float>)\n";
+    else
+    {
+        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        aux->setFocusY(lua_tonumber(L,-1));
+    }
+    return 1;
+}
+
+GLint setCameraFocusZ (lua_State *L)
+{
+    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
+        std::cout << "Parameter error, usage:\n" << "           Core.setCameraFocusZ(<camera_pointer> , <float>)\n";
+    else
+    {
+        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        aux->setFocusZ(lua_tonumber(L,-1));
+    }
+    return 1;
+}
+
+GLint setCameraAngleX(lua_State *L)
+{
+    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
+        std::cout << "Parameter error, usage:\n" << "           Core.setCameraAngleX(<camera_pointer> , <float>)\n";
+    else
+    {
+        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        aux->setAngleX(lua_tonumber(L,-1));
+    }
+    return 1;
+}
+
+GLint setCameraAngleY(lua_State *L)
+{
+    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
+        std::cout << "Parameter error, usage:\n" << "           Core.setCameraAngleY(<camera_pointer> , <float>)\n";
+    else
+    {
+        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        aux->setAngleY(lua_tonumber(L,-1));
+    }
+    return 1;
+}
+
+GLint setCameraAngleZ(lua_State *L)
+{
+    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
+        std::cout << "Parameter error, usage:\n" << "           Core.setCameraAngleZ(<camera_pointer> , <float>)\n";
+    else
+    {
+        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        aux->setAngleZ(lua_tonumber(L,-1));
     }
     return 1;
 }
@@ -209,10 +379,24 @@ static const struct luaL_Reg core_functions [] = {
     {"setX", setX},
     {"setY", setY},
     {"setZ", setZ},
-    {"setCameraX", setCameraX},
-    {"setCameraY", setCameraY},
-    {"getCameraX", getCameraX},
-    {"getCameraY", getCameraY},
+    {"setCameraPositionX", setCameraPositionX},
+    {"setCameraPositionY", setCameraPositionY},
+    {"setCameraPositionZ", setCameraPositionZ},
+    {"getCameraPositionX", getCameraPositionX},
+    {"getCameraPositionY", getCameraPositionY},
+    {"getCameraPositionZ", getCameraPositionZ},
+    {"getCameraFocusX", getCameraFocusX},
+    {"getCameraFocusY", getCameraFocusY},
+    {"getCameraFocusZ", getCameraFocusZ},
+    {"getCameraAngleX", getCameraAngleX},
+    {"getCameraAngleY", getCameraAngleY},
+    {"getCameraAngleZ", getCameraAngleZ},
+    {"setCameraFocusX", setCameraFocusX},
+    {"setCameraFocusY", setCameraFocusY},
+    {"setCameraFocusZ", setCameraFocusZ},
+    {"setCameraAngleX", setCameraAngleX},
+    {"setCameraAngleY", setCameraAngleY},
+    {"setCameraAngleZ", setCameraAngleZ},
     {"setAnimation", setAnimation},
     {"flipX", flipX},
     {"flipY", flipY},

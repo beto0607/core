@@ -12,6 +12,8 @@
 #include "Core/TimeEventListener.h"
 #include "Renderer/Render.h"
 #include "Renderer/Rectangle.h"
+#include "Renderer/Mesh.h"
+#include "Renderer/Actor.h"
 #include "Shader/Shader.h"
 #include "Shader/SpriteShader.h"
 #include "Scene/Material.h"

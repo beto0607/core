@@ -11,7 +11,7 @@ ifeq ($(OS),Windows_NT)
     all: directories copy_dll core input collision animation audio renderer scene command net engine example animation_example audio_example net_client_example net_server_example demo_example
 else
     EXTENSION=
-    all: directories engine examples 
+    all: directories engine 
 endif
 	
 # MAKE creation folders
@@ -80,9 +80,6 @@ engine: build_libraries
 ifeq ($(OS),Windows_NT)
 
 directories: root_folder
-
-examples:
-	make -f examples/Makefile
 
 else
 

@@ -31,8 +31,7 @@ GLchar* null_shader_vertex = {
 "    vec4 vertex = vec4(vertex_position, 1.0);\n"
 "    vertex *= scale_matrix;\n"
 "    vertex *= position_matrix;\n"
-"    vertex *= port_view;\n"
-"    gl_Position = projection_matrix  * vertex;\n"
+"    gl_Position = projection_matrix  * port_view * vertex;\n"
 "}\n"
 };
 
