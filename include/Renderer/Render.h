@@ -4,6 +4,7 @@
 #include <map>
 #include <string>    
 #include "../Unnivelmas_conf.h"
+#include "KKMeshLoader.h"
 
 class SDL_Window;
 class SDL_VideoInfo;
@@ -14,11 +15,13 @@ namespace kaikai
         class Renderable;
         class Scene;
         class Material;
+        class KKMeshLoader;
         
 	class Render
 	{
 		private: 
                         Scene* active_scene;
+                        KKMeshLoader* kk_mesh_loader;
                         SDL_Window* main_window;
                         SDL_Rect display_info;
                         SDL_Renderer* renderer;
@@ -45,6 +48,7 @@ namespace kaikai
                         GLint getNextUVBufferObjectNumber();
                         SDL_GLContext getThreadContext();
                         SDL_Window* getWindow();
+                        GLvoid loadKKModel(const GLchar*);
 	};
 }; // Close Namespace Tag
 #endif // RENDER_ENGINE_H

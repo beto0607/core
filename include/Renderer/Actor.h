@@ -14,15 +14,25 @@
 namespace kaikai
 {
     class Scene;
+    class Joint;
     
     class Actor : public Renderable{
     public:
-        Actor(const GLchar*);
+        Actor();
         virtual ~Actor();
  
         GLvoid draw(Scene*);
+        
+        GLvoid setMeshCount(GLint);
+        GLint getMeshCount();
+        
+        GLvoid setJointCount(GLint);
+        GLint setJointCount();
+        
     private:
         std::list<Renderable*> meshes;
+        Joint* root_joint;
+        GLint mesh_cant, joint_cant;
     };
 }
 #endif	/* ACTOR_H */

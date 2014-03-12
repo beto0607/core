@@ -6,25 +6,34 @@
  */
 
 #include <Renderer/Actor.h>
-#include <iostream>
-#include <fstream>
 
 using namespace kaikai;
 
-Actor::Actor(const GLchar* _filename) {
-    std::ofstream myfile;
-    myfile.open(_filename, std::ios::in);
-    if(myfile.is_open())
-    {
-        std::cout << "abierto\n";
-    }
-    else
-    {
-        std::cout << "no abierto\n";
-    }        
+Actor::Actor() {
+           
 }
 
 Actor::~Actor() {
+}
+
+GLvoid Actor::setMeshCount(GLint _count)
+{
+    mesh_cant = _count;
+}
+
+GLint Actor::getMeshCount()
+{
+    return mesh_cant;
+}
+
+GLvoid Actor::setJointCount(GLint _count)
+{
+    joint_cant = _count;
+}
+
+GLint Actor::setJointCount()
+{
+    return joint_cant;
 }
 
 GLvoid Actor::draw(Scene*)

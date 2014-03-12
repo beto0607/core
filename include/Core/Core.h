@@ -89,6 +89,7 @@ namespace kaikai
                                         
                                         GLvoid play(const GLchar*);
                                         GLvoid loadTexture(const GLchar*,const GLchar*);
+                                        GLvoid loadKKModel(const GLchar*);
 	};
 }; // Close Namespace Tag
 #endif // CORE_ENGINE_H

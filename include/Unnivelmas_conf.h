@@ -22,6 +22,7 @@
 #include "../external/include/SDL_net.h"
 #include "../external/include/SDL_image.h"
 #include "../external/include/glm/glm.hpp"
+#include "../external/include/glm/gtx/euler_angles.hpp"
 #include "../external/include/glm/gtc/type_ptr.hpp"
 #include "../external/include/glm/gtc/matrix_transform.hpp"
 extern "C"

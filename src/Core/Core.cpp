@@ -177,6 +177,11 @@ GLvoid Core::loadTexture(const GLchar* name,const GLchar* file_path)
     texture->loadTexture(name,file_path);
 }
 
+GLvoid Core::loadKKModel(const GLchar* _filename)
+{
+    render->loadKKModel(_filename);
+}
+
 Texture* Core::getTexture(const GLchar* _texture_name)
 {
     return texture->getTexture(_texture_name);

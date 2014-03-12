@@ -1,5 +1,6 @@
 #include <Renderer/Render.h>
 #include <Renderer/Renderable.h>
+#include <Renderer/KKMeshLoader.h>
 #include <Scene/SceneNull.h>
 #include <Scene/SceneReal.h>
 #include <Log/Logger.h>
@@ -12,6 +13,7 @@ using namespace kaikai;
 
 Render::Render()
 {
+    kk_mesh_loader = new KKMeshLoader();
     end_flag=true;
     vbo_count=0;
     uvbo_count=0;
@@ -129,4 +131,9 @@ GLint Render::getNextVertexBufferObjectNumber()
 GLint Render::getNextUVBufferObjectNumber()
 {
     return uvbo[++uvbo_count];
+}
+
+GLvoid Render::loadKKModel(const GLchar* _filename)
+{
+    kk_mesh_loader->loadKKModel(_filename);
 }
