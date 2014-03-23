@@ -19,7 +19,7 @@ namespace kaikai{
     class Shader {
     public:
         Shader(const GLchar*,const GLchar*);
-        Shader(GLchar**);
+        Shader(const GLchar**);
         virtual ~Shader();
         
         GLvoid enableShader();

@@ -23,12 +23,17 @@ namespace kaikai
         GLvoid warnningLog(std::string);
         GLvoid criticalLog(std::string);
         
+        GLvoid workFlowinfoLog(std::string);
+        GLvoid workFlowwarnningLog(std::string);
+        GLvoid workFlowcriticalLog(std::string);
+        
         static Logger* getInstance();
         
     private:
         Logger();
         static Logger* self;
-        std::ofstream log_file;
+        std::ofstream creation_file;
+        std::ofstream workflow_file;
     };
 }; // namespace ENGINE_NMESPACE
 #endif	/* LOGGER_H */

@@ -6,6 +6,8 @@
  */
 
 #include <Renderer/Actor.h>
+#include <iostream>
+#include <Renderer/Model3D.h>
 
 using namespace kaikai;
 
@@ -36,7 +38,25 @@ GLint Actor::setJointCount()
     return joint_cant;
 }
 
-GLvoid Actor::draw(Scene*)
+GLvoid Actor::draw(Scene* _scene)
 {
+    for(std::list<Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        (*it)->draw(_scene);
+}
 
+GLvoid Actor::addRenderable(Renderable* _renderable)
+{
+    meshes.push_back(_renderable);
+}
+
+GLvoid Actor::move(GLfloat _x,GLfloat _y,GLfloat _z)
+{
+    for(std::list<Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        (*it)->move(_x,_y,_z);
+}
+
+GLvoid Actor::scale(GLfloat _s)
+{
+     for(std::list<Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        (*it)->scale(_s);
 }

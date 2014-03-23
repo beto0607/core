@@ -26,6 +26,7 @@ namespace kaikai
         class RenderBuilder;
         class Renderable;
         class Camera;
+        class Actor;
         
 	class Core
 	{
@@ -89,7 +90,8 @@ namespace kaikai
                                         
                                         GLvoid play(const GLchar*);
                                         GLvoid loadTexture(const GLchar*,const GLchar*);
-                                        GLvoid loadKKModel(const GLchar*);
+                                        GLvoid loadKKModel(const GLchar*,const GLchar*);
+                                        Actor* getActor(const GLchar*);
 	};
 }; // Close Namespace Tag
 #endif // CORE_ENGINE_H

@@ -11,12 +11,12 @@
 #include <Renderer/Renderable.h>
 #include <Scene/Material.h>
 #include <Texture/Texture.h>
-#include <Scene/Camera.h>
+#include <Scene/Camera/Camera.h>
 #include <iostream>
 
 using namespace kaikai;
 
-GLchar* text_shader_vertex = {
+const GLchar* text_shader_vertex = {
 "#version 120\n"
 "\n"
 "attribute vec3 vertex_position;\n"
@@ -37,7 +37,7 @@ GLchar* text_shader_vertex = {
 "}\n"
 };
 
-GLchar* text_shader_fragment = {
+const GLchar* text_shader_fragment = {
 "#version 120\n"
 "\n"
 "varying vec2 uv_coord;\n"
@@ -50,7 +50,7 @@ GLchar* text_shader_fragment = {
 "}\n"
 };
 
-GLchar* text_shader_vector[2] = {text_shader_vertex,text_shader_fragment};
+const GLchar* text_shader_vector[2] = {text_shader_vertex,text_shader_fragment};
 
 TextShader::TextShader():Shader(text_shader_vector) {
     vPos = getAttributeLocation(program_shader_id,"vertex_position");
@@ -74,7 +74,7 @@ void TextShader::setShaderVariables(Renderable* _renderable, Material* _material
     glUniformMatrix4fv(sMat,1,GL_FALSE,_renderable->getScale());
     glUniformMatrix4fv(pMat,1,GL_FALSE,_renderable->getPosition());
     glUniformMatrix4fv(proM,1,GL_FALSE,_renderable->getProjectionMatrix());
-    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getPosition());
+    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getMatrixView());
     glEnableVertexAttribArray(vPos);
     glBindBuffer(GL_ARRAY_BUFFER,_renderable->getVertexBufferID());
     glVertexAttribPointer(vPos, 3, GL_FLOAT,GL_FALSE, 0, 0);

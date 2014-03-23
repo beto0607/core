@@ -9,13 +9,13 @@
 #include <Scene/Scene.h>
 #include <Renderer/Renderable.h>
 #include <Scene/Material.h>
-#include <Scene/Camera.h>
+#include <Scene/Camera/Camera.h>
 #include <Texture/Texture.h>
 #include <iostream>
 
 using namespace kaikai;
 
-GLchar* sprite_shader_vertex = {
+const GLchar* sprite_shader_vertex = {
 "#version 120\n"
 "\n"
 "attribute vec3 vertex_position;\n"
@@ -37,7 +37,7 @@ GLchar* sprite_shader_vertex = {
 "}\n"
 };
 
-GLchar* sprite_shader_fragment = {
+const GLchar* sprite_shader_fragment = {
 "#version 120\n"
 "\n"
 "varying vec2 uv_coord;\n"
@@ -49,7 +49,7 @@ GLchar* sprite_shader_fragment = {
 "}\n"
 };
 
-GLchar* sprite_shader_vector[2] = {sprite_shader_vertex, sprite_shader_fragment};
+const GLchar* sprite_shader_vector[2] = {sprite_shader_vertex, sprite_shader_fragment};
 
 SpriteShader::SpriteShader():Shader(sprite_shader_vector) {
     vPos = getAttributeLocation(program_shader_id,"vertex_position");
@@ -75,7 +75,7 @@ void SpriteShader::setShaderVariables(Renderable* _renderable, Material* _materi
     glUniformMatrix3fv(rMat,1,GL_FALSE,_renderable->getRotation());
     glUniformMatrix4fv(pMat,1,GL_FALSE,_renderable->getPosition());
     glUniformMatrix4fv(proM,1,GL_FALSE,_renderable->getProjectionMatrix());
-    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getPosition());
+    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getMatrixView());
     glEnableVertexAttribArray(vPos);
     glBindBuffer(GL_ARRAY_BUFFER,_renderable->getVertexBufferID());
     glVertexAttribPointer(vPos, 3, GL_FLOAT,GL_FALSE, 0, 0);

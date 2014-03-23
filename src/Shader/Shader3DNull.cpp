@@ -6,7 +6,7 @@
  */
 
 #include <Shader/Shader.h>
-#include <Shader/ShaderNull.h>
+#include <Shader/Shader3DNull.h>
 #include <Scene/Scene.h>
 #include <Scene/Camera/Camera.h>
 #include <Renderer/Renderable.h>
@@ -45,7 +45,7 @@ const GLchar* null_shader_fragment = {
 };
 const GLchar* null_shader_vector[2] = {null_shader_vertex,null_shader_fragment};
 
-ShaderNull::ShaderNull():Shader(null_shader_vector) {
+Shader3DNull::Shader3DNull():Shader(null_shader_vector) {
     vPos = glGetAttribLocation(program_shader_id,"vertex_position");
     sMat = glGetUniformLocation(program_shader_id,"scale_matrix");
     rMat = glGetUniformLocation(program_shader_id,"rotation_matrix");
@@ -55,15 +55,15 @@ ShaderNull::ShaderNull():Shader(null_shader_vector) {
     
 }
 
-ShaderNull::~ShaderNull() {
+Shader3DNull::~Shader3DNull() {
 }
 
-void ShaderNull::enableShaderVariables()
+void Shader3DNull::enableShaderVariables()
 {
     
 }
 
-void ShaderNull::setShaderVariables(Renderable* _renderable, Material* _material, Scene* _scene) {
+void Shader3DNull::setShaderVariables(Renderable* _renderable, Material* _material, Scene* _scene) {
     this->enableShader();
     glUniformMatrix4fv(sMat,1,GL_FALSE,_renderable->getScale());
     glUniformMatrix4fv(pMat,1,GL_FALSE,_renderable->getPosition());
@@ -76,7 +76,7 @@ void ShaderNull::setShaderVariables(Renderable* _renderable, Material* _material
     glBindBuffer(GL_ARRAY_BUFFER,0);
 }
 
-void ShaderNull::disableShaderVariables()
+void Shader3DNull::disableShaderVariables()
 {
     glDisableVertexAttribArray(vPos);
 }

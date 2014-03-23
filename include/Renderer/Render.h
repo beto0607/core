@@ -29,6 +29,7 @@ namespace kaikai
                         bool end_flag;
                         GLuint vbo[100];
                         GLuint uvbo[100];
+                        std::map<std::string, Renderable*> actors;
                         GLint vbo_count, uvbo_count;
                         
 		public:
@@ -48,7 +49,8 @@ namespace kaikai
                         GLint getNextUVBufferObjectNumber();
                         SDL_GLContext getThreadContext();
                         SDL_Window* getWindow();
-                        GLvoid loadKKModel(const GLchar*);
+                        GLvoid loadKKModel(const GLchar*,const GLchar*);
+                        Actor* getActor(const GLchar*);
 	};
 }; // Close Namespace Tag
 #endif // RENDER_ENGINE_H

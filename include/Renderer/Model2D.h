@@ -29,7 +29,7 @@ namespace kaikai
             GLvoid setOrtho();
             GLvoid setOrtho(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat,GLfloat);
             GLvoid setPerspective();
-            GLvoid setPerspective(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat);
+            GLvoid setPerspective(GLfloat _fovy,GLfloat _x,GLfloat _y,GLfloat _near,GLfloat _far);
             
         protected:
             Material* material;

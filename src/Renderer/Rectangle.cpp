@@ -44,13 +44,13 @@ Rectangle::Rectangle(const GLchar* _name, GLfloat width, GLfloat heigth):Model2D
     texture_coordenates[4] =1.0;texture_coordenates[5] =1.0;
     texture_coordenates[6] =1.0;texture_coordenates[7] =0.0;
     
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,buffer_id);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLfloat)*12, vertex, GL_STATIC_DRAW);
-    glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &bufferSize);
+    glBindBuffer(GL_ARRAY_BUFFER,buffer_id);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*12, vertex, GL_STATIC_DRAW);
+    glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &bufferSize);
     
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,uv_id);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLfloat)*8, texture_coordenates, GL_STATIC_DRAW);
-    glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &uv_size);
+    glBindBuffer(GL_ARRAY_BUFFER,uv_id);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*8, texture_coordenates, GL_STATIC_DRAW);
+    glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &uv_size);
     
     delete vertex;
     delete texture_coordenates;

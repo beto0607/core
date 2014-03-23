@@ -103,7 +103,7 @@ Shader::Shader(const char *vertex_filename, const char *fragment_filename) {
     
 }
 
-Shader::Shader(GLchar ** shader_vector) {
+Shader::Shader(const GLchar ** shader_vector) {
     GLint vartex_status, fragment_status;
     
     vertex_shader_id = glCreateShader(GL_VERTEX_SHADER); 

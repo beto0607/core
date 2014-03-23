@@ -1,4 +1,5 @@
 #include <Renderer/Render.h>
+#include <Renderer/Actor.h>
 #include <Renderer/Renderable.h>
 #include <Renderer/KKMeshLoader.h>
 #include <Scene/SceneNull.h>
@@ -133,7 +134,14 @@ GLint Render::getNextUVBufferObjectNumber()
     return uvbo[++uvbo_count];
 }
 
-GLvoid Render::loadKKModel(const GLchar* _filename)
+GLvoid Render::loadKKModel(const GLchar* _name,const GLchar* _filename)
 {
-    kk_mesh_loader->loadKKModel(_filename);
+    Actor* auxactor = kk_mesh_loader->loadKKModel(_filename);
+    auxactor->setName(_name);        
+    actors.insert(std::pair<std::string,Renderable*>(std::string(_name),(Renderable*)auxactor));
+}
+
+Actor* Render::getActor(const GLchar* _name)
+{
+    return (Actor*) actors.find(std::string(_name))->second;
 }

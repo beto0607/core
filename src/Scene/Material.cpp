@@ -48,3 +48,13 @@ GLvoid Material::disableVariables()
 {
     return actual_renderable;
 }*/
+
+std::string Material::getName()
+{
+    return name;
+}
+
+GLvoid Material::setName(std::string _name)
+{
+    name = _name;
+}

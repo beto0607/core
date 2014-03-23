@@ -11,6 +11,9 @@ shader_text.o:
 shader_null.o: 
 	g++ -O2 $(SHADER_INCLUDE) -c src/Shader/ShaderNull.cpp -o build/Shader/shadernull.o 
 
+shader_3d_null.o: 
+	g++ -O2 $(SHADER_INCLUDE) -c src/Shader/Shader3DNull.cpp -o build/Shader/shader3dnull.o 
+
 shader_sprite.o: 
 	g++ -O2 $(SHADER_INCLUDE) -c src/Shader/SpriteShader.cpp -o build/Shader/spriteshader.o 
 	
@@ -20,7 +23,7 @@ shader.o:
 shadermanager.o: 
 	g++ -O2 $(SHADER_INCLUDE) -c src/Shader/ShaderManager.cpp -o build/Shader/shadermanager.o
 	
-shader: shader_null.o shader_text.o shader.o shadermanager.o shader_sprite.o
-	ar -r  -s build/lib/libshader.a build/Shader/shadernull.o build/Shader/shader.o build/Shader/shadermanager.o build/Shader/textshader.o build/Shader/spriteshader.o
+shader: shader_null.o shader_text.o shader.o shadermanager.o shader_sprite.o shader_3d_null.o
+	ar -r  -s build/lib/libshader.a build/Shader/shadernull.o build/Shader/shader.o build/Shader/shadermanager.o build/Shader/textshader.o build/Shader/shader3dnull.o build/Shader/spriteshader.o
 	
 # end of libscene.a

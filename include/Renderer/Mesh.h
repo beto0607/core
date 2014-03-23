@@ -12,12 +12,21 @@
 
 namespace kaikai
 {
+    class Scene;
+    
     class Mesh : public Model3D{
     public:
-        Mesh(const GLchar*, GLfloat*, GLfloat*, GLfloat*, GLint*);
+        Mesh();
         virtual ~Mesh();
+        
+        GLvoid draw(Scene*);
+        GLvoid setVertex(GLfloat*, GLint);
+        GLvoid setNormal(GLfloat*, GLint);
+        GLvoid setUVCoord(GLfloat*, GLint);
+        GLvoid setIndex(GLuint*, GLint);
     private:
-
+        GLint vertex_cant, index_cant;
+        GLuint normal_id, index_id;
     };
 }
 #endif	/* MESH_H */

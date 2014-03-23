@@ -10,6 +10,7 @@
 
 #include "../Unnivelmas_conf.h"
 #include <list>
+#include <string>
 
 namespace kaikai{
     
@@ -29,11 +30,15 @@ namespace kaikai{
         Texture* getTexture();
         GLvoid setTexture(Texture*);
         
+        std::string getName();
+        GLvoid setName(std::string);
+        
         GLvoid setShader(Shader*);
         
         //Renderable* getRenderable();
         
     protected:
+        std::string name;
         std::list<Renderable*> renderables;
         Shader* shader;
         Texture* texture;

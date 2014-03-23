@@ -1,6 +1,7 @@
 #include <Core/Core.h>
 #include <Core/Clock.h>
 #include <Renderer/Render.h>
+#include <Renderer/Actor.h>
 #include <Renderer/Renderable.h>
 #include <Renderer/Rectangle.h>
 #include <Texture/Font.h>
@@ -177,9 +178,9 @@ GLvoid Core::loadTexture(const GLchar* name,const GLchar* file_path)
     texture->loadTexture(name,file_path);
 }
 
-GLvoid Core::loadKKModel(const GLchar* _filename)
+GLvoid Core::loadKKModel(const GLchar* _name, const GLchar* _filename)
 {
-    render->loadKKModel(_filename);
+    render->loadKKModel(_name,_filename);
 }
 
 Texture* Core::getTexture(const GLchar* _texture_name)
@@ -270,4 +271,9 @@ GLvoid Core::addAllStateKeyListener(const GLchar* _key,KeyBoardListener* _listen
 GLvoid Core::fullScreenMode()
 {
     //SDL_InitSubSystem(SDL_INIT_);
+}
+
+Actor* Core::getActor(const GLchar* _name)
+{
+    return render->getActor(_name);
 }

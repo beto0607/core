@@ -9,10 +9,12 @@
 #include <Renderer/Renderable.h>
 #include <Renderer/Rectangle.h>
 #include <Core/Core.h>
-#include <Scene/Camera.h>
+#include <Scene/Camera/Camera.h>
 #include <iostream>
 #include <Scene/Scene.h>
 #include <Renderer/Render.h>
+#include <Log/Logger.h>
+#include <sstream>
 
 using namespace kaikai;
 
@@ -57,7 +59,15 @@ GLint getCameraPositionX (lua_State *L)
     else
     {
         Camera* cam = (Camera*) lua_touserdata(L,-1);
-        lua_pushnumber(L,cam->getPositionX());
+        if(cam != NULL)
+        {
+            std::stringstream mesage;
+            mesage << "getting Camera: " << cam->getName() << " X Position: " << cam->getPositionX();
+            lua_pushnumber(L,cam->getPositionX());
+            Logger::getInstance()->workFlowinfoLog(mesage.str());
+        }
+        else
+            lua_pushnumber(L,0.0);
     }
     return 1;
 }
@@ -71,7 +81,15 @@ GLint getCameraPositionY (lua_State *L)
     else
     {
         Camera* cam = (Camera*) lua_touserdata(L,-1);
-        lua_pushnumber(L,cam->getPositionY());
+        if(cam != NULL)
+        {
+            std::stringstream mesage;
+            mesage << "getting Camera: " << cam->getName() << " Y Position: " << cam->getPositionY();
+            lua_pushnumber(L,cam->getPositionY());
+            Logger::getInstance()->workFlowinfoLog(mesage.str());
+        }
+        else
+            lua_pushnumber(L,0.0);
     }
     return 1;
 }
@@ -83,7 +101,15 @@ GLint getCameraPositionZ (lua_State *L)
     else
     {
         Camera* cam = (Camera*) lua_touserdata(L,-1);
-        lua_pushnumber(L,cam->getPositionZ());
+        if(cam != NULL)
+        {
+            std::stringstream mesage;
+            mesage << "getting Camera: " << cam->getName() << " Z Position: " << cam->getPositionZ();
+            lua_pushnumber(L,cam->getPositionZ());
+            Logger::getInstance()->workFlowinfoLog(mesage.str());
+        }
+        else
+            lua_pushnumber(L,0.0);
     }
     return 1;
 }
@@ -183,8 +209,15 @@ GLint setCameraPositionX (lua_State *L)
         std::cout << "Parameter error, usage:\n" << "           Core.setCameraX(<camera_pointer> , <float>)\n";
     else
     {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
-        aux->setPositionX(lua_tonumber(L,-1));
+        Camera* cam = (Camera*) lua_touserdata(L,-2);
+        if(cam != NULL)
+        {
+            std::stringstream mesage;
+            GLfloat pos = lua_tonumber(L,-1);
+            mesage << "setting Camera: " << cam->getName() << " X Position: " << pos;
+            cam->setPositionX(pos);
+            Logger::getInstance()->workFlowinfoLog(mesage.str());
+        }
     }
     return 1;
 }
@@ -195,8 +228,15 @@ GLint setCameraPositionY (lua_State *L)
         std::cout << "Parameter error, usage:\n" << "           Core.setCameraY(<camera_pointer> , <float>)\n";
     else
     {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
-        aux->setPositionY(lua_tonumber(L,-1));
+        Camera* cam = (Camera*) lua_touserdata(L,-2);
+        if(cam != NULL)
+        {
+            std::stringstream mesage;
+            GLfloat pos = lua_tonumber(L,-1);
+            mesage << "setting Camera: " << cam->getName() << " Y Position: " << pos;
+            cam->setPositionY(pos);
+            Logger::getInstance()->workFlowinfoLog(mesage.str());
+        }
     }
     return 1;
 }
@@ -207,8 +247,15 @@ GLint setCameraPositionZ (lua_State *L)
         std::cout << "Parameter error, usage:\n" << "           Core.setCameraPositionZ(<camera_pointer> , <float>)\n";
     else
     {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
-        aux->setPositionZ(lua_tonumber(L,-1));
+        Camera* cam = (Camera*) lua_touserdata(L,-2);
+        if(cam != NULL)
+        {
+            std::stringstream mesage;
+            GLfloat pos = lua_tonumber(L,-1);
+            mesage << "setting Camera: " << cam->getName() << " Z Position: " << pos;
+            cam->setPositionZ(pos);
+            Logger::getInstance()->workFlowinfoLog(mesage.str());
+        }
     }
     return 1;
 }

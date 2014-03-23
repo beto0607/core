@@ -8,7 +8,7 @@
 #ifndef ACTOR_H
 #define	ACTOR_H
 
-#include <Renderer/Renderable.h>
+#include <Renderer/Model3D.h>
 #include <list>
 
 namespace kaikai
@@ -16,7 +16,7 @@ namespace kaikai
     class Scene;
     class Joint;
     
-    class Actor : public Renderable{
+    class Actor : public Model3D{
     public:
         Actor();
         virtual ~Actor();
@@ -28,6 +28,11 @@ namespace kaikai
         
         GLvoid setJointCount(GLint);
         GLint setJointCount();
+        
+        GLvoid addRenderable(Renderable*);
+        
+        GLvoid move(GLfloat,GLfloat,GLfloat);
+        GLvoid scale(GLfloat);
         
     private:
         std::list<Renderable*> meshes;

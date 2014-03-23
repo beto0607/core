@@ -26,12 +26,14 @@ Model3D::Model3D() {
 
 GLvoid Model3D::setOrtho()
 {
-
+    GLfloat x = Core::getInstance()->getRenderManager()->getRendererX();
+    GLfloat y = Core::getInstance()->getRenderManager()->getRendererY();
+    projection_matrix = glm::ortho(0.0f,x, y, 0.0f, 0.1f, 100.0f);
 }
 
-GLvoid Model3D::setOrtho(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat,GLfloat)
+GLvoid Model3D::setOrtho(GLfloat _left,GLfloat _rigth,GLfloat _bottom,GLfloat _top,GLfloat _near,GLfloat _far)
 {
-
+    projection_matrix = glm::ortho(_left,_rigth, _top, _bottom, _near, _far);
 }
 
 GLvoid Model3D::setPerspective()
