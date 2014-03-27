@@ -335,7 +335,7 @@ namespace kaikai
                         GLvoid update(GLfloat);
                         
                 protected:  
-                        GLuint buffer_id, uv_id;
+                        GLuint vertex_id, uv_id, normal_id, index_id, vba_id;
                         GLuint vertex_buffer_id;
                         GLfloat width, heigth, radius;
                         Shape* shape;

@@ -134,7 +134,7 @@ GLfloat Renderable::getWidth()
 
 GLuint Renderable::getVertexBufferID()
 {
-    return buffer_id;
+    return vertex_id;
 }
 
 GLuint Renderable::getUVBufferID()

@@ -26,7 +26,7 @@ Rectangle::Rectangle(const GLchar* _name, GLfloat width, GLfloat heigth):Model2D
             
     GLint bufferSize, uv_size;
     
-    buffer_id = (Core::getInstance())->getRenderManager()->getNextVertexBufferObjectNumber();
+    vertex_id = (Core::getInstance())->getRenderManager()->getNextVertexBufferObjectNumber();
     uv_id = (Core::getInstance())->getRenderManager()->getNextUVBufferObjectNumber();
 
     width *= 0.5;
@@ -44,7 +44,10 @@ Rectangle::Rectangle(const GLchar* _name, GLfloat width, GLfloat heigth):Model2D
     texture_coordenates[4] =1.0;texture_coordenates[5] =1.0;
     texture_coordenates[6] =1.0;texture_coordenates[7] =0.0;
     
-    glBindBuffer(GL_ARRAY_BUFFER,buffer_id);
+    glGenVertexArrays(1,&vba_id);
+    glBindVertexArray(vba_id);
+    
+    glBindBuffer(GL_ARRAY_BUFFER,vertex_id);
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*12, vertex, GL_STATIC_DRAW);
     glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &bufferSize);
     
@@ -52,10 +55,11 @@ Rectangle::Rectangle(const GLchar* _name, GLfloat width, GLfloat heigth):Model2D
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*8, texture_coordenates, GL_STATIC_DRAW);
     glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE_ARB, &uv_size);
     
+    glBindVertexArray(0);
     delete vertex;
     delete texture_coordenates;
     std::stringstream message;
-    message << "  Rectangle " << name << " was created with ID: " << buffer_id << " UV_ID: " << uv_id << " VertexBufferSize: " << bufferSize << " UV BufferSize: " << uv_size;
+    message << "  Rectangle " << name << " was created with ID: " << vba_id << " Vertes ID: "<< vertex_id << " UV_ID: " << uv_id << " VertexBufferSize: " << bufferSize << " UV BufferSize: " << uv_size;
     (Core::getInstance())->getLogger()->infoLog(message.str().c_str());
 }
 

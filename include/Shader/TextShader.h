@@ -21,12 +21,7 @@ namespace kaikai
         void enableShaderVariables();
         void disableShaderVariables();
     private:
-        GLint vPos;
-        GLint sMat;
-        GLint pMat;
-        GLint proM;
-        GLint vUVTex;
-        GLint viewP;
+        
     };
 }
 #endif	/* TEXTSHADER_H */

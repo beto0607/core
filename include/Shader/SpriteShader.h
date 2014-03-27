@@ -22,14 +22,7 @@ namespace kaikai
         void enableShaderVariables();
         void disableShaderVariables();
     private:
-        GLint vPos;
-        GLint vCol;
-        GLint sMat;
-        GLint rMat;
-        GLint pMat;
-        GLint tUni;
-        GLint proM;
-        GLint viewP;
+        
     };
 }
 #endif	/* PRUEBASHADER_H */

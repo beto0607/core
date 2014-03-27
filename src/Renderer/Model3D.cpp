@@ -51,3 +51,7 @@ GLvoid Model3D::setPerspective(GLfloat _fovy,GLfloat _x,GLfloat _y,GLfloat _near
 Model3D::~Model3D() {
 }
 
+GLvoid Model3D::setMaterial(Material* _material)
+{
+
+}

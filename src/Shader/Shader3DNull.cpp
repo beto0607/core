@@ -45,13 +45,8 @@ const GLchar* null_shader_fragment = {
 };
 const GLchar* null_shader_vector[2] = {null_shader_vertex,null_shader_fragment};
 
-Shader3DNull::Shader3DNull():Shader(null_shader_vector) {
-    vPos = glGetAttribLocation(program_shader_id,"vertex_position");
-    sMat = glGetUniformLocation(program_shader_id,"scale_matrix");
-    rMat = glGetUniformLocation(program_shader_id,"rotation_matrix");
-    pMat = glGetUniformLocation(program_shader_id,"position_matrix");
-    proM = glGetUniformLocation(program_shader_id,"projection_matrix");
-    viewP = glGetUniformLocation(program_shader_id,"port_view");
+Shader3DNull::Shader3DNull():Shader("3d_shader",null_shader_vector) {
+    
     
 }
 
@@ -64,19 +59,10 @@ void Shader3DNull::enableShaderVariables()
 }
 
 void Shader3DNull::setShaderVariables(Renderable* _renderable, Material* _material, Scene* _scene) {
-    this->enableShader();
-    glUniformMatrix4fv(sMat,1,GL_FALSE,_renderable->getScale());
-    glUniformMatrix4fv(pMat,1,GL_FALSE,_renderable->getPosition());
-    glUniformMatrix4fv(proM,1,GL_FALSE,_renderable->getProjectionMatrix());
-    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getMatrixView());
-    glEnableVertexAttribArray(vPos);
-    glBindBuffer(GL_ARRAY_BUFFER,_renderable->getVertexBufferID());
-    glVertexAttribPointer(vPos, 3, GL_FLOAT,GL_FALSE, 0, 0);
-    glBindBuffer(GL_ARRAY_BUFFER,_renderable->getUVBufferID());
-    glBindBuffer(GL_ARRAY_BUFFER,0);
+    Shader::setShaderVariables(_renderable,_material,_scene);
 }
 
 void Shader3DNull::disableShaderVariables()
 {
-    glDisableVertexAttribArray(vPos);
+    glDisableVertexAttribArray(attribute_vertex);
 }

@@ -19,7 +19,7 @@ const GLchar* sprite_shader_vertex = {
 "#version 120\n"
 "\n"
 "attribute vec3 vertex_position;\n"
-"attribute vec2 vertex_color;\n"
+"attribute vec2 vertex_uv_coordinates;\n"
 "uniform mat4 scale_matrix;\n"
 "uniform mat3 rotation_matrix;\n"
 "uniform mat4 position_matrix;\n"
@@ -32,7 +32,7 @@ const GLchar* sprite_shader_vertex = {
 "    vec4 vertex = vec4(vertex_position,1.0);\n"
 "    vertex *= scale_matrix;\n"
 "    vertex *= position_matrix;\n"
-"    uv_coord = vertex_color;\n"
+"    uv_coord = vertex_uv_coordinates;\n"
 "    gl_Position = projection_matrix  * port_view * vertex;\n"
 "}\n"
 };
@@ -51,12 +51,12 @@ const GLchar* sprite_shader_fragment = {
 
 const GLchar* sprite_shader_vector[2] = {sprite_shader_vertex, sprite_shader_fragment};
 
-SpriteShader::SpriteShader():Shader(sprite_shader_vector) {
-    vPos = getAttributeLocation(program_shader_id,"vertex_position");
-    vCol = getAttributeLocation(program_shader_id,"vertex_color");
-    sMat = getUniformLocation(program_shader_id,"scale_matrix");
-    rMat = getUniformLocation(program_shader_id,"rotation_matrix");
-    pMat = getUniformLocation(program_shader_id,"position_matrix");
+SpriteShader::SpriteShader():Shader("sprite_shader",sprite_shader_vector) {
+    attribute_vertex = getAttributeLocation(program_shader_id,"vertex_position");
+    attribute_coordinate_vertex = getAttributeLocation(program_shader_id,"vertex_uv_coordinates");
+    uniform_scale_matrix = glGetUniformLocation(program_shader_id,"scale_matrix");
+    uniform_rotation_matrix = glGetUniformLocation(program_shader_id,"rotation_matrix");
+    uniform_position_matrix = glGetUniformLocation(program_shader_id,"position_matrix");
     proM = getUniformLocation(program_shader_id,"projection_matrix");
     viewP = getUniformLocation(program_shader_id,"port_view");
 }
@@ -70,25 +70,12 @@ void SpriteShader::enableShaderVariables()
 }
 
 void SpriteShader::setShaderVariables(Renderable* _renderable, Material* _material, Scene* _scene) {
-    this->enableShader();
-    glUniformMatrix4fv(sMat,1,GL_FALSE,_renderable->getScale());
-    glUniformMatrix3fv(rMat,1,GL_FALSE,_renderable->getRotation());
-    glUniformMatrix4fv(pMat,1,GL_FALSE,_renderable->getPosition());
-    glUniformMatrix4fv(proM,1,GL_FALSE,_renderable->getProjectionMatrix());
-    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getMatrixView());
-    glEnableVertexAttribArray(vPos);
-    glBindBuffer(GL_ARRAY_BUFFER,_renderable->getVertexBufferID());
-    glVertexAttribPointer(vPos, 3, GL_FLOAT,GL_FALSE, 0, 0);
-    glBindBuffer(GL_ARRAY_BUFFER,_renderable->getUVBufferID());
-    glEnableVertexAttribArray(vCol);
-    glVertexAttribPointer(vCol, 2, GL_FLOAT,GL_FALSE, 0, 0);
-    glBindBuffer(GL_ARRAY_BUFFER,0);
+    Shader::setShaderVariables(_renderable,_material,_scene);
     glBindTexture(GL_TEXTURE_2D,_material->getTexture()->getTexture());
-    glUniform1i(tUni, 1);
 }
 
 void SpriteShader::disableShaderVariables()
 {
-    glDisableVertexAttribArray(vPos);
-    glDisableVertexAttribArray(vCol);
+    glDisableVertexAttribArray(attribute_vertex);
+    glDisableVertexAttribArray(attribute_coordinate_vertex);
 }

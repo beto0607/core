@@ -19,12 +19,7 @@ namespace kaikai
         void enableShaderVariables();
         void disableShaderVariables();
     private:
-        GLint vPos;
-        GLint rMat;
-        GLint sMat;
-        GLint pMat;
-        GLint proM;
-        GLint viewP;
+        
     };
 }
 #endif	/* SHADER3DNULL_H */

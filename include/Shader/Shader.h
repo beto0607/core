@@ -9,6 +9,7 @@
 #define	SHADER_H
 
 #include "../Unnivelmas_conf.h"
+#include <string>
 
 namespace kaikai{
     
@@ -18,24 +19,26 @@ namespace kaikai{
     
     class Shader {
     public:
-        Shader(const GLchar*,const GLchar*);
-        Shader(const GLchar**);
+        Shader(const GLchar*,const GLchar*,const GLchar*);
+        Shader(const GLchar*,const GLchar**);
         virtual ~Shader();
-        
-        GLvoid enableShader();
-        GLvoid disableShader();
-    
+            
         GLint getAttributeLocation(GLuint, const GLchar*);
         GLint getUniformLocation(GLuint, const GLchar*);
         
-        virtual GLvoid enableShaderVariables()=0;
-        virtual GLvoid setShaderVariables(Renderable*, Material*, Scene*)=0;
-        virtual GLvoid disableShaderVariables()=0;
+        virtual GLvoid enableShaderVariables();
+        virtual GLvoid setShaderVariables(Renderable*, Material*, Scene*);
+        virtual GLvoid disableShaderVariables();
         
     protected:
+        std::string name;
         GLenum program_shader_id;
         GLenum vertex_shader_id;
-        GLenum fragment_shader_id;        
+        GLenum fragment_shader_id;    
+        GLuint attribute_vertex, attribute_coordinate_vertex;
+        GLuint uniform_scale_matrix, uniform_rotation_matrix, uniform_position_matrix;
+        GLint proM;
+        GLint viewP;
     };
 }
 #endif	/* SHADER_H */

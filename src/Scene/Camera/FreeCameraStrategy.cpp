@@ -23,7 +23,6 @@ FreeCameraStrategy::~FreeCameraStrategy() {
 
 GLvoid FreeCameraStrategy::update(GLfloat _tick, Camera* _camera)
 {
-    std::cout <<altpresed << " - "<<ctrlpressed<< " - "<< shiftpressed<< "\n";
     if (altpresed == 1)
     {
          _camera->setPositionX(_camera->getPositionX() - (-0.3*difX));

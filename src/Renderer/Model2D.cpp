@@ -28,9 +28,11 @@ Model2D::~Model2D() {
 
 void Model2D::draw(Scene* _scene)
 {
-    material->setVariables(this,_scene);
-    glDrawArrays(GL_TRIANGLE_STRIP,0,4);
-    material->disableVariables();
+    glBindVertexArray(vba_id);
+        material->setVariables(this,_scene);
+        glDrawArrays(GL_TRIANGLE_STRIP,0,4);
+        material->disableVariables();
+    glBindVertexArray(0);
 }
 
 GLvoid Model2D::setMaterial(Material* _mat)

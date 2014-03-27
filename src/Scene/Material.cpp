@@ -41,7 +41,7 @@ GLvoid Material::setVariables(Renderable* _renderable, Scene* _scene)
 
 GLvoid Material::disableVariables()
 {
-    shader->disableShader();
+    
 }
 
 /*Renderable* Material::getRenderable()

@@ -6,6 +6,9 @@
  */
 
 #include <Core/Core.h>
+#include <Scene/Scene.h>
+#include <Scene/Camera/Camera.h>
+#include <Scene/Material.h>
 #include <Shader/Shader.h>
 #include <Log/Logger.h>
 #include <Renderer/Model2D.h>
@@ -52,7 +55,7 @@ void validateShader(GLuint shader, const GLchar* file = 0) {
         std::cout << "Shader " << shader << " (" << (file?file:"") << ") compile error: " << buffer << std::endl; 
 }
 
-void validateProgram(GLuint program) {
+void validateProgram(GLuint program, const GLchar* _name) {
     GLuint BUFFER_SIZE = 512;
     GLchar buffer[BUFFER_SIZE];
     memset(buffer, 0, BUFFER_SIZE);
@@ -60,17 +63,18 @@ void validateProgram(GLuint program) {
     
     glGetProgramInfoLog(program, BUFFER_SIZE, &length, buffer); 
     if (length > 0) 
-        std::cout << "Program " << program << " link error: " << buffer << std::endl; 
+        std::cout << "Program " << _name << " link error: " << buffer << std::endl; 
     
     glValidateProgram(program); 
     GLint status;
     glGetProgramiv(program, GL_VALIDATE_STATUS, &status); 
     if (status == GL_FALSE)
-		std::cout << "Error validating shader " << program << std::endl; 
+		std::cout << "Error validating shader " << _name << std::endl; 
 }
 
-Shader::Shader(const char *vertex_filename, const char *fragment_filename) {
+Shader::Shader(const GLchar* _name, const char *vertex_filename, const char *fragment_filename) {
     
+    name = std::string(_name);
     vertex_shader_id = glCreateShader(GL_VERTEX_SHADER); 
     fragment_shader_id = glCreateShader(GL_FRAGMENT_SHADER); 
     
@@ -99,11 +103,11 @@ Shader::Shader(const char *vertex_filename, const char *fragment_filename) {
     glAttachShader(program_shader_id, fragment_shader_id); 
 
     glLinkProgram(program_shader_id); 
-    validateProgram(program_shader_id);
-    
+    validateProgram(program_shader_id, name.c_str());    
 }
 
-Shader::Shader(const GLchar ** shader_vector) {
+Shader::Shader(const GLchar* _name, const GLchar ** shader_vector) {
+    name = std::string(_name);
     GLint vartex_status, fragment_status;
     
     vertex_shader_id = glCreateShader(GL_VERTEX_SHADER); 
@@ -144,21 +148,10 @@ Shader::Shader(const GLchar ** shader_vector) {
     glAttachShader(program_shader_id, fragment_shader_id); 
 
     glLinkProgram(program_shader_id); 
-    validateProgram(program_shader_id); 
-    
+    validateProgram(program_shader_id, name.c_str());     
 }
 
 Shader::~Shader() {
-}
-
-GLvoid Shader::enableShader()
-{
-    glUseProgramObjectARB(program_shader_id);
-}
-
-GLvoid Shader::disableShader()
-{
-
 }
 
 GLint Shader::getAttributeLocation(GLuint program, const GLchar* attribute_name)
@@ -179,4 +172,30 @@ GLint Shader::getUniformLocation(GLuint program, const GLchar* uniform_name)
     if(resu == -1)
         (Core::getInstance())->getLogger()->warnningLog(message.c_str());
     return resu;
+}
+
+void Shader::enableShaderVariables()
+{
+    
+}
+
+void Shader::setShaderVariables(Renderable* _renderable, Material* _material, Scene* _scene) {
+    glUseProgramObjectARB(program_shader_id);
+    glUniformMatrix4fv(uniform_scale_matrix,1,GL_FALSE,_renderable->getScale());
+    glUniformMatrix4fv(uniform_position_matrix,1,GL_FALSE,_renderable->getPosition());
+    glUniformMatrix4fv(proM,1,GL_FALSE,_renderable->getProjectionMatrix());
+    glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getMatrixView());
+    glEnableVertexAttribArray(attribute_vertex);
+    glBindBuffer(GL_ARRAY_BUFFER,_renderable->getVertexBufferID());
+    glVertexAttribPointer(attribute_vertex, 3, GL_FLOAT,GL_FALSE, 0, 0);
+    glBindBuffer(GL_ARRAY_BUFFER,_renderable->getUVBufferID());
+    glEnableVertexAttribArray(attribute_coordinate_vertex);
+    glVertexAttribPointer(attribute_coordinate_vertex, 2, GL_FLOAT,GL_FALSE, 0, 0);
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+}
+
+void Shader::disableShaderVariables()
+{
+    glDisableVertexAttribArray(attribute_vertex);
+    glUseProgramObjectARB(0);
 }

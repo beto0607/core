@@ -16,7 +16,7 @@
 using namespace kaikai;
 
 Mesh::Mesh() : Model3D(){
-    buffer_id = (Core::getInstance())->getRenderManager()->getNextVertexBufferObjectNumber();
+    vertex_id = (Core::getInstance())->getRenderManager()->getNextVertexBufferObjectNumber();
     normal_id = (Core::getInstance())->getRenderManager()->getNextVertexBufferObjectNumber();
     uv_id = (Core::getInstance())->getRenderManager()->getNextUVBufferObjectNumber();
     index_id = (Core::getInstance())->getRenderManager()->getNextUVBufferObjectNumber();
@@ -39,7 +39,7 @@ GLvoid Mesh::setVertex(GLfloat* _vertex, GLint _cant)
 {
     vertex_cant = _cant*3;
     GLint bufferSize;
-    glBindBuffer(GL_ARRAY_BUFFER,buffer_id);
+    glBindBuffer(GL_ARRAY_BUFFER,vertex_id);
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*vertex_cant, _vertex, GL_STATIC_DRAW);
     glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
     if(vertex_cant != bufferSize/sizeof(GLfloat))
