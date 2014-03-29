@@ -104,6 +104,14 @@ Shader::Shader(const GLchar* _name, const char *vertex_filename, const char *fra
 
     glLinkProgram(program_shader_id); 
     validateProgram(program_shader_id, name.c_str());    
+    
+    attribute_vertex = glGetAttribLocation(program_shader_id,"vertex_position");
+    attribute_coordinate_vertex = glGetAttribLocation(program_shader_id,"vertex_uv_coordinates");
+    uniform_scale_matrix = glGetUniformLocation(program_shader_id,"scale_matrix");
+    uniform_rotation_matrix = glGetUniformLocation(program_shader_id,"rotation_matrix");
+    uniform_position_matrix = glGetUniformLocation(program_shader_id,"position_matrix");
+    proM = glGetUniformLocation(program_shader_id,"projection_matrix");
+    viewP = glGetUniformLocation(program_shader_id,"port_view");
 }
 
 Shader::Shader(const GLchar* _name, const GLchar ** shader_vector) {
@@ -148,7 +156,15 @@ Shader::Shader(const GLchar* _name, const GLchar ** shader_vector) {
     glAttachShader(program_shader_id, fragment_shader_id); 
 
     glLinkProgram(program_shader_id); 
-    validateProgram(program_shader_id, name.c_str());     
+    validateProgram(program_shader_id, name.c_str());  
+    
+    attribute_vertex = glGetAttribLocation(program_shader_id,"vertex_position");
+    attribute_coordinate_vertex = glGetAttribLocation(program_shader_id,"vertex_uv_coordinates");
+    uniform_scale_matrix = glGetUniformLocation(program_shader_id,"scale_matrix");
+    uniform_rotation_matrix = glGetUniformLocation(program_shader_id,"rotation_matrix");
+    uniform_position_matrix = glGetUniformLocation(program_shader_id,"position_matrix");
+    proM = glGetUniformLocation(program_shader_id,"projection_matrix");
+    viewP = glGetUniformLocation(program_shader_id,"port_view");
 }
 
 Shader::~Shader() {

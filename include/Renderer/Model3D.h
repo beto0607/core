@@ -22,7 +22,6 @@ namespace kaikai
         virtual ~Model3D();
         
         virtual GLvoid draw(Scene*)=0;
-        GLvoid setMaterial(Material*);
         GLfloat flipX();
         GLfloat flipY();
         
@@ -31,7 +30,6 @@ namespace kaikai
         GLvoid setPerspective();
         GLvoid setPerspective(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat);
     protected:
-        Material* material;
     };
 }
 #endif	/* MODEL3D_H */

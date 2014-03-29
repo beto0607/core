@@ -224,6 +224,11 @@ GLvoid Renderable::openLUAfile(const GLchar* _filename)
     lua->openLUAFile(_filename);
 }
 
+GLvoid Renderable::setMaterial(Material* _mat)
+{
+    this->material = _mat;
+}
+
 GLvoid Renderable::mouseMoved(GLfloat x, GLfloat y)
 {
     lua->mouseMoved(x,y);

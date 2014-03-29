@@ -69,7 +69,7 @@ GLvoid KKMeshLoader::loadMesh(std::ifstream& _file, Actor* _actor)
     GLuint* index = new GLuint[index_count*3];
     for(int i=0;i<vertex_count;i++)
     {
-        _file >> row_index;_file >> vertex[0+i*3];_file >> vertex[1+i*3];_file >> vertex[2+i*3];_file >> normal[0];_file >> normal[1];_file >> normal[2];_file >> uv_coord[0];_file >> uv_coord[1];
+        _file >> row_index;_file >> vertex[0+i*3];_file >> vertex[1+i*3];_file >> vertex[2+i*3];_file >> normal[0+i*3];_file >> normal[1+i*3];_file >> normal[2+i*3];_file >> uv_coord[0+i*2];_file >> uv_coord[1+i*2];
     }
     for(int i=0;i<index_count;i++)
     {

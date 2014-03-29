@@ -10,9 +10,11 @@
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_RADIANS
+#define KAIKAI_NOGLEW
 
 #include "../external/include/GL/glew.h"
 #include "../external/include/SDL.h"
+#include "../external/include/SDL_opengl.h"
 #include "../external/include/SDL_syswm.h"
 #include "../external/include/SDL_mixer.h"
 #include "../external/include/SDL_thread.h"
@@ -29,5 +31,34 @@ extern "C"
 {
     #include "../external/include/lua.hpp"      
 }
+
+#ifndef KAIKAI_NOGLEW
+static PFNGLGENBUFFERSPROC glGenBuffers;
+static PFNGLBINDVERTEXARRAYPROC glBindVertexArray;
+static PFNGLGENVERTEXARRAYSPROC glGenVertexArrays;
+static PFNGLBINDBUFFERPROC glBindBuffer;
+static PFNGLBUFFERDATAPROC glBufferData;
+static PFNGLGETBUFFERPARAMETERIVPROC glGetBufferParameteriv;
+static PFNGLDISABLEVERTEXATTRIBARRAYPROC glDisableVertexAttribArray;
+static PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog;
+static PFNGLGETPROGRAMINFOLOGPROC glGetProgramInfoLog;
+static PFNGLVALIDATEPROGRAMPROC glValidateProgram;
+static PFNGLGETPROGRAMIVPROC glGetProgramiv;
+static PFNGLCREATESHADERPROC glCreateShader;
+static PFNGLSHADERSOURCEPROC glShaderSource;
+static PFNGLCOMPILESHADERPROC glCompileShader;
+static PFNGLCREATEPROGRAMPROC glCreateProgram;
+static PFNGLATTACHSHADERPROC glAttachShader;
+static PFNGLLINKPROGRAMPROC glLinkProgram;
+static PFNGLGETATTRIBLOCATIONPROC glGetAttribLocation;
+static PFNGLGETUNIFORMLOCATIONPROC glGetUniformLocation;
+static PFNGLGETSHADERIVPROC glGetShaderiv;
+static PFNGLUSEPROGRAMOBJECTARBPROC glUseProgramObjectARB;
+static PFNGLUNIFORMMATRIX4FVPROC glUniformMatrix4fv;
+static PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray;
+static PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer;
+static PFNGLGENERATEMIPMAPPROC glGenerateMipmap;
+#endif
+
 #endif	/* UNNIVELMAS_CONF_H */
 

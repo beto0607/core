@@ -188,6 +188,13 @@ GLint getCameraAngleZ (lua_State *L)
 
 GLint getZ(lua_State *L)
 {
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getZ(<renderable_pointer>)\n";
+    else
+    {
+        Rectangle* aux = (Rectangle*) lua_touserdata(L,-1);
+        lua_pushnumber(L,aux->getZ());
+    }
     return 1;
 }
 
@@ -358,6 +365,13 @@ GLint setAnimation (lua_State *L)
 
 GLint setZ (lua_State *L)
 {
+    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
+        std::cout << "Parameter error, usage:\n" << "           Core.setZ(<renderable_pointer> , <float>)\n";
+    else
+    {
+        Rectangle* aux = (Rectangle*) lua_touserdata(L,-2);
+        aux->setZ(lua_tonumber(L,-1));
+    }
     return 1;
 }
 

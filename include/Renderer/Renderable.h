@@ -15,6 +15,7 @@ namespace kaikai
     class Animation;
     class Renderablelua;
     class Scene;
+    class Material;
     
 	class Renderable : public MouseEventListener, public TimeEventListener, public JoystickListener, public KeyBoardListener
 	{
@@ -76,7 +77,8 @@ namespace kaikai
                         virtual GLvoid draw(Scene*)=0;
                         
                         GLvoid openLUAfile(const GLchar*);
-                        
+                        GLvoid setMaterial(Material*);
+            
                         // Mouse Events
                         GLvoid mouseMoved(GLfloat, GLfloat);
                         GLvoid keyPressed();
@@ -340,6 +342,7 @@ namespace kaikai
                         GLfloat width, heigth, radius;
                         Shape* shape;
                         Animation* animation;
+                        Material* material;
                         std::string name;
                         glm::mat4 position_matrix;
                         glm::mat3 angle_matrix;

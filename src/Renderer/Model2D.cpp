@@ -35,11 +35,6 @@ void Model2D::draw(Scene* _scene)
     glBindVertexArray(0);
 }
 
-GLvoid Model2D::setMaterial(Material* _mat)
-{
-    this->material = _mat;
-}
-
 GLfloat Model2D::flipX()
 {
     scale_matrix[0][0] *= -1;

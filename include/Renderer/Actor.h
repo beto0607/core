@@ -9,12 +9,14 @@
 #define	ACTOR_H
 
 #include <Renderer/Model3D.h>
-#include <list>
+#include <map>
+#include <string>
 
 namespace kaikai
 {
     class Scene;
     class Joint;
+    class Material;
     
     class Actor : public Model3D{
     public:
@@ -33,9 +35,9 @@ namespace kaikai
         
         GLvoid move(GLfloat,GLfloat,GLfloat);
         GLvoid scale(GLfloat);
-        
+        GLvoid setMaterial(const GLchar*, Material*);
     private:
-        std::list<Renderable*> meshes;
+        std::map<std::string,Renderable*> meshes;
         Joint* root_joint;
         GLint mesh_cant, joint_cant;
     };

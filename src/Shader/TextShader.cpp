@@ -20,7 +20,7 @@ const GLchar* text_shader_vertex = {
 "#version 120\n"
 "\n"
 "attribute vec3 vertex_position;\n"
-"attribute vec2 texture_cordinates;\n"
+"attribute vec2 vertex_uv_coordinates;\n"
 "uniform mat4 scale_matrix;\n"
 "uniform mat4 position_matrix;\n"
 "uniform mat4 projection_matrix;\n"
@@ -32,7 +32,7 @@ const GLchar* text_shader_vertex = {
 "    vec4 vertex = vec4(vertex_position,1.0);\n"
 "    vertex *= scale_matrix;\n"
 "    vertex *= position_matrix;\n"
-"    uv_coord = texture_cordinates;\n"
+"    uv_coord = vertex_uv_coordinates;\n"
 "    gl_Position = projection_matrix  * port_view * vertex;\n"
 "}\n"
 };
@@ -53,12 +53,7 @@ const GLchar* text_shader_fragment = {
 const GLchar* text_shader_vector[2] = {text_shader_vertex,text_shader_fragment};
 
 TextShader::TextShader():Shader("text_shader",text_shader_vector) {
-    attribute_vertex = getAttributeLocation(program_shader_id,"vertex_position");
-    attribute_coordinate_vertex = getAttributeLocation(program_shader_id,"texture_cordinates");
-    uniform_scale_matrix = glGetUniformLocation(program_shader_id,"scale_matrix");
-    uniform_position_matrix = glGetUniformLocation(program_shader_id,"position_matrix");
-    proM = getUniformLocation(program_shader_id,"projection_matrix");
-    viewP = getUniformLocation(program_shader_id,"port_view");
+    
 }
 
 TextShader::~TextShader() {

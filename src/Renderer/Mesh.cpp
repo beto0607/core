@@ -28,10 +28,7 @@ Mesh::~Mesh() {
 GLvoid Mesh::draw(Scene* _scene)
 {
     material->setVariables(this,_scene);
-    glEnableClientState(GL_INDEX_ARRAY);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,index_id);
     glDrawElements(GL_TRIANGLES,index_cant,GL_UNSIGNED_INT, 0);
-    glDisableClientState(GL_INDEX_ARRAY);
     material->disableVariables();
 }
 

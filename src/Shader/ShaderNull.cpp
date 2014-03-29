@@ -47,14 +47,7 @@ const GLchar* null_shader_fragment = {
 const GLchar* null_shader_vector[2] = {null_shader_vertex,null_shader_fragment};
 
 ShaderNull::ShaderNull():Shader("shader_null", null_shader_vector) {
-    attribute_vertex = glGetAttribLocation(program_shader_id,"vertex_position");
-    //attribute_coordinate_vertex = getAttributeLocation(program_shader_id,"vertex_uv_coordinates");
-    uniform_scale_matrix = glGetUniformLocation(program_shader_id,"scale_matrix");
-    uniform_rotation_matrix = glGetUniformLocation(program_shader_id,"rotation_matrix");
-    uniform_position_matrix = glGetUniformLocation(program_shader_id,"position_matrix");
-    proM = glGetUniformLocation(program_shader_id,"projection_matrix");
-    viewP = glGetUniformLocation(program_shader_id,"port_view");
-    
+        
 }
 
 ShaderNull::~ShaderNull() {
