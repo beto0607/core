@@ -59,6 +59,7 @@ GLvoid Clock::setFPSTextFont(Font* _font)
     fps_info->setText("FPS: ");
     fps_info->move(40,30);
     fps_info->setColor(0,0,0,0);
+    fps_info->setOrtho();
     (Core::getInstance())->addRenderable(fps_info);
 }
 

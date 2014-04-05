@@ -16,8 +16,8 @@ using namespace kaikai;
 
 KKMeshLoader::KKMeshLoader() {
     functions.insert(std::pair<std::string,KKMeshLoaderFunction>(std::string("NAME"),&KKMeshLoader::loadName));
-    functions.insert(std::pair<std::string,KKMeshLoaderFunction>(std::string("JOINTS"),&KKMeshLoader::loadMeshCant));
-    functions.insert(std::pair<std::string,KKMeshLoaderFunction>(std::string("MESHES"),&KKMeshLoader::loadJointCant));
+    functions.insert(std::pair<std::string,KKMeshLoaderFunction>(std::string("MESHES"),&KKMeshLoader::loadMeshCant));
+    functions.insert(std::pair<std::string,KKMeshLoaderFunction>(std::string("JOINTS"),&KKMeshLoader::loadJointCant));
     functions.insert(std::pair<std::string,KKMeshLoaderFunction>(std::string("MESH"),&KKMeshLoader::loadMesh));
     functions.insert(std::pair<std::string,KKMeshLoaderFunction>(std::string("JOINT"),&KKMeshLoader::loadJoint));
 }
@@ -89,7 +89,11 @@ GLvoid KKMeshLoader::loadMesh(std::ifstream& _file, Actor* _actor)
 
 GLvoid KKMeshLoader::loadJoint(std::ifstream& _file, Actor* _actor)
 {
-    std::cout << "Pivote\n";
+    Joint** aux_joint;
+    
+    
+    
+    delete aux_joint;
 }
 
 GLvoid KKMeshLoader::loadHeader(std::ifstream& _file, Actor* _actor)

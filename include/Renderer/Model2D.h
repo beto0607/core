@@ -23,14 +23,15 @@ namespace kaikai
             virtual ~Model2D();
 
             GLvoid draw(Scene*);
-            GLfloat flipX();
-            GLfloat flipY();
+            GLvoid flipX();
+            GLvoid flipY();
             GLvoid setOrtho();
             GLvoid setOrtho(GLfloat,GLfloat,GLfloat,GLfloat,GLfloat,GLfloat);
             GLvoid setPerspective();
             GLvoid setPerspective(GLfloat _fovy,GLfloat _x,GLfloat _y,GLfloat _near,GLfloat _far);
             
         protected:
+            GLint fliped;
     };    
 }
 

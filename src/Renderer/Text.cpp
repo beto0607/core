@@ -20,6 +20,7 @@ Text::Text(const GLchar* _name,Font* _font): Rectangle(_name,1.1,1.1){
     glGenTextures(1,&texture_id);
     this->material->getTexture()->setTexture(texture_id);
     this->setText(" ");
+    this->setOrtho();
 }
 
 Text::Text(const GLchar* _name): Rectangle(_name,1.1,1.1)
@@ -39,7 +40,7 @@ GLvoid Text::setText(const GLchar* _text)
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     scale_matrix[0][0] = mesage->w;
-    scale_matrix[1][1] = mesage->h;
+    scale_matrix[1][1] = -1.0 * mesage->h;
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, mesage->w, mesage->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, mesage->pixels);
     glBindTexture(GL_TEXTURE_2D, 0);
     }
@@ -59,9 +60,6 @@ GLvoid Text::setFont(Font* _font)
 
 GLvoid Text::draw(Scene* _scene)
 {
-    glPushAttrib(GL_ENABLE_BIT);
-    glDisable(GL_DEPTH_TEST);
-    glDisable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     Model2D::draw(_scene);

@@ -13,6 +13,7 @@ Renderable::Renderable():MouseEventListener(),TimeEventListener(),JoystickListen
     animation = new Animation();
     scale_matrix = glm::mat4(1.0f);
     position_matrix = glm::mat4(1.0f);
+    angle_matrix = glm::mat4(1.0f);
     lua = new Renderablelua(this);
     width = 0;
     heigth = 0;
@@ -67,6 +68,39 @@ GLfloat Renderable::getZ()
 GLvoid Renderable::setZ(GLfloat z)
 {
     position_matrix[2][3] = z;
+}
+
+GLfloat Renderable::getAngleX()
+{
+    return angle[0];
+}
+
+GLvoid Renderable::setAngleX(GLfloat _x)
+{
+    (_x < 360)?angle[0] = _x:angle[0] = 0;
+    angle_matrix = glm::eulerAngleYXZ(glm::radians(angle[0]),glm::radians(angle[1]),glm::radians(angle[2]));
+}
+
+GLfloat Renderable::getAngleY()
+{
+    return angle[1];
+}
+
+GLvoid Renderable::setAngleY(GLfloat _y)
+{
+    (_y < 360)?angle[1] = _y:angle[1] = 0;
+    angle_matrix = glm::eulerAngleYXZ(glm::radians(angle[0]),glm::radians(angle[1]),glm::radians(angle[2]));
+}
+
+GLfloat Renderable::getAngleZ()
+{
+    return angle[2];
+}
+
+GLvoid Renderable::setAngleZ(GLfloat _z)
+{
+    (_z < 360)?angle[2] = _z:angle[2] = 0;
+    angle_matrix = glm::eulerAngleYXZ(glm::radians(angle[0]),glm::radians(angle[1]),glm::radians(angle[2]));
 }
 
 GLvoid Renderable::scale(GLfloat _scale)

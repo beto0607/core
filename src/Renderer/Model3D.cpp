@@ -19,9 +19,11 @@ using namespace kaikai;
 
 Model3D::Model3D() {
     material = ((Core::getInstance())->getTextureManager())->getNullMaterial();
-    GLfloat aspect = Core::getInstance()->getRenderManager()->getRendererY() / Core::getInstance()->getRenderManager()->getRendererX();
-    projection_matrix = glm::frustum(1.0f, -1.0f,aspect,-aspect,1.0f,50.0f);
-    //projection_matrix = glm::perspective(45.0f, Core::getInstance()->getRenderManager()->getRendererX() / Core::getInstance()->getRenderManager()->getRendererY(), 1.0f, 10.0f);
+    GLfloat x = Core::getInstance()->getRenderManager()->getRendererX();
+    GLfloat y = Core::getInstance()->getRenderManager()->getRendererY();
+    GLfloat aspect = y/x;
+    //projection_matrix = glm::perspective(45.0f,aspect,0.1f,500.0f);
+    projection_matrix = glm::frustum(-1.0f, 1.0f,-aspect,aspect,1.0f,100.0f);
 }
 
 GLvoid Model3D::setOrtho()
@@ -39,7 +41,7 @@ GLvoid Model3D::setOrtho(GLfloat _left,GLfloat _rigth,GLfloat _bottom,GLfloat _t
 GLvoid Model3D::setPerspective()
 {
     GLfloat aspect = Core::getInstance()->getRenderManager()->getRendererY() / Core::getInstance()->getRenderManager()->getRendererX();
-    projection_matrix = glm::frustum(-10.0f, 10.0f,-aspect,aspect,1.0f,50.0f);
+    projection_matrix = glm::frustum(-1.0f, 1.0f,-aspect,aspect,1.0f,100.0f);
 }
 
 GLvoid Model3D::setPerspective(GLfloat _fovy,GLfloat _x,GLfloat _y,GLfloat _near,GLfloat _far)

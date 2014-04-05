@@ -210,131 +210,74 @@ GLint setX (lua_State *L)
     return 1;
 }
 
-GLint setCameraPositionX (lua_State *L)
+GLint setRotationX (lua_State *L)
 {
     if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraX(<camera_pointer> , <float>)\n";
+        std::cout << "Parameter error, usage:\n" << "           Core.setRotationX(<renderable_pointer> , <float>)\n";
     else
     {
-        Camera* cam = (Camera*) lua_touserdata(L,-2);
-        if(cam != NULL)
-        {
-            std::stringstream mesage;
-            GLfloat pos = lua_tonumber(L,-1);
-            mesage << "setting Camera: " << cam->getName() << " X Position: " << pos;
-            cam->setPositionX(pos);
-            Logger::getInstance()->workFlowinfoLog(mesage.str());
-        }
-    }
-    return 1;
-}
-
-GLint setCameraPositionY (lua_State *L)
-{
-    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraY(<camera_pointer> , <float>)\n";
-    else
-    {
-        Camera* cam = (Camera*) lua_touserdata(L,-2);
-        if(cam != NULL)
-        {
-            std::stringstream mesage;
-            GLfloat pos = lua_tonumber(L,-1);
-            mesage << "setting Camera: " << cam->getName() << " Y Position: " << pos;
-            cam->setPositionY(pos);
-            Logger::getInstance()->workFlowinfoLog(mesage.str());
-        }
-    }
-    return 1;
-}
-
-GLint setCameraPositionZ (lua_State *L)
-{
-    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraPositionZ(<camera_pointer> , <float>)\n";
-    else
-    {
-        Camera* cam = (Camera*) lua_touserdata(L,-2);
-        if(cam != NULL)
-        {
-            std::stringstream mesage;
-            GLfloat pos = lua_tonumber(L,-1);
-            mesage << "setting Camera: " << cam->getName() << " Z Position: " << pos;
-            cam->setPositionZ(pos);
-            Logger::getInstance()->workFlowinfoLog(mesage.str());
-        }
-    }
-    return 1;
-}
-
-GLint setCameraFocusX (lua_State *L)
-{
-    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraFocusX(<camera_pointer> , <float>)\n";
-    else
-    {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
-        aux->setFocusX(lua_tonumber(L,-1));
-    }
-    return 1;
-}
-
-GLint setCameraFocusY (lua_State *L)
-{
-    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraFocusY(<camera_pointer> , <float>)\n";
-    else
-    {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
-        aux->setFocusY(lua_tonumber(L,-1));
-    }
-    return 1;
-}
-
-GLint setCameraFocusZ (lua_State *L)
-{
-    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraFocusZ(<camera_pointer> , <float>)\n";
-    else
-    {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
-        aux->setFocusZ(lua_tonumber(L,-1));
-    }
-    return 1;
-}
-
-GLint setCameraAngleX(lua_State *L)
-{
-    if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraAngleX(<camera_pointer> , <float>)\n";
-    else
-    {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        Rectangle* aux = (Rectangle*) lua_touserdata(L,-2);
         aux->setAngleX(lua_tonumber(L,-1));
     }
     return 1;
 }
 
-GLint setCameraAngleY(lua_State *L)
+GLint setRotationY (lua_State *L)
 {
     if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraAngleY(<camera_pointer> , <float>)\n";
+        std::cout << "Parameter error, usage:\n" << "           Core.setRotationY(<renderable_pointer> , <float>)\n";
     else
     {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        Rectangle* aux = (Rectangle*) lua_touserdata(L,-2);
         aux->setAngleY(lua_tonumber(L,-1));
     }
     return 1;
 }
 
-GLint setCameraAngleZ(lua_State *L)
+GLint setRotationZ (lua_State *L)
 {
     if( !lua_isnumber(L,-1) || !lua_islightuserdata(L,-2))
-        std::cout << "Parameter error, usage:\n" << "           Core.setCameraAngleZ(<camera_pointer> , <float>)\n";
+        std::cout << "Parameter error, usage:\n" << "           Core.setRotationZ(<renderable_pointer> , <float>)\n";
     else
     {
-        Camera* aux = (Camera*) lua_touserdata(L,-2);
+        Rectangle* aux = (Rectangle*) lua_touserdata(L,-2);
         aux->setAngleZ(lua_tonumber(L,-1));
+    }
+    return 1;
+}
+
+GLint getRotationX(lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getRotationX(<renderable_pointer>)\n";
+    else
+    {
+        Rectangle* aux = (Rectangle*) lua_touserdata(L,-1);
+        lua_pushnumber(L,aux->getAngleX());
+    }
+    return 1;
+}
+
+GLint getRotationY(lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getRotationY(<renderable_pointer>)\n";
+    else
+    {
+        Rectangle* aux = (Rectangle*) lua_touserdata(L,-1);
+        lua_pushnumber(L,aux->getAngleY());
+    }
+    return 1;
+}
+
+GLint getRotationZ(lua_State *L)
+{
+    if( !lua_islightuserdata(L,-1))
+        std::cout << "Parameter error, usage:\n" << "           Core.getRotationZ(<renderable_pointer>)\n";
+    else
+    {
+        Rectangle* aux = (Rectangle*) lua_touserdata(L,-1);
+        lua_pushnumber(L,aux->getAngleZ());
     }
     return 1;
 }
@@ -387,16 +330,6 @@ int getRenderable(lua_State* L)
     return 1;					
 }
 
-int getCamera(lua_State* L)
-{
-    Camera* cam = (Core::getInstance())->getRenderManager()->getActiveScene()->getCamera();
-    if(cam == NULL)
-        std::cout << "There is not an active camera\n";
-    else
-        lua_pushlightuserdata(L,cam);
-    return 1;					
-}
-
 int getLigth(lua_State* L)
 {
 	std::cout << "Ligh \n";
@@ -431,7 +364,6 @@ int flipY(lua_State* L)
 
 static const struct luaL_Reg core_functions [] = {
     {"getRenderable", getRenderable},
-    {"getActiveCamera", getCamera},
     {"getScene", getScene},
     {"getLigth", getLigth},
     {"getX", getX},
@@ -440,24 +372,12 @@ static const struct luaL_Reg core_functions [] = {
     {"setX", setX},
     {"setY", setY},
     {"setZ", setZ},
-    {"setCameraPositionX", setCameraPositionX},
-    {"setCameraPositionY", setCameraPositionY},
-    {"setCameraPositionZ", setCameraPositionZ},
-    {"getCameraPositionX", getCameraPositionX},
-    {"getCameraPositionY", getCameraPositionY},
-    {"getCameraPositionZ", getCameraPositionZ},
-    {"getCameraFocusX", getCameraFocusX},
-    {"getCameraFocusY", getCameraFocusY},
-    {"getCameraFocusZ", getCameraFocusZ},
-    {"getCameraAngleX", getCameraAngleX},
-    {"getCameraAngleY", getCameraAngleY},
-    {"getCameraAngleZ", getCameraAngleZ},
-    {"setCameraFocusX", setCameraFocusX},
-    {"setCameraFocusY", setCameraFocusY},
-    {"setCameraFocusZ", setCameraFocusZ},
-    {"setCameraAngleX", setCameraAngleX},
-    {"setCameraAngleY", setCameraAngleY},
-    {"setCameraAngleZ", setCameraAngleZ},
+    {"getAngleX", getRotationX},
+    {"getAngleY", getRotationY},
+    {"getAngleZ", getRotationZ},
+    {"setAngleX", setRotationX},
+    {"setAngleY", setRotationY},
+    {"setAngleZ", setRotationZ},
     {"setAnimation", setAnimation},
     {"flipX", flipX},
     {"flipY", flipY},
@@ -922,26 +842,26 @@ GLvoid Renderablelua::keyARROWUPdown()
 {
     lua_getglobal(L,"keyARROWUPdown");
     if(lua_pcall(L,0,0,0) != LUA_OK)
-        std::cout << lua_tostring(L,-1) << "\n";
+        std::cout << "keyARROWUPdown: " << lua_tostring(L,-1) << "\n";
 }
 GLvoid Renderablelua::keyARROWDOWNdown()
 {
     lua_getglobal(L,"keyARROWDOWNdown");
     if(lua_pcall(L,0,0,0) != LUA_OK)
-        std::cout << lua_tostring(L,-1) << "\n";
+        std::cout << "keyARROWDOWNdown: " << lua_tostring(L,-1) << "\n";
 }
 
 GLvoid Renderablelua::keyARROWLEFTdown()
 {
     lua_getglobal(L,"keyARROWLEFTdown");
     if(lua_pcall(L,0,0,0) != LUA_OK)
-        std::cout << lua_tostring(L,-1) << "\n";
+         std::cout << "keyARROWLEFTdown: " << lua_tostring(L,-1) << "\n";
 }
 GLvoid Renderablelua::keyARROWRIGHTdown()
 {
     lua_getglobal(L,"keyARROWRIGHTdown");
     if(lua_pcall(L,0,0,0) != LUA_OK)
-        std::cout << lua_tostring(L,-1) << "\n";
+         std::cout << "keyARROWRIGHTdown: " << lua_tostring(L,-1) << "\n";
 }
 GLvoid Renderablelua::keyNUMPAD1down()
 {

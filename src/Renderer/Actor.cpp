@@ -6,13 +6,14 @@
  */
 
 #include <Renderer/Actor.h>
+#include <Animation/Skeleton.h>
 #include <iostream>
 #include <Renderer/Model3D.h>
 
 using namespace kaikai;
 
 Actor::Actor() {
-           
+    skeleton = new Skeleton();
 }
 
 Actor::~Actor() {
@@ -28,14 +29,56 @@ GLint Actor::getMeshCount()
     return mesh_cant;
 }
 
-GLvoid Actor::setJointCount(GLint _count)
+GLvoid Actor::setX(GLfloat _x)
 {
-    joint_cant = _count;
+    Renderable::setX(_x);
+    for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        it->second->setX(_x);
 }
 
-GLint Actor::setJointCount()
+GLvoid Actor::setY(GLfloat _y)
 {
-    return joint_cant;
+    Renderable::setY(_y);
+    for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        it->second->setY(_y);
+}
+
+GLvoid Actor::setZ(GLfloat _z)
+{
+    Renderable::setZ(_z);
+    for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        it->second->setZ(_z);
+}
+
+GLvoid Actor::setAngleX(GLfloat _x)
+{
+    Renderable::setAngleX(_x);
+    for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        it->second->setAngleX(_x);
+}
+
+GLvoid Actor::setAngleY(GLfloat _y)
+{
+    Renderable::setAngleY(_y);
+    for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        it->second->setAngleY(_y);
+}
+
+GLvoid Actor::setAngleZ(GLfloat _z)
+{
+    Renderable::setAngleZ(_z);
+    for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        it->second->setAngleZ(_z);
+}
+
+GLvoid Actor::setJointCount(GLint _count)
+{
+    skeleton->setJointCant(_count);
+}
+
+GLint Actor::getJointCount()
+{
+    return skeleton->getJointCount();
 }
 
 GLvoid Actor::draw(Scene* _scene)

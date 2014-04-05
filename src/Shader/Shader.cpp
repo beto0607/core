@@ -199,6 +199,7 @@ void Shader::setShaderVariables(Renderable* _renderable, Material* _material, Sc
     glUseProgramObjectARB(program_shader_id);
     glUniformMatrix4fv(uniform_scale_matrix,1,GL_FALSE,_renderable->getScale());
     glUniformMatrix4fv(uniform_position_matrix,1,GL_FALSE,_renderable->getPosition());
+    glUniformMatrix4fv(uniform_rotation_matrix,1,GL_FALSE,_renderable->getRotation());
     glUniformMatrix4fv(proM,1,GL_FALSE,_renderable->getProjectionMatrix());
     glUniformMatrix4fv(viewP,1,GL_FALSE,_scene->getCamera()->getMatrixView());
     glEnableVertexAttribArray(attribute_vertex);

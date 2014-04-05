@@ -25,14 +25,21 @@ namespace kaikai
                         virtual ~Renderable();
                     
                         GLfloat getX();
-                        GLvoid setX(GLfloat);
-
                         GLfloat getY();
-                        GLvoid setY(GLfloat);
-                        
                         GLfloat getZ();
-                        GLvoid setZ(GLfloat);
-
+                        
+                        virtual GLvoid setX(GLfloat);
+                        virtual GLvoid setY(GLfloat);
+                        virtual GLvoid setZ(GLfloat);
+                        
+                        GLfloat getAngleX();
+                        GLfloat getAngleY();
+                        GLfloat getAngleZ();
+                        
+                        virtual GLvoid setAngleX(GLfloat);
+                        virtual GLvoid setAngleY(GLfloat);
+                        virtual GLvoid setAngleZ(GLfloat);
+                        
                         GLvoid scale(GLfloat);
                         GLfloat* getScale();
 
@@ -345,7 +352,8 @@ namespace kaikai
                         Material* material;
                         std::string name;
                         glm::mat4 position_matrix;
-                        glm::mat3 angle_matrix;
+                        GLfloat angle[3];
+                        glm::mat4 angle_matrix;
                         glm::mat4 scale_matrix;
                         glm::mat4 projection_matrix;
                         Renderablelua* lua;

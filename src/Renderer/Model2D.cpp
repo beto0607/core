@@ -20,7 +20,8 @@ Model2D::Model2D():Renderable() {
     material = ((Core::getInstance())->getTextureManager())->getNullMaterial();
     GLfloat x = Core::getInstance()->getRenderManager()->getRendererX();
     GLfloat y = Core::getInstance()->getRenderManager()->getRendererY();
-    projection_matrix = glm::ortho(0.0f,x, y, 0.0f, 0.1f, 100.0f);
+    GLfloat aspect = y/x;
+    projection_matrix = glm::frustum(-1.0f, 1.0f,-aspect,aspect,1.0f,100.0f);
 }
 
 Model2D::~Model2D() {
@@ -30,17 +31,17 @@ void Model2D::draw(Scene* _scene)
 {
     glBindVertexArray(vba_id);
         material->setVariables(this,_scene);
-        glDrawArrays(GL_TRIANGLE_STRIP,0,4);
+        glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT, 0);
         material->disableVariables();
     glBindVertexArray(0);
 }
 
-GLfloat Model2D::flipX()
+GLvoid Model2D::flipX()
 {
     scale_matrix[0][0] *= -1;
 }
 
-GLfloat Model2D::flipY()
+GLvoid Model2D::flipY()
 {
     scale_matrix[1][1] *= -1;
 }
@@ -61,7 +62,8 @@ GLvoid Model2D::setPerspective()
 {
     GLfloat x = Core::getInstance()->getRenderManager()->getRendererX();
     GLfloat y = Core::getInstance()->getRenderManager()->getRendererY();
-    projection_matrix = glm::perspective(5.0f, (GLfloat)(-1.0*x) / y, 1.0f, 1000.0f);
+    GLfloat aspect = y/x;
+    projection_matrix = glm::frustum(-1.0f, 1.0f,-aspect,aspect,1.0f,100.0f);
 }
 
 GLvoid Model2D::setPerspective(GLfloat _fovy,GLfloat _x,GLfloat _y,GLfloat _near,GLfloat _far)
