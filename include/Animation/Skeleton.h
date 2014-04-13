@@ -12,6 +12,8 @@
 
 namespace kaikai
 {
+    class Joint;
+    
     class Skeleton {
     public:
         Skeleton();
@@ -20,12 +22,13 @@ namespace kaikai
         GLvoid setJointCant(GLint);
         GLint getJointCount();
         
+        GLvoid allocateMemory(GLint);
+        
     private:
         GLint joint_cant;
-        GLfloat* vertex_color;
-        GLint* vertex_index;
-        GLuint vertex_color_id, vertex_index_id;
-        };
+        Joint* joint_root;
+        glm::mat4* joint_rotation;
+    };
 }
 #endif	/* SKELETON_H */
 

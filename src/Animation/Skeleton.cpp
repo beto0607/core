@@ -6,10 +6,12 @@
  */
 
 #include <Animation/Skeleton.h>
+#include <iostream>
 
 using namespace kaikai;
 
 Skeleton::Skeleton() {
+    joint_cant = 0;
 }
 
 Skeleton::~Skeleton() {
@@ -23,4 +25,9 @@ GLvoid Skeleton::setJointCant(GLint _cant)
 GLint Skeleton::getJointCount()
 {
     return joint_cant;
+}
+
+GLvoid Skeleton::allocateMemory(GLint vertex_cant)
+{
+    joint_rotation = new glm::mat4[joint_cant];
 }

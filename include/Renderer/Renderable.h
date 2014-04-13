@@ -65,6 +65,8 @@ namespace kaikai
                         GLfloat getWidth();
                         GLuint getVertexBufferID();
                         GLuint getUVBufferID();
+                        glm::vec4* getBindBone();
+                        glm::vec4* getWeightBone();
                         
                         GLvoid setName(std::string);
                         std::string getName();
@@ -73,7 +75,7 @@ namespace kaikai
                         virtual GLvoid bottomCollision(Renderable*);
                         virtual GLvoid leftCollision(Renderable*);
                         virtual GLvoid rightCollision(Renderable*);
-                        
+                        virtual GLvoid setBoneWeightAndIndex(glm::vec4*, glm::vec4*);
                         Shape* getShape();
                         
                         GLvoid setAnimation(Animation*);
@@ -356,6 +358,8 @@ namespace kaikai
                         glm::mat4 angle_matrix;
                         glm::mat4 scale_matrix;
                         glm::mat4 projection_matrix;
+                        glm::vec4* vertex_bone_index;
+                        glm::vec4* vertex_weight;
                         Renderablelua* lua;
                         
         };

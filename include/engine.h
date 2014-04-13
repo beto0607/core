@@ -15,6 +15,7 @@
 #include "Renderer/Mesh.h"
 #include "Renderer/Actor.h"
 #include "Shader/Shader.h"
+#include "Shader/BindVertexShader.h"
 #include "Shader/SpriteShader.h"
 #include "Scene/Material.h"
 #include "Scene/Camera/Camera.h"

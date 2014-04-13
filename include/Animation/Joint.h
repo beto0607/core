@@ -21,6 +21,7 @@ namespace kaikai
         
     private:
         std::string name;
+        GLint bone_array_index;
         Joint* faher;
         std::list<Joint*> childs;
     };

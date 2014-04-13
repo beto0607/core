@@ -176,6 +176,21 @@ GLuint Renderable::getUVBufferID()
     return uv_id;
 }
 
+glm::vec4* Renderable::getBindBone()
+{
+    return vertex_bone_index;
+}
+
+glm::vec4* Renderable::getWeightBone()
+{
+    return vertex_weight;
+}
+
+GLvoid Renderable::setBoneWeightAndIndex(glm::vec4*, glm::vec4*)
+{
+
+}
+
 GLvoid Renderable::setName(std::string _name)
 {
     name = _name;

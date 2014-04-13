@@ -24,9 +24,10 @@ namespace kaikai
         GLvoid setNormal(GLfloat*, GLint);
         GLvoid setUVCoord(GLfloat*, GLint);
         GLvoid setIndex(GLuint*, GLint);
+        GLvoid setBoneWeightAndIndex(glm::vec4*, glm::vec4*);
     private:
         GLint vertex_cant, index_cant;
-        GLuint normal_id, index_id;
+        GLuint normal_id, index_id, weight_id, bone_index_id;
     };
 }
 #endif	/* MESH_H */

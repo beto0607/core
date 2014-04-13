@@ -20,6 +20,8 @@ Mesh::Mesh() : Model3D(){
     normal_id = (Core::getInstance())->getRenderManager()->getNextVertexBufferObjectNumber();
     uv_id = (Core::getInstance())->getRenderManager()->getNextUVBufferObjectNumber();
     index_id = (Core::getInstance())->getRenderManager()->getNextUVBufferObjectNumber();
+    weight_id = (Core::getInstance())->getRenderManager()->getNextUVBufferObjectNumber();
+    bone_index_id = (Core::getInstance())->getRenderManager()->getNextUVBufferObjectNumber();
 }
 
 Mesh::~Mesh() {
@@ -91,4 +93,10 @@ GLvoid Mesh::setIndex(GLuint* _index, GLint _cant)
     std::stringstream mesage;
     mesage << "MESH was load susefull with: " << vertex_cant/3 << " vertex and " << index_cant/3 << " index";
     (Logger::getInstance())->infoLog(mesage.str());
+}
+
+GLvoid Mesh::setBoneWeightAndIndex(glm::vec4* _weight, glm::vec4* _bone_index)
+{
+    vertex_bone_index = _bone_index;
+    vertex_weight = _weight;        
 }
