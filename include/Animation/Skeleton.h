@@ -9,25 +9,37 @@
 #define	SKELETON_H
 
 #include "../Unnivelmas_conf.h"
+#include <map>
 
 namespace kaikai
 {
-    class Joint;
-    
+    class Joint; 
+    class JointShader;  
+    class Scene;
+    /**
+     * @author: Francisco Blanco
+     * @description: Skeleton is a Joints group that has all movements animation data with an Actor
+     */
     class Skeleton {
     public:
         Skeleton();
         virtual ~Skeleton();
 
-        GLvoid setJointCant(GLint);
-        GLint getJointCount();
+        GLvoid setJointCant(GLint _cant); //!< this function sets a joint_cant variable with _cant value.
+        GLint getJointCount(); //!< this function returns joint_cant value.
         
-        GLvoid allocateMemory(GLint);
+        GLvoid allocateMemory(GLint); //!< allocates memory in joint_rotation and joint_inverted_matrix.
+        GLfloat* getInvertedPoseMatrixArray(); //!< returns joint_rotation pointer, it's used to pass Inverted Bind Pose to Shaders.
         
+        GLvoid setJoint(Joint*);
+        GLvoid draw(Scene*);
     private:
-        GLint joint_cant;
+        GLint joint_cant; /** \brief number of joints */
+        std::map<GLint,Joint*> joint_collection;
         Joint* joint_root;
         glm::mat4* joint_rotation;
+        glm::mat4* joint_inverted_matrix;
+        JointShader* shader;
     };
 }
 #endif	/* SKELETON_H */

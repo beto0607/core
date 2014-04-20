@@ -30,6 +30,8 @@ namespace kaikai{
         virtual GLvoid setShaderVariables(Renderable*, Material*, Scene*);
         virtual GLvoid disableShaderVariables();
         
+        GLuint getAttributeVertex();
+        
     protected:
         std::string name;
         GLenum program_shader_id;

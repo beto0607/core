@@ -9,19 +9,46 @@
 #define	JOINT_H
 
 #include "../Unnivelmas_conf.h"
+#include <Renderer/Model3D.h>
 #include <string>
 #include <list>
 
 namespace kaikai
 {
-    class Joint {
+    class DrawStrategy;
+    class Scene;
+    class Shader;
+    
+    class Joint : Model3D{
     public:
         Joint();
         virtual ~Joint();
         
+        GLvoid setId(GLint);
+        GLvoid setName(std::string);
+        GLvoid setParentId(GLint);
+        GLvoid setHeader(glm::vec3);
+        GLvoid setTail(glm::vec3);
+        GLvoid setRotation(glm::quat);
+        
+        GLint getId();
+        std::string getName();
+        GLint getParentId();
+        glm::vec3 getHeader();
+        glm::vec3 getTail();
+        glm::quat getRotation();
+        
+        GLvoid addChild(Joint*);
+        GLvoid draw(Scene*);
+        GLvoid draw(Scene*,Shader*);
     private:
+        DrawStrategy* draw_strategy;
         std::string name;
-        GLint bone_array_index;
+        GLint id;
+        GLint parent_id;
+        glm::vec3 head;
+        glm::vec3 tail;
+        glm::quat rotation;
         Joint* faher;
         std::list<Joint*> childs;
     };

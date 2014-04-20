@@ -13,6 +13,7 @@
 #include <Log/Logger.h>
 #include <Renderer/Model2D.h>
 #include <string>
+#include <sstream>
 #include <fstream>
 #include <iostream>
 #include <stdio.h>
@@ -173,20 +174,20 @@ Shader::~Shader() {
 GLint Shader::getAttributeLocation(GLuint program, const GLchar* attribute_name)
 {
     GLint resu = glGetAttribLocation(program, attribute_name);
-    std::string message = attribute_name;
-    message.append(" isn't in Attribute, Program Shader\n");
+    std::stringstream message;
+    message << attribute_name << " isn't in Attribute. On program Shader: " << this->name;
     if(resu == -1)
-        (Core::getInstance())->getLogger()->warnningLog(message.c_str());
+        (Core::getInstance())->getLogger()->warnningLog(message.str().c_str());
     return resu;
 }
 
 GLint Shader::getUniformLocation(GLuint program, const GLchar* uniform_name)
 {
     GLint resu = glGetUniformLocation(program, uniform_name);
-    std::string message = uniform_name;
-    message.append(" isn't in Uniform, Program Shader");
+    std::stringstream message;
+    message << uniform_name << " isn't in Uniform. On program Shader: " << this->name;
     if(resu == -1)
-        (Core::getInstance())->getLogger()->warnningLog(message.c_str());
+        (Core::getInstance())->getLogger()->warnningLog(message.str().c_str());
     return resu;
 }
 
@@ -215,4 +216,9 @@ void Shader::disableShaderVariables()
 {
     glDisableVertexAttribArray(attribute_vertex);
     glUseProgramObjectARB(0);
+}
+
+GLuint Shader::getAttributeVertex()
+{
+    return attribute_vertex;
 }

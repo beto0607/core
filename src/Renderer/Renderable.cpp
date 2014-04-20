@@ -5,7 +5,13 @@
 #include <Log/Logger.h>
 #include <Scripting/Renderablelua.h>
 #include <Scene/Scene.h>
+#include <Renderer/RenderableStrategies/DrawStrategy.h>
+#include <Renderer/RenderableStrategies/SolidDraw.h>
+#include <Renderer/RenderableStrategies/WireframeDraw.h>
+#include <iostream>
 #include <sstream>
+
+#include "Renderer/RenderableStrategies/SolidDraw.h"
 
 using namespace kaikai;
 
@@ -18,6 +24,7 @@ Renderable::Renderable():MouseEventListener(),TimeEventListener(),JoystickListen
     width = 0;
     heigth = 0;
     radius = 0;
+    draw_strategy = new SolidDraw();
 }
 
 Renderable::~Renderable() {
@@ -276,6 +283,16 @@ GLvoid Renderable::openLUAfile(const GLchar* _filename)
 GLvoid Renderable::setMaterial(Material* _mat)
 {
     this->material = _mat;
+}
+
+GLvoid Renderable::setSolidDraw()
+{
+    draw_strategy = new SolidDraw();
+}
+
+GLvoid Renderable::setWireframeDraw()
+{
+    draw_strategy = new WireframeDraw();
 }
 
 GLvoid Renderable::mouseMoved(GLfloat x, GLfloat y)
@@ -688,4 +705,14 @@ GLvoid Renderable::keyNUMPADDOTpressed(){ }
 GLvoid Renderable::update(GLfloat _tick)
 {
     lua->update(_tick);
+}
+
+GLvoid Renderable::setParent(Renderable* _parent)
+{
+    parent = _parent;
+}
+
+Renderable* Renderable::getParent()
+{
+    return parent;
 }

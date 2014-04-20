@@ -8,6 +8,7 @@
 #include <Renderer/KKMeshLoader.h>
 #include <Renderer/Actor.h>
 #include <Renderer/Mesh.h>
+#include <Animation/Joint.h>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -80,7 +81,7 @@ GLvoid KKMeshLoader::loadMesh(std::ifstream& _file, Actor* _actor)
         for(GLint j=0;j<4;j++)
         {
             weigth[i][j] = 0.0;
-            bone_index[i][j] = -1;
+            bone_index[i][j] = 49;
         }
         for(GLint j=0 ;j < weight_cant; j++)
         {
@@ -107,11 +108,18 @@ GLvoid KKMeshLoader::loadMesh(std::ifstream& _file, Actor* _actor)
 
 GLvoid KKMeshLoader::loadJoint(std::ifstream& _file, Actor* _actor)
 {
-    Joint** aux_joint;
-    
-    
-    
-    delete aux_joint;
+    Joint* aux_joint = new Joint();
+    GLint id,father_id;
+    std::string name;
+    glm::vec3 position;
+    glm::quat rotation;
+    _file >> id >> name >> father_id >> position[0] >> position[1] >> position[2] >> rotation[0] >> rotation[1] >> rotation[2] >> rotation[3];
+    aux_joint->setId(id);
+    aux_joint->setName(name);
+    aux_joint->setParentId(father_id);
+    aux_joint->setHeader(position);
+    aux_joint->setRotation(rotation);   
+    _actor->setJoint(aux_joint);
 }
 
 GLvoid KKMeshLoader::loadHeader(std::ifstream& _file, Actor* _actor)

@@ -12,7 +12,7 @@
 
 using namespace kaikai;
 
-Actor::Actor() {
+Actor::Actor():Model3D(){
     skeleton = new Skeleton();
 }
 
@@ -71,9 +71,22 @@ GLvoid Actor::setAngleZ(GLfloat _z)
         it->second->setAngleZ(_z);
 }
 
+GLvoid Actor::setSolidDraw()
+{
+    for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        it->second->setSolidDraw();
+}
+
+GLvoid Actor::setWireframeDraw()
+{
+    for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
+        it->second->setWireframeDraw();
+}
+
 GLvoid Actor::setJointCount(GLint _count)
 {
     skeleton->setJointCant(_count);
+    skeleton->allocateMemory(_count);
 }
 
 GLint Actor::getJointCount()
@@ -83,6 +96,7 @@ GLint Actor::getJointCount()
 
 GLvoid Actor::draw(Scene* _scene)
 {
+    skeleton->draw(_scene);
     for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
         it->second->draw(_scene);
 }
@@ -90,6 +104,7 @@ GLvoid Actor::draw(Scene* _scene)
 GLvoid Actor::addRenderable(Renderable* _renderable)
 {
     meshes.insert(std::pair<std::string,Renderable*>(_renderable->getName(), _renderable));
+    _renderable->setParent(this);
 }
 
 GLvoid Actor::move(GLfloat _x,GLfloat _y,GLfloat _z)
@@ -107,4 +122,15 @@ GLvoid Actor::scale(GLfloat _s)
 GLvoid Actor::setMaterial(const GLchar* _name, Material* _mat)
 {
     meshes.find(std::string(_name))->second->setMaterial(_mat);
+}
+
+GLfloat* Actor::getInvertedPoseMatrixArray()
+{
+    //std::cout << name << "\n";
+    skeleton->getInvertedPoseMatrixArray();
+}
+
+GLvoid Actor::setJoint(Joint* _joint)
+{
+    skeleton->setJoint(_joint);
 }

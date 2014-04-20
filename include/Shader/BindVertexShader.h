@@ -24,6 +24,7 @@ namespace kaikai
     private:
         GLuint index_vertex;
         GLuint color_bind;
+        GLuint weight_bind;
     };
 }
 #endif	/* BINDVERTEXSHADER_H */

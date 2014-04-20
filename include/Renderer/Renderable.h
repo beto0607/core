@@ -3,6 +3,7 @@
 #define	RENDERABLE_H
 
 #include "../Unnivelmas_conf.h"
+#include "RenderableStrategies/DrawStrategy.h"
 #include <Core/TimeEventListener.h>
 #include <Input/MouseEventListener.h>
 #include <Input/JoystickListener.h>
@@ -15,6 +16,7 @@ namespace kaikai
     class Animation;
     class Renderablelua;
     class Scene;
+    class DrawStrategy;
     class Material;
     
 	class Renderable : public MouseEventListener, public TimeEventListener, public JoystickListener, public KeyBoardListener
@@ -71,6 +73,9 @@ namespace kaikai
                         GLvoid setName(std::string);
                         std::string getName();
                         
+                        GLvoid setParent(Renderable*);
+                        Renderable* getParent();
+                        
                         virtual GLvoid topCollision(Renderable*);
                         virtual GLvoid bottomCollision(Renderable*);
                         virtual GLvoid leftCollision(Renderable*);
@@ -87,7 +92,10 @@ namespace kaikai
                         
                         GLvoid openLUAfile(const GLchar*);
                         GLvoid setMaterial(Material*);
-            
+                        
+                        virtual GLvoid setSolidDraw();
+                        virtual GLvoid setWireframeDraw();
+                        
                         // Mouse Events
                         GLvoid mouseMoved(GLfloat, GLfloat);
                         GLvoid keyPressed();
@@ -361,6 +369,8 @@ namespace kaikai
                         glm::vec4* vertex_bone_index;
                         glm::vec4* vertex_weight;
                         Renderablelua* lua;
+                        Renderable* parent;
+                        DrawStrategy* draw_strategy;
                         
         };
 }; // Close Namespace Tag

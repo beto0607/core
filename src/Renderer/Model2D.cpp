@@ -13,6 +13,9 @@
 #include <Texture/TextureManager.h>
 #include <iostream>
 #include <Renderer/Render.h>
+#include <Renderer/RenderableStrategies/DrawStrategy.h>
+#include <Renderer/RenderableStrategies/SolidDraw.h>
+#include <Renderer/RenderableStrategies/WireframeDraw.h>
 
 using namespace kaikai;
 
@@ -31,7 +34,7 @@ void Model2D::draw(Scene* _scene)
 {
     glBindVertexArray(vba_id);
         material->setVariables(this,_scene);
-        glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT, 0);
+                draw_strategy->drawRectangle(this);
         material->disableVariables();
     glBindVertexArray(0);
 }

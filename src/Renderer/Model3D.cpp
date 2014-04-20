@@ -17,7 +17,7 @@
 
 using namespace kaikai;
 
-Model3D::Model3D() {
+Model3D::Model3D():Renderable(){
     material = ((Core::getInstance())->getTextureManager())->getNullMaterial();
     GLfloat x = Core::getInstance()->getRenderManager()->getRendererX();
     GLfloat y = Core::getInstance()->getRenderManager()->getRendererY();

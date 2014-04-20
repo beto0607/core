@@ -30,7 +30,7 @@ Mesh::~Mesh() {
 GLvoid Mesh::draw(Scene* _scene)
 {
     material->setVariables(this,_scene);
-    glDrawElements(GL_TRIANGLES,index_cant,GL_UNSIGNED_INT, 0);
+    draw_strategy->drawMesh(this);          
     material->disableVariables();
 }
 
@@ -69,7 +69,7 @@ GLvoid Mesh::setUVCoord(GLfloat* _uv_coord, GLint _cant)
     glBindBuffer(GL_ARRAY_BUFFER,uv_id);
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat)*_cant*2, _uv_coord, GL_STATIC_DRAW);
     glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bufferSize);
-    if(vertex_cant/3 != bufferSize/sizeof(GLfloat))
+    if(_cant*2 != bufferSize/sizeof(GLfloat))
     {
         std::stringstream mesage;
         mesage << "MESH: " << this->getName() << " had an error: UV cord, " << vertex_cant/3 << " is diferent from " << bufferSize/sizeof(GLfloat) << "\n";
@@ -99,4 +99,9 @@ GLvoid Mesh::setBoneWeightAndIndex(glm::vec4* _weight, glm::vec4* _bone_index)
 {
     vertex_bone_index = _bone_index;
     vertex_weight = _weight;        
+}
+
+GLint Mesh::getIndexCant()
+{
+    return index_cant;
 }

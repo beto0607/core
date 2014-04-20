@@ -25,6 +25,9 @@ namespace kaikai
         GLvoid setUVCoord(GLfloat*, GLint);
         GLvoid setIndex(GLuint*, GLint);
         GLvoid setBoneWeightAndIndex(glm::vec4*, glm::vec4*);
+        
+        GLint getIndexCant();
+        
     private:
         GLint vertex_cant, index_cant;
         GLuint normal_id, index_id, weight_id, bone_index_id;

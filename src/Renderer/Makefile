@@ -3,6 +3,18 @@ RENDERER_INCLUDE= -Iinclude
 
 # librender.a
 all: renderer	
+
+invisible_draw_strategy.o:
+	g++ -O2 $(RENDERER_INCLUDE) -c src/Renderer/RenderableStrategies/InvisibleDraw.cpp -o build/Renderer/invisible_draw_strategy.o
+
+wireframe_draw_strategy.o:
+	g++ -O2 $(RENDERER_INCLUDE) -c src/Renderer/RenderableStrategies/WireframeDraw.cpp -o build/Renderer/wireframe_draw_strategy.o
+
+solid_draw_strategy.o:
+	g++ -O2 $(RENDERER_INCLUDE) -c src/Renderer/RenderableStrategies/SolidDraw.cpp -o build/Renderer/solid_draw_strategy.o
+
+draw_strategy.o:
+	g++ -O2 $(RENDERER_INCLUDE) -c src/Renderer/RenderableStrategies/DrawStrategy.cpp -o build/Renderer/draw_strategy.o
 	
 kkmeshloader.o:
 	g++ -O2 $(RENDERER_INCLUDE) -c src/Renderer/KKMeshLoader.cpp -o build/Renderer/kkmeshloader.o
@@ -34,7 +46,7 @@ renderer.o:
 rendererable.o: 
 	g++ -O2 $(RENDERER_INCLUDE) -c src/Renderer/Renderable.cpp -o build/Renderer/renderable.o
 
-renderer: renderer.o actor.o model3d.o model2d.o rectangle.o rendererable.o mesh.o text.o renderer_builder.o kkmeshloader.o
-	ar -r  -s build/lib/librenderer.a build/Renderer/model2d.o build/Renderer/mesh.o build/Renderer/actor.o build/Renderer/model3d.o build/Renderer/rectangle.o build/Renderer/render.o build/Renderer/renderable.o build/Renderer/text.o build/Renderer/kkmeshloader.o
+renderer: renderer.o actor.o model3d.o model2d.o rectangle.o rendererable.o mesh.o text.o renderer_builder.o kkmeshloader.o draw_strategy.o solid_draw_strategy.o wireframe_draw_strategy.o invisible_draw_strategy.o
+	ar -r  -s build/lib/librenderer.a build/Renderer/model2d.o build/Renderer/mesh.o build/Renderer/actor.o build/Renderer/model3d.o build/Renderer/rectangle.o build/Renderer/render.o build/Renderer/renderable.o build/Renderer/text.o build/Renderer/kkmeshloader.o build/Renderer/draw_strategy.o build/Renderer/solid_draw_strategy.o build/Renderer/wireframe_draw_strategy.o build/Renderer/invisible_draw_strategy.o
 
 # end of librender.a

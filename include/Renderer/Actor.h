@@ -39,6 +39,7 @@ namespace kaikai
         GLvoid move(GLfloat,GLfloat,GLfloat);
         GLvoid scale(GLfloat);
         GLvoid setMaterial(const GLchar*, Material*);
+        GLfloat* getInvertedPoseMatrixArray();
         
         GLvoid setX(GLfloat);
         GLvoid setY(GLfloat);
@@ -47,6 +48,11 @@ namespace kaikai
         GLvoid setAngleX(GLfloat);
         GLvoid setAngleY(GLfloat);
         GLvoid setAngleZ(GLfloat);
+        
+        GLvoid setSolidDraw();
+        GLvoid setWireframeDraw();
+        
+        GLvoid setJoint(Joint*);
     private:
         std::map<std::string,Renderable*> meshes;
         Skeleton* skeleton;
