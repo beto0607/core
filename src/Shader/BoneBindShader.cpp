@@ -10,6 +10,7 @@
 #include <Scene/Material.h>
 #include <Texture/Texture.h>
 #include <Renderer/Actor.h>
+#include <iostream>
 
 using namespace kaikai;
 
@@ -33,7 +34,7 @@ void BoneBindShader::setShaderVariables(Renderable* _renderable, Material* _mate
     glEnableVertexAttribArray(weight_bind);
     glVertexAttribPointer(index_vertex, 4, GL_FLOAT,GL_FALSE, 0, _renderable->getBindBone());
     glVertexAttribPointer(weight_bind, 4, GL_FLOAT,GL_FALSE, 0, _renderable->getWeightBone());
-    //glUniformMatrix4fv(inv_pose,50,GL_FALSE,((Actor*)_renderable)->getInvertedPoseMatrixArray());
+    glUniformMatrix4fv(inv_pose,50,GL_FALSE,((Actor*)_renderable->getParent())->getInvertedPoseMatrixArray());
     glBindTexture(GL_TEXTURE_2D,_material->getTexture()->getTexture());
 }
 

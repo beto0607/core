@@ -107,3 +107,8 @@ GLvoid Joint::draw(Scene* _scene)
 {
     
 }
+
+GLvoid Joint::setInvertedMatrix(Skeleton*)
+{
+    std::cout << name << "\n";
+}

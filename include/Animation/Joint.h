@@ -16,10 +16,11 @@
 namespace kaikai
 {
     class DrawStrategy;
+    class Skeleton;
     class Scene;
     class Shader;
     
-    class Joint : Model3D{
+    class Joint : public Model3D{
     public:
         Joint();
         virtual ~Joint();
@@ -41,6 +42,8 @@ namespace kaikai
         GLvoid addChild(Joint*);
         GLvoid draw(Scene*);
         GLvoid draw(Scene*,Shader*);
+        
+        GLvoid setInvertedMatrix(Skeleton*);
     private:
         DrawStrategy* draw_strategy;
         std::string name;

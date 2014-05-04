@@ -32,6 +32,7 @@ GLint Actor::getMeshCount()
 GLvoid Actor::setX(GLfloat _x)
 {
     Renderable::setX(_x);
+    skeleton->setX(_x);
     for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
         it->second->setX(_x);
 }
@@ -39,6 +40,7 @@ GLvoid Actor::setX(GLfloat _x)
 GLvoid Actor::setY(GLfloat _y)
 {
     Renderable::setY(_y);
+    skeleton->setY(_y);
     for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
         it->second->setY(_y);
 }
@@ -46,6 +48,7 @@ GLvoid Actor::setY(GLfloat _y)
 GLvoid Actor::setZ(GLfloat _z)
 {
     Renderable::setZ(_z);
+    skeleton->setZ(_z);
     for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
         it->second->setZ(_z);
 }
@@ -53,6 +56,7 @@ GLvoid Actor::setZ(GLfloat _z)
 GLvoid Actor::setAngleX(GLfloat _x)
 {
     Renderable::setAngleX(_x);
+    skeleton->setAngleX(_x);
     for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
         it->second->setAngleX(_x);
 }
@@ -60,6 +64,7 @@ GLvoid Actor::setAngleX(GLfloat _x)
 GLvoid Actor::setAngleY(GLfloat _y)
 {
     Renderable::setAngleY(_y);
+    skeleton->setAngleY(_y);
     for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
         it->second->setAngleY(_y);
 }
@@ -67,6 +72,7 @@ GLvoid Actor::setAngleY(GLfloat _y)
 GLvoid Actor::setAngleZ(GLfloat _z)
 {
     Renderable::setAngleZ(_z);
+    skeleton->setAngleZ(_z);
     for(std::map<std::string,Renderable*>::iterator it = meshes.begin(); it != meshes.end(); ++it)
         it->second->setAngleZ(_z);
 }
@@ -126,11 +132,16 @@ GLvoid Actor::setMaterial(const GLchar* _name, Material* _mat)
 
 GLfloat* Actor::getInvertedPoseMatrixArray()
 {
-    //std::cout << name << "\n";
     skeleton->getInvertedPoseMatrixArray();
 }
 
 GLvoid Actor::setJoint(Joint* _joint)
 {
     skeleton->setJoint(_joint);
+}
+
+GLvoid Actor::update(GLfloat _tick)
+{
+    Renderable::update(_tick);
+    skeleton->update(_tick);
 }

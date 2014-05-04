@@ -48,7 +48,7 @@ GLvoid AudioManager::openAudioDevice()
 {
     if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) == -1) 
     {
-        std::string mesage = std::string("Unable to open audio device: ");
+        std::string mesage = std::string("[AudioManager] openAudioDevice -> Unable to open audio device: ");
         mesage.append(Mix_GetError());
         (Logger::getInstance())->criticalLog(mesage.c_str());
     }

@@ -9,6 +9,7 @@
 #define	SKELETON_H
 
 #include "../Unnivelmas_conf.h"
+#include <Core/TimeEventListener.h>
 #include <map>
 
 namespace kaikai
@@ -20,7 +21,7 @@ namespace kaikai
      * @author: Francisco Blanco
      * @description: Skeleton is a Joints group that has all movements animation data with an Actor
      */
-    class Skeleton {
+    class Skeleton : public TimeEventListener{
     public:
         Skeleton();
         virtual ~Skeleton();
@@ -33,6 +34,16 @@ namespace kaikai
         
         GLvoid setJoint(Joint*);
         GLvoid draw(Scene*);
+        
+        GLvoid setX(GLfloat);
+        GLvoid setY(GLfloat);
+        GLvoid setZ(GLfloat);
+        
+        GLvoid setAngleX(GLfloat);
+        GLvoid setAngleY(GLfloat);
+        GLvoid setAngleZ(GLfloat);
+        
+        GLvoid update(GLfloat _tick);
     private:
         GLint joint_cant; /** \brief number of joints */
         std::map<GLint,Joint*> joint_collection;

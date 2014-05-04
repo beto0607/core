@@ -53,6 +53,8 @@ namespace kaikai
         GLvoid setWireframeDraw();
         
         GLvoid setJoint(Joint*);
+        
+        GLvoid update(GLfloat);
     private:
         std::map<std::string,Renderable*> meshes;
         Skeleton* skeleton;

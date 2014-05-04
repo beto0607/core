@@ -112,11 +112,13 @@ GLvoid KKMeshLoader::loadJoint(std::ifstream& _file, Actor* _actor)
     GLint id,father_id;
     std::string name;
     glm::vec3 position;
+    glm::vec3 tail;
     glm::quat rotation;
-    _file >> id >> name >> father_id >> position[0] >> position[1] >> position[2] >> rotation[0] >> rotation[1] >> rotation[2] >> rotation[3];
+    _file >> id >> name >> father_id >> position[0] >> position[1] >> position[2] >> tail[0] >> tail[1] >> tail[2] >> rotation[0] >> rotation[1] >> rotation[2] >> rotation[3];
     aux_joint->setId(id);
     aux_joint->setName(name);
     aux_joint->setParentId(father_id);
+    aux_joint->setTail(tail);
     aux_joint->setHeader(position);
     aux_joint->setRotation(rotation);   
     _actor->setJoint(aux_joint);
