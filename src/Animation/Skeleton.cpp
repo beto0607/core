@@ -54,6 +54,7 @@ GLvoid Skeleton::setJoint(Joint* _joint)
     }
     else
     {
+        _joint->setInvertedMatrix(this);
         std::map<GLint,Joint*>::iterator it = joint_collection.find(_joint->getParentId()); 
         if(it != joint_collection.end())
             it->second->addChild(_joint);
@@ -106,4 +107,9 @@ GLvoid Skeleton::setAngleZ(GLfloat _z)
 GLvoid Skeleton::update(GLfloat _tick)
 {
     
+}
+
+glm::mat4* Skeleton::getInvertedMatrixById(GLint _bone_id)
+{
+    return (joint_inverted_matrix+_bone_id);
 }

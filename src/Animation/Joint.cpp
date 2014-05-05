@@ -6,6 +6,7 @@
  */
 
 #include <Animation/Joint.h>
+#include <Animation/Skeleton.h>
 #include <Renderer/RenderableStrategies/InvisibleDraw.h>
 #include <Renderer/RenderableStrategies/SolidDraw.h>
 #include <Shader/Shader.h>
@@ -108,7 +109,10 @@ GLvoid Joint::draw(Scene* _scene)
     
 }
 
-GLvoid Joint::setInvertedMatrix(Skeleton*)
+GLvoid Joint::setInvertedMatrix(Skeleton* _skeleton)
 {
-    std::cout << name << "\n";
+    glm::mat4* inverted_matrix = _skeleton->getInvertedMatrixById(this->id);
+    (*inverted_matrix)[0][3] = (head[0]*-1);
+    (*inverted_matrix)[1][3] = (head[1]*-1);
+    (*inverted_matrix)[2][3] = (head[2]*-1);
 }
