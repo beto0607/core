@@ -26,6 +26,7 @@
 #include "../external/include/glm/gtx/euler_angles.hpp"
 #include "../external/include/glm/gtc/type_ptr.hpp"
 #include "../external/include/glm/gtc/matrix_transform.hpp"
+#include "../external/include/glm/gtx/quaternion.hpp"
 extern "C"
 {
     #include "../external/include/lua.hpp"      

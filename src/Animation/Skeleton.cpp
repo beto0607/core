@@ -47,6 +47,7 @@ GLfloat* Skeleton::getInvertedPoseMatrixArray()
 GLvoid Skeleton::setJoint(Joint* _joint)
 {
     joint_collection.insert(std::pair<GLint,Joint*>(_joint->getId(),_joint));
+    _joint->setSkeleton(this);
     if(_joint->getParentId() == -1)
     {
         _joint->setInvertedMatrix(this);
@@ -112,4 +113,9 @@ GLvoid Skeleton::update(GLfloat _tick)
 glm::mat4* Skeleton::getInvertedMatrixById(GLint _bone_id)
 {
     return (joint_inverted_matrix+_bone_id);
+}
+
+GLfloat* Skeleton::getInvertedMatrixPointerById(GLint _bone_id)
+{
+    return glm::value_ptr(joint_inverted_matrix[_bone_id]);
 }

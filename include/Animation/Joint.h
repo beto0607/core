@@ -44,7 +44,11 @@ namespace kaikai
         GLvoid draw(Scene*,Shader*);
         
         GLvoid setInvertedMatrix(Skeleton*);
+        
+        GLvoid setSkeleton(Skeleton*);
+        Skeleton* getSkeleton();
     private:
+        Skeleton* skeleton;
         DrawStrategy* draw_strategy;
         std::string name;
         GLint id;

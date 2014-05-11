@@ -46,6 +46,7 @@ namespace kaikai
         GLvoid update(GLfloat _tick);
         
         glm::mat4* getInvertedMatrixById(GLint);
+        GLfloat* getInvertedMatrixPointerById(GLint);
     private:
         GLint joint_cant; /** \brief number of joints */
         std::map<GLint,Joint*> joint_collection;

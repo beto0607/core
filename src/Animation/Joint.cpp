@@ -112,7 +112,19 @@ GLvoid Joint::draw(Scene* _scene)
 GLvoid Joint::setInvertedMatrix(Skeleton* _skeleton)
 {
     glm::mat4* inverted_matrix = _skeleton->getInvertedMatrixById(this->id);
+    glm::mat4 rot = glm::toMat4(rotation);
     (*inverted_matrix)[0][3] = (head[0]*-1);
     (*inverted_matrix)[1][3] = (head[1]*-1);
     (*inverted_matrix)[2][3] = (head[2]*-1);
+    (*inverted_matrix) *= glm::inverse(rot);
+}
+
+GLvoid Joint::setSkeleton(Skeleton* _skeleton)
+{
+    skeleton = _skeleton;
+}
+
+Skeleton* Joint::getSkeleton()
+{
+    return skeleton;
 }

@@ -21,7 +21,7 @@ namespace kaikai
         GLvoid enableShaderVariables();
         GLvoid disableShaderVariables();
     private:
-        GLuint uniform_color;
+        GLuint uniform_color,uniform_inv_bindpose;
     };
 }
 #endif	/* JOINTSHADER_H */

@@ -38,8 +38,8 @@ Render::Render()
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-//    display_info.w = 800;
-//    display_info.h = 600;
+    display_info.w = 800;
+    display_info.h = 600;
     main_window = SDL_CreateWindow("Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, display_info.w,display_info.h,SDL_WINDOW_OPENGL| SDL_WINDOW_ALLOW_HIGHDPI /*| SDL_WINDOW_FULLSCREEN*/);
     
     glRenderContext = SDL_GL_CreateContext(main_window);
