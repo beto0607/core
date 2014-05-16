@@ -20,6 +20,10 @@ namespace kaikai{
         void turnOn();
         void turnOff();
         
+        GLfloat getIntensity();
+        GLfloat getColorR();
+        GLfloat getColorG();
+        GLfloat getColorB();
     private:
         glm::vec3 color;
         GLfloat intensity;

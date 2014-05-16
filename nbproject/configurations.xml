@@ -2,277 +2,10 @@
 <configurationDescriptor version="94">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
-      <df name="external">
-        <df name="include">
-          <df name="GL">
-            <in>glew.h</in>
-            <in>glxew.h</in>
-          </df>
-          <df name="glm">
-            <df name="detail">
-              <in>_fixes.hpp</in>
-              <in>_vectorize.hpp</in>
-              <in>func_common.hpp</in>
-              <in>func_common.inl</in>
-              <in>func_exponential.hpp</in>
-              <in>func_exponential.inl</in>
-              <in>func_geometric.hpp</in>
-              <in>func_geometric.inl</in>
-              <in>func_integer.hpp</in>
-              <in>func_integer.inl</in>
-              <in>func_matrix.hpp</in>
-              <in>func_matrix.inl</in>
-              <in>func_packing.hpp</in>
-              <in>func_packing.inl</in>
-              <in>func_trigonometric.hpp</in>
-              <in>func_trigonometric.inl</in>
-              <in>func_vector_relational.hpp</in>
-              <in>func_vector_relational.inl</in>
-              <in>precision.hpp</in>
-              <in>setup.hpp</in>
-              <in>type_float.hpp</in>
-              <in>type_half.hpp</in>
-              <in>type_half.inl</in>
-              <in>type_int.hpp</in>
-              <in>type_mat.hpp</in>
-              <in>type_mat2x2.hpp</in>
-              <in>type_mat2x2.inl</in>
-              <in>type_mat2x3.hpp</in>
-              <in>type_mat2x3.inl</in>
-              <in>type_mat2x4.hpp</in>
-              <in>type_mat2x4.inl</in>
-              <in>type_mat3x2.hpp</in>
-              <in>type_mat3x2.inl</in>
-              <in>type_mat3x3.hpp</in>
-              <in>type_mat3x3.inl</in>
-              <in>type_mat3x4.hpp</in>
-              <in>type_mat3x4.inl</in>
-              <in>type_mat4x2.hpp</in>
-              <in>type_mat4x2.inl</in>
-              <in>type_mat4x3.hpp</in>
-              <in>type_mat4x3.inl</in>
-              <in>type_mat4x4.hpp</in>
-              <in>type_mat4x4.inl</in>
-              <in>type_vec.hpp</in>
-              <in>type_vec1.hpp</in>
-              <in>type_vec1.inl</in>
-              <in>type_vec2.hpp</in>
-              <in>type_vec2.inl</in>
-              <in>type_vec3.hpp</in>
-              <in>type_vec3.inl</in>
-              <in>type_vec4.hpp</in>
-              <in>type_vec4.inl</in>
-            </df>
-            <df name="gtc">
-              <in>constants.hpp</in>
-              <in>constants.inl</in>
-              <in>matrix_transform.hpp</in>
-              <in>matrix_transform.inl</in>
-              <in>quaternion.hpp</in>
-              <in>quaternion.inl</in>
-              <in>type_ptr.hpp</in>
-              <in>type_ptr.inl</in>
-            </df>
-            <df name="gtx">
-              <in>euler_angles.hpp</in>
-              <in>euler_angles.inl</in>
-            </df>
-            <in>common.hpp</in>
-            <in>exponential.hpp</in>
-            <in>fwd.hpp</in>
-            <in>geometric.hpp</in>
-            <in>glm.hpp</in>
-            <in>integer.hpp</in>
-            <in>mat2x2.hpp</in>
-            <in>mat2x3.hpp</in>
-            <in>mat2x4.hpp</in>
-            <in>mat3x2.hpp</in>
-            <in>mat3x3.hpp</in>
-            <in>mat3x4.hpp</in>
-            <in>mat4x2.hpp</in>
-            <in>mat4x3.hpp</in>
-            <in>mat4x4.hpp</in>
-            <in>matrix.hpp</in>
-            <in>packing.hpp</in>
-            <in>trigonometric.hpp</in>
-            <in>vec2.hpp</in>
-            <in>vec3.hpp</in>
-            <in>vec4.hpp</in>
-            <in>vector_relational.hpp</in>
-          </df>
-          <in>SDL.h</in>
-          <in>SDL_assert.h</in>
-          <in>SDL_atomic.h</in>
-          <in>SDL_audio.h</in>
-          <in>SDL_blendmode.h</in>
-          <in>SDL_clipboard.h</in>
-          <in>SDL_config.h</in>
-          <in>SDL_cpuinfo.h</in>
-          <in>SDL_endian.h</in>
-          <in>SDL_error.h</in>
-          <in>SDL_events.h</in>
-          <in>SDL_filesystem.h</in>
-          <in>SDL_gamecontroller.h</in>
-          <in>SDL_gesture.h</in>
-          <in>SDL_haptic.h</in>
-          <in>SDL_hints.h</in>
-          <in>SDL_image.h</in>
-          <in>SDL_joystick.h</in>
-          <in>SDL_keyboard.h</in>
-          <in>SDL_keycode.h</in>
-          <in>SDL_loadso.h</in>
-          <in>SDL_log.h</in>
-          <in>SDL_main.h</in>
-          <in>SDL_messagebox.h</in>
-          <in>SDL_mixer.h</in>
-          <in>SDL_mouse.h</in>
-          <in>SDL_mutex.h</in>
-          <in>SDL_net.h</in>
-          <in>SDL_pixels.h</in>
-          <in>SDL_platform.h</in>
-          <in>SDL_power.h</in>
-          <in>SDL_quit.h</in>
-          <in>SDL_rect.h</in>
-          <in>SDL_render.h</in>
-          <in>SDL_rwops.h</in>
-          <in>SDL_scancode.h</in>
-          <in>SDL_stdinc.h</in>
-          <in>SDL_surface.h</in>
-          <in>SDL_system.h</in>
-          <in>SDL_syswm.h</in>
-          <in>SDL_thread.h</in>
-          <in>SDL_timer.h</in>
-          <in>SDL_touch.h</in>
-          <in>SDL_ttf.h</in>
-          <in>SDL_version.h</in>
-          <in>SDL_video.h</in>
-          <in>begin_code.h</in>
-          <in>close_code.h</in>
-          <in>lauxlib.h</in>
-          <in>lua.h</in>
-          <in>lua.hpp</in>
-          <in>luaconf.h</in>
-          <in>lualib.h</in>
-        </df>
-      </df>
       <df name="include">
-        <df name="Animation">
-          <in>Animation.h</in>
-          <in>Boundvertex.h</in>
-          <in>Joint.h</in>
-          <in>Skeleton.h</in>
-          <in>Sprite.h</in>
-          <in>SpriteAnimation.h</in>
-          <in>Track.h</in>
-          <in>TrackState.h</in>
-          <in>TrackStateChanged.h</in>
-        </df>
-        <df name="Audio">
-          <in>Audio.h</in>
-          <in>AudioManager.h</in>
-          <in>Song.h</in>
-          <in>Sound.h</in>
-        </df>
-        <df name="Collision">
-          <in>CollisionManager.h</in>
-          <in>RectangleShape.h</in>
-          <in>Shape.h</in>
-        </df>
         <df name="Command">
-          <in>Cargar.h</in>
-          <in>Command.h</in>
-          <in>CommandManager.h</in>
-          <in>Create.h</in>
-          <in>Escalar.h</in>
-          <in>MostrarFPS.h</in>
-          <in>Move.h</in>
-          <in>RectangleCommand.h</in>
-          <in>Salir.h</in>
-          <in>SetFps.h</in>
+          <in>SaveScene.h</in>
         </df>
-        <df name="Core">
-          <in>Clock.h</in>
-          <in>Core.h</in>
-          <in>MeshLoader.h</in>
-          <in>TimeEventListener.h</in>
-        </df>
-        <df name="Input">
-          <in>Input.h</in>
-          <in>InputController.h</in>
-          <in>JostickManager.h</in>
-          <in>JoystickListener.h</in>
-          <in>KeyBoardListener.h</in>
-          <in>KeyBoardManager.h</in>
-          <in>MouseEventListener.h</in>
-          <in>MouseInputHandler.h</in>
-        </df>
-        <df name="Log">
-          <in>Logger.h</in>
-        </df>
-        <df name="Networking">
-          <in>Conection.h</in>
-          <in>NetManager.h</in>
-        </df>
-        <df name="Renderer">
-          <df name="RenderableStrategies">
-            <in>DrawStrategy.h</in>
-            <in>InvisibleDraw.h</in>
-            <in>SolidDraw.h</in>
-            <in>WireframeDraw.h</in>
-          </df>
-          <in>Actor.h</in>
-          <in>KKMeshLoader.h</in>
-          <in>Mesh.h</in>
-          <in>Model2D.h</in>
-          <in>Model3D.h</in>
-          <in>Rectangle.h</in>
-          <in>Render.h</in>
-          <in>RenderBuilder.h</in>
-          <in>Renderable.h</in>
-          <in>RenderableBuffer.h</in>
-          <in>Text.h</in>
-        </df>
-        <df name="Scene">
-          <df name="Camera">
-            <in>Camera.h</in>
-            <in>CameraStrategy.h</in>
-            <in>FollowerCameraStrategy.h</in>
-            <in>FreeCameraStrategy.h</in>
-          </df>
-          <in>Ligth.h</in>
-          <in>Material.h</in>
-          <in>MaterialNull.h</in>
-          <in>ProjectionMatrix.h</in>
-          <in>Scene.h</in>
-          <in>SceneManager.h</in>
-          <in>SceneNull.h</in>
-          <in>SceneReal.h</in>
-          <in>TextMaterial.h</in>
-        </df>
-        <df name="Scripting">
-          <in>Renderablelua.h</in>
-        </df>
-        <df name="Shader">
-          <in>BindVertexShader.h</in>
-          <in>BoneBindShader.h</in>
-          <in>JointShader.h</in>
-          <in>Shader.h</in>
-          <in>Shader3DNull.h</in>
-          <in>ShaderManager.h</in>
-          <in>ShaderNull.h</in>
-          <in>SpriteShader.h</in>
-          <in>TextShader.h</in>
-        </df>
-        <df name="Texture">
-          <in>Font.h</in>
-          <in>TextManager.h</in>
-          <in>Texture.h</in>
-          <in>TextureManager.h</in>
-        </df>
-        <in>Unnivelmas_conf.h</in>
-      </df>
-      <df name="Prueba_JNI">
-        <in>main.cpp</in>
       </df>
       <df name="src">
         <df name="Animation">
@@ -307,6 +40,7 @@
           <in>Move.cpp</in>
           <in>RectangleCommand.cpp</in>
           <in>Salir.cpp</in>
+          <in>SaveScene.cpp</in>
           <in>SetFps.cpp</in>
         </df>
         <df name="Core">
@@ -314,9 +48,11 @@
           <in>Core.cpp</in>
           <in>MeshLoader.cpp</in>
           <in>TimeEventListener.cpp</in>
+          <in>XMLLoader.cpp</in>
         </df>
         <df name="External">
           <in>glew.c</in>
+          <in>tinyxml2.cpp</in>
         </df>
         <df name="Input">
           <in>Input.cpp</in>
@@ -407,10 +143,13 @@
   <confs>
     <conf name="Default" type="0">
       <toolsSet>
-        <compilerSet>GNU|GNU</compilerSet>
+        <compilerSet>default</compilerSet>
         <dependencyChecking>false</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-O2"/>
+      </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
       <makefileType>
@@ -421,484 +160,6 @@
           <executablePath></executablePath>
         </makeTool>
       </makefileType>
-      <item path="Prueba_JNI/main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="external/include/GL/glew.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/GL/glxew.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_assert.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_atomic.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_audio.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_blendmode.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_clipboard.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_config.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_cpuinfo.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_endian.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_error.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_events.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_filesystem.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_gamecontroller.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/SDL_gesture.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_haptic.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_hints.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_image.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_joystick.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_keyboard.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_keycode.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_loadso.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_log.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_main.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_messagebox.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_mixer.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_mouse.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_mutex.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_net.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_pixels.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_platform.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_power.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_quit.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_rect.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_render.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_rwops.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_scancode.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_stdinc.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_surface.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_system.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_syswm.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_thread.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_timer.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_touch.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_ttf.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_version.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/SDL_video.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/begin_code.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/close_code.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/common.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/_fixes.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/_vectorize.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_common.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_common.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_exponential.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_exponential.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_geometric.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_geometric.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_integer.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_integer.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_matrix.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_matrix.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_packing.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_packing.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_trigonometric.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_trigonometric.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_vector_relational.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/func_vector_relational.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/precision.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/setup.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_float.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_half.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_half.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_int.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat2x2.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat2x2.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat2x3.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat2x3.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat2x4.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat2x4.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat3x2.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat3x2.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat3x3.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat3x3.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat3x4.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat3x4.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat4x2.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat4x2.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat4x3.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat4x3.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat4x4.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_mat4x4.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec1.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec1.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec2.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec2.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec3.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec3.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec4.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/detail/type_vec4.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/exponential.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/fwd.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/geometric.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/glm.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/gtc/constants.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtc/constants.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtc/matrix_transform.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtc/matrix_transform.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtc/quaternion.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtc/quaternion.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtc/type_ptr.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtc/type_ptr.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtx/euler_angles.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/gtx/euler_angles.inl"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/integer.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat2x2.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat2x3.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat2x4.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat3x2.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat3x3.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat3x4.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat4x2.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat4x3.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/mat4x4.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/matrix.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/packing.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/trigonometric.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/glm/vec2.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/vec3.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/vec4.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/glm/vector_relational.hpp"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="external/include/lauxlib.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/lua.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/lua.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/luaconf.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="external/include/lualib.h" ex="false" tool="3" flavor2="0">
-      </item>
       <folder path="0/src/Animation">
         <ccTool>
           <incDir>
@@ -935,14 +196,6 @@
         <ccTool>
           <incDir>
             <pElem>include</pElem>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
-      </folder>
-      <folder path="0/src/External">
-        <ccTool>
-          <incDir>
-            <pElem>external/include</pElem>
             <pElem>.</pElem>
           </incDir>
         </ccTool>
@@ -1011,206 +264,7 @@
           </incDir>
         </ccTool>
       </folder>
-      <item path="include/Animation/Animation.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Animation/Boundvertex.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Animation/Joint.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Animation/Skeleton.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Animation/Sprite.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Animation/SpriteAnimation.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Animation/Track.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Animation/TrackState.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Animation/TrackStateChanged.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Audio/Audio.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Audio/AudioManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Audio/Song.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Audio/Sound.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Collision/CollisionManager.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Collision/RectangleShape.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Collision/Shape.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/Cargar.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/Command.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/CommandManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/Create.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/Escalar.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/MostrarFPS.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/Move.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/RectangleCommand.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/Salir.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Command/SetFps.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Core/Clock.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Core/Core.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Core/MeshLoader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Core/TimeEventListener.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Input/Input.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Input/InputController.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Input/JostickManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Input/JoystickListener.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Input/KeyBoardListener.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Input/KeyBoardManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Input/MouseEventListener.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Input/MouseInputHandler.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Log/Logger.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Networking/Conection.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Networking/NetManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/Actor.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/KKMeshLoader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/Mesh.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/Model2D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/Model3D.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/Rectangle.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/Render.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/RenderBuilder.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/Renderable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Renderer/RenderableBuffer.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Renderer/RenderableStrategies/DrawStrategy.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Renderer/RenderableStrategies/InvisibleDraw.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Renderer/RenderableStrategies/SolidDraw.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Renderer/RenderableStrategies/WireframeDraw.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Renderer/Text.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/Camera/Camera.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/Camera/CameraStrategy.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Scene/Camera/FollowerCameraStrategy.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Scene/Camera/FreeCameraStrategy.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="include/Scene/Ligth.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/Material.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/MaterialNull.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/ProjectionMatrix.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/Scene.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/SceneManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/SceneNull.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/SceneReal.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scene/TextMaterial.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Scripting/Renderablelua.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/BindVertexShader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/BoneBindShader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/JointShader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/Shader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/Shader3DNull.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/ShaderManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/ShaderNull.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/SpriteShader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Shader/TextShader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Texture/Font.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Texture/TextManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Texture/Texture.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Texture/TextureManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Unnivelmas_conf.h" ex="false" tool="3" flavor2="0">
+      <item path="include/Command/SaveScene.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Animation/Animation.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1265,6 +319,8 @@
       </item>
       <item path="src/Command/Salir.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/Command/SaveScene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/Command/SetFps.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Core/Clock.cpp" ex="false" tool="1" flavor2="0">
@@ -1275,132 +331,148 @@
       </item>
       <item path="src/Core/TimeEventListener.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/Core/XMLLoader.cpp" ex="false" tool="1" flavor2="4">
+      </item>
       <item path="src/External/glew.c" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <incDir>
+            <pElem>external/include</pElem>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
       </item>
-      <item path="src/Input/Input.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/External/tinyxml2.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="0">
+          <incDir>
+            <pElem>include/external</pElem>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
       </item>
-      <item path="src/Input/InputController.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Input/Input.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Input/JostickManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Input/InputController.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Input/JoystickListener.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Input/JostickManager.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Input/KeyBoardListener.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Input/JoystickListener.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Input/KeyBoardManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Input/KeyBoardListener.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Input/MouseEventListener.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Input/KeyBoardManager.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Input/MouseInputHandler.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Input/MouseEventListener.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Log/Logger.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Input/MouseInputHandler.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Networking/Conection.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Log/Logger.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Networking/NetManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Networking/Conection.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/Actor.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Networking/NetManager.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/KKMeshLoader.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/Actor.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/Mesh.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/KKMeshLoader.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/Model2D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/Mesh.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/Model3D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/Model2D.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/Rectangle.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/Model3D.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/Render.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/Rectangle.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/RenderBuilder.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/Render.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Renderer/Renderable.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/RenderBuilder.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/Renderer/Renderable.cpp" ex="false" tool="1" flavor2="4">
       </item>
       <item path="src/Renderer/RenderableStrategies/DrawStrategy.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="4">
       </item>
       <item path="src/Renderer/RenderableStrategies/InvisibleDraw.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="4">
       </item>
       <item path="src/Renderer/RenderableStrategies/SolidDraw.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="4">
       </item>
       <item path="src/Renderer/RenderableStrategies/WireframeDraw.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="4">
       </item>
-      <item path="src/Renderer/Text.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Renderer/Text.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/Camera/Camera.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/Camera/Camera.cpp" ex="false" tool="1" flavor2="4">
       </item>
       <item path="src/Scene/Camera/CameraStrategy.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="4">
       </item>
       <item path="src/Scene/Camera/FollowerCameraStrategy.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="4">
       </item>
       <item path="src/Scene/Camera/FreeCameraStrategy.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="4">
       </item>
-      <item path="src/Scene/Ligth.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/Ligth.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/Material.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/Material.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/MaterialNull.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/MaterialNull.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/ProjectionMatrix.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/ProjectionMatrix.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/Scene.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/Scene.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/SceneManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/SceneManager.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/SceneNull.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/SceneNull.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/SceneReal.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/SceneReal.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scene/TextMaterial.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scene/TextMaterial.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Scripting/Renderablelua.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Scripting/Renderablelua.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/BindVertexShader.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/BindVertexShader.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/BoneBindShader.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/BoneBindShader.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/JointShader.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/JointShader.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/Shader.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/Shader.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/Shader3DNull.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/Shader3DNull.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/ShaderManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/ShaderManager.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/ShaderNull.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/ShaderNull.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/SpriteShader.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/SpriteShader.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Shader/TextShader.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Shader/TextShader.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Texture/Font.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Texture/Font.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Texture/TextManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Texture/TextManager.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Texture/Texture.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Texture/Texture.cpp" ex="false" tool="1" flavor2="4">
       </item>
-      <item path="src/Texture/TextureManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/Texture/TextureManager.cpp" ex="false" tool="1" flavor2="4">
       </item>
     </conf>
   </confs>

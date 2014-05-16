@@ -27,6 +27,7 @@
 #include "../external/include/glm/gtc/type_ptr.hpp"
 #include "../external/include/glm/gtc/matrix_transform.hpp"
 #include "../external/include/glm/gtx/quaternion.hpp"
+#include "../include/External/tinyxml2.h"
 extern "C"
 {
     #include "../external/include/lua.hpp"      

@@ -36,7 +36,10 @@ create.o:
 scale.o: 
 	g++ -O2 $(COMMAND_INCLUDE) -c src/Command/Escalar.cpp -o build/Command/escale.o
 
-command: commandmanager.o command.o load.o create_rectangle.o salir.o mostrarfps.o move.o create.o scale.o setfps.o
-	ar -r  -s build/lib/libcommand.a build/Command/command.o build/Command/salir.o build/Command/load.o build/Command/move.o build/Command/escale.o build/Command/commandmanager.o build/Command/mostrarfps.o build/Command/crear.o build/Command/rectanglecommand.o build/Command/setfps.o
+savescene.o:
+	g++ -O2 $(COMMAND_INCLUDE) -c src/Command/SaveScene.cpp -o build/Command/savescene.o
+
+command: commandmanager.o command.o load.o create_rectangle.o salir.o mostrarfps.o move.o create.o scale.o setfps.o savescene.o
+	ar -r  -s build/lib/libcommand.a build/Command/command.o build/Command/salir.o build/Command/load.o build/Command/move.o build/Command/escale.o build/Command/commandmanager.o build/Command/mostrarfps.o build/Command/crear.o build/Command/rectanglecommand.o build/Command/setfps.o build/Command/savescene.o
 
 #end of libcommand.a

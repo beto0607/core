@@ -62,3 +62,6 @@ Camera* Scene::getCamera()
 {
     return camera;
 }
+
+std::map<std::string,Renderable*>* Scene::getRenderables(){return this->renderables;}
+std::map<std::string,Ligth*> Scene::getLights(){return this->ligths;}

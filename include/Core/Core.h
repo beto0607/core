@@ -27,7 +27,7 @@ namespace kaikai
         class Renderable;
         class Camera;
         class Actor;
-        
+        class XMLLoader;
 	class Core
 	{
 		private: 
@@ -43,7 +43,8 @@ namespace kaikai
                                         RenderBuilder* render_builder;
                                         static Core* instance;
                                         GLboolean end_flag;
-
+                                        XMLLoader* xmlloader;
+                                        
                                         
 					Core();
 		public:
@@ -92,6 +93,8 @@ namespace kaikai
                                         GLvoid loadTexture(const GLchar*,const GLchar*);
                                         GLvoid loadKKModel(const GLchar*,const GLchar*);
                                         Actor* getActor(const GLchar*);
+                                        
+                                        GLvoid saveScene(const GLchar *);
 	};
 }; // Close Namespace Tag
 #endif // CORE_ENGINE_H

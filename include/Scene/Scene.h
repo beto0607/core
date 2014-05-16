@@ -40,6 +40,9 @@ namespace kaikai{
         GLvoid setCamera(Camera*);
         Camera* getCamera();
         
+        std::map<std::string,Renderable*>* getRenderables();
+        std::map<std::string,Ligth*> getLights();
+        
     protected:
         Camera* camera;
         CollisionManager* collision_manager;

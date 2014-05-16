@@ -21,6 +21,8 @@
 #include <Audio/Audio.h>
 #include <stdio.h>
 
+#include "Core/XMLLoader.h"
+
 using namespace kaikai;
 
 Core::Core()
@@ -276,4 +278,9 @@ GLvoid Core::fullScreenMode()
 Actor* Core::getActor(const GLchar* _name)
 {
     return render->getActor(_name);
+}
+
+GLvoid Core::saveScene(const char* _name){
+    this->xmlloader = new XMLLoader();
+    this->xmlloader->saveScene(_name, this->render->getActiveScene());
 }

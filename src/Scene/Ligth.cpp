@@ -24,3 +24,8 @@ void Ligth::turnOff()
 {
 
 }
+
+GLfloat Ligth::getIntensity(){return this->intensity;}
+GLfloat Ligth::getColorR(){return this->color.r;}
+GLfloat Ligth::getColorG(){return this->color.g;}
+GLfloat Ligth::getColorB(){return this->color.b;}
