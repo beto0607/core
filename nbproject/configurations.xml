@@ -4,6 +4,7 @@
     <df root="." name="0">
       <df name="include">
         <df name="Command">
+          <in>LoadScene.h</in>
           <in>SaveScene.h</in>
         </df>
       </df>
@@ -36,6 +37,7 @@
           <in>CommandManager.cpp</in>
           <in>Create.cpp</in>
           <in>Escalar.cpp</in>
+          <in>LoadScene.cpp</in>
           <in>MostrarFPS.cpp</in>
           <in>Move.cpp</in>
           <in>RectangleCommand.cpp</in>
@@ -264,6 +266,8 @@
           </incDir>
         </ccTool>
       </folder>
+      <item path="include/Command/LoadScene.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/Command/SaveScene.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Animation/Animation.cpp" ex="false" tool="1" flavor2="0">
@@ -310,6 +314,8 @@
       <item path="src/Command/Create.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Command/Escalar.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Command/LoadScene.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Command/MostrarFPS.cpp" ex="false" tool="1" flavor2="0">
       </item>

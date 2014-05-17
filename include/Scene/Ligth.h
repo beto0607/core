@@ -24,6 +24,8 @@ namespace kaikai{
         GLfloat getColorR();
         GLfloat getColorG();
         GLfloat getColorB();
+        GLvoid setColor(float r, float g, float b);
+        GLvoid setIntensity(float i);
     private:
         glm::vec3 color;
         GLfloat intensity;

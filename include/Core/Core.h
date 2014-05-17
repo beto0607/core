@@ -95,6 +95,7 @@ namespace kaikai
                                         Actor* getActor(const GLchar*);
                                         
                                         GLvoid saveScene(const GLchar *);
+                                        GLvoid loadScene(const GLchar *);
 	};
 }; // Close Namespace Tag
 #endif // CORE_ENGINE_H

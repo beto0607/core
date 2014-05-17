@@ -43,6 +43,7 @@ Core::Core()
     audio->openAudioDevice();
     text = new TextManager();
     texture->setNullMaterial(new MaterialNull());
+    this->xmlloader = new XMLLoader();
 }
 
 Core::~Core()
@@ -280,7 +281,6 @@ Actor* Core::getActor(const GLchar* _name)
     return render->getActor(_name);
 }
 
-GLvoid Core::saveScene(const char* _name){
-    this->xmlloader = new XMLLoader();
-    this->xmlloader->saveScene(_name, this->render->getActiveScene());
-}
+GLvoid Core::saveScene(const char* _name){ this->xmlloader->saveScene(_name, this->render->getActiveScene());}
+
+GLvoid Core::loadScene(const GLchar* _name){this->xmlloader->loadScene(_name, this->render->getActiveScene());}

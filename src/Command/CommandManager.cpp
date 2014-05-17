@@ -15,6 +15,7 @@
 #include <Command/MostrarFPS.h>
 #include <Command/Create.h>
 #include <Command/SaveScene.h>
+#include <Command/LoadScene.h>
 #include <Log/Logger.h>
 #include <iostream>
 #include <string>
@@ -32,6 +33,7 @@ CommandManager::CommandManager() {
     commands.insert(std::pair<std::string,Command*>("create",new Create()));
     commands.insert(std::pair<std::string,Command*>("setfps",new SetFps()));
     commands.insert(std::pair<std::string,Command*>("save_scene",new SaveScene()));
+    commands.insert(std::pair<std::string,Command*>("load_scene",new LoadScene()));
 }
 
 CommandManager::~CommandManager() {

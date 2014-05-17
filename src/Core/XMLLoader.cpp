@@ -12,6 +12,7 @@
 #include "Scene/Camera/Camera.h"
 #include "Renderer/Renderable.h"
 #include "Scene/Ligth.h"
+#include "Core/Core.h"
 #include <map>
 #include <string>
 #include <stdlib.h>
@@ -56,6 +57,54 @@ const char * XMLLoader::getString(const char* _key){
     return data[_key].c_str();
 }
 XMLLoader::~XMLLoader() {
+}
+
+void XMLLoader::loadScene(const char* _file, Scene* _scene){
+    XMLDocument doc; doc->LoadFile(_file+".xml");
+    XMLNode* node = doc->FirstChild()->FirstChild();
+    XMLElement* ele = node->ToElement();
+    
+    Camera* cam =_scene->getCamera();
+    if(cam->getName() == ele->Value()){
+        ele = node->FirstChildElement("position"); cam->setPositionX(this->getFloat(ele->FirstChildElement("x")->GetText()));cam->setPositionY(this->getFloat(ele->FirstChildElement("y")->GetText()));cam->setPositionZ(this->getFloat(ele->FirstChildElement("z")->GetText())); 
+        ele = node->FirstChildElement("angle");cam->setAngleX(this->getFloat(ele->FirstChildElement("x")->GetText()));cam->setAngleY(this->getFloat(ele->FirstChildElement("y")->GetText()));cam->setAngleZ(this->getFloat(ele->FirstChildElement("z")->GetText())); 
+        ele = node->FirstChildElement("focus");cam->setFocusX(this->getFloat(ele->FirstChildElement("x")->GetText()));cam->setFocusY(this->getFloat(ele->FirstChildElement("y")->GetText()));cam->setFocusZ(this->getFloat(ele->FirstChildElement("z")->GetText())); 
+    }
+    
+    
+    node = node->NextSibling();
+    ele = node->ToElement();    
+    if(ele->Value(), "Renderables"){
+        std::map<std::string,Renderable*>* auxR = _scene->getRenderables();
+        Renderable* rr;
+        XMLNode* nodeR = node->FirstChild();
+        while(nodeR!=NULL){
+            ele = nodeR->ToElement();
+            rr = auxR.at(ele->Value());
+            rr->setX(this->getFloat( ele->FirstChildElement("position")->FirstChildElement("x")->GetText()  ));
+            rr->setY(this->getFloat( ele->FirstChildElement("position")->FirstChildElement("y")->GetText()  ));
+            rr->setZ(this->getFloat( ele->FirstChildElement("position")->FirstChildElement("z")->GetText()  ));
+            rr->scale(this->getFloat( ele->FirstChildElement("scale")->GetText()  ));
+            nodeR = nodeR->NextSibling();
+        }
+    }
+    
+    node = node->NextSibling();
+    ele = node->ToElement(); 
+    if(ele->Value(), "Lights"){
+        std::map<std::string,Ligth*>  auxL = _scene->getLights();
+        Ligth* ll;
+        XMLNode* nodeL = node->FirstChild();
+        while(nodeL!=NULL){
+            ele = nodeL->ToElement();
+            ll = auxL.at(ele->Value());
+            ll->setColor( 
+                this->getFloat( ele->FirstChildElement("color")->FirstChildElement("r")->Value() ),
+                this->getFloat(ele->FirstChildElement("color")->FirstChildElement("g")->Value() ),
+                this->getFloat(ele->FirstChildElement("color")->FirstChildElement("b")->Value() ) );
+            ll->setIntensity(this->getFloat( ele->FirstChildElement("intensity")->GetText()));
+        }
+    }
 }
 
 void XMLLoader::saveScene(const char* _file, Scene* _scene){
