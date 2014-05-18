@@ -12,6 +12,7 @@
 #include <map>
 #include <string>
 #include <External/tinyxml2.h>
+#include <Scene/Scene.h>
 
 namespace kaikai{
     class XMLLoader {
