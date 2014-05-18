@@ -7,12 +7,11 @@
 
 #include <Core/XMLLoader.h>
 
-#include "../Unnivelmas_conf.h"
-#include "Scene/Scene.h"
-#include "Scene/Camera/Camera.h"
-#include "Renderer/Renderable.h"
-#include "Scene/Ligth.h"
-#include "Core/Core.h"
+#include <Scene/Scene.h>
+#include <Scene/Camera/Camera.h>
+#include <Renderer/Renderable.h>
+#include <Scene/Ligth.h>
+#include <Core/Core.h>
 #include <map>
 #include <string>
 #include <stdlib.h>
@@ -60,7 +59,7 @@ XMLLoader::~XMLLoader() {
 }
 
 void XMLLoader::loadScene(const char* _file, Scene* _scene){
-    XMLDocument doc; doc->LoadFile(_file+".xml");
+    XMLDocument* doc; doc->LoadFile(_file);
     XMLNode* node = doc->FirstChild()->FirstChild();
     XMLElement* ele = node->ToElement();
     
@@ -80,7 +79,7 @@ void XMLLoader::loadScene(const char* _file, Scene* _scene){
         XMLNode* nodeR = node->FirstChild();
         while(nodeR!=NULL){
             ele = nodeR->ToElement();
-            rr = auxR.at(ele->Value());
+            rr = auxR->at(ele->Value());
             rr->setX(this->getFloat( ele->FirstChildElement("position")->FirstChildElement("x")->GetText()  ));
             rr->setY(this->getFloat( ele->FirstChildElement("position")->FirstChildElement("y")->GetText()  ));
             rr->setZ(this->getFloat( ele->FirstChildElement("position")->FirstChildElement("z")->GetText()  ));
@@ -109,11 +108,11 @@ void XMLLoader::loadScene(const char* _file, Scene* _scene){
 
 void XMLLoader::saveScene(const char* _file, Scene* _scene){
     FILE * f ;
-    f = fopen(_file+".xml","w");
+    f = fopen(_file,"w");
     XMLPrinter * auxp = new XMLPrinter(f,false);
     auxp->OpenElement("Scene");
 //Camera-----------------------------------------
-    auxp->OpenElement(_scene->getCamera()->getName());
+    auxp->OpenElement((_scene->getCamera()->getName().c_str()));
         auxp->OpenElement("position");auxp->OpenElement("x");auxp->PushText(_scene->getCamera()->getPositionX()); auxp->CloseElement(); auxp->OpenElement("y");auxp->PushText(_scene->getCamera()->getPositionY()); auxp->CloseElement();auxp->OpenElement("z");auxp->PushText(_scene->getCamera()->getPositionZ()); auxp->CloseElement();auxp->CloseElement();
         auxp->OpenElement("focus");auxp->OpenElement("x");auxp->PushText(_scene->getCamera()->getFocusX()); auxp->CloseElement();auxp->OpenElement("y");auxp->PushText(_scene->getCamera()->getFocusY()); auxp->CloseElement();auxp->OpenElement("z");auxp->PushText(_scene->getCamera()->getFocusZ()); auxp->CloseElement();auxp->CloseElement();
         auxp->OpenElement("angle");auxp->OpenElement("x");auxp->PushText(_scene->getCamera()->getAngleX()); auxp->CloseElement();auxp->OpenElement("y");auxp->PushText(_scene->getCamera()->getAngleY()); auxp->CloseElement();auxp->OpenElement("z");auxp->PushText(_scene->getCamera()->getAngleZ()); auxp->CloseElement();auxp->CloseElement();
@@ -123,7 +122,7 @@ void XMLLoader::saveScene(const char* _file, Scene* _scene){
     auxp->OpenElement("Renderables");
     std::map<std::string,Renderable*>* aux = _scene->getRenderables();
     for(std::map<std::string,Renderable*>::iterator it = aux->begin(); it != aux->end();++it){
-        auxp->OpenElement((*it).second->getName());
+        auxp->OpenElement(((*it).second->getName().c_str()));
             auxp->OpenElement("position");auxp->OpenElement("x");auxp->PushText((*it).second->getX()); auxp->CloseElement(); auxp->OpenElement("y");auxp->PushText((*it).second->getY()); auxp->CloseElement();auxp->OpenElement("z");auxp->PushText((*it).second->getZ()); auxp->CloseElement();auxp->CloseElement();
             auxp->OpenElement("scale");auxp->PushText((*it).second->getScale());auxp->CloseElement();
         auxp->CloseElement();
@@ -133,7 +132,7 @@ void XMLLoader::saveScene(const char* _file, Scene* _scene){
 //Lights-----------------------------------------
     auxp->OpenElement("Lights");
     std::map<std::string,Ligth*>  auxL = _scene->getLights();
-    for(std::map<std::string,Ligth*> ::iterator it = auxL->begin(); it != auxL->end();++it){
+    for(std::map<std::string,Ligth*> ::iterator it = auxL.begin(); it != auxL.end();++it){
         auxp->OpenElement("Light");
             auxp->OpenElement("color");auxp->OpenElement("r");auxp->PushText((*it).second->getColorR()); auxp->CloseElement(); auxp->OpenElement("g");auxp->PushText((*it).second->getColorG()); auxp->CloseElement();auxp->OpenElement("b");auxp->PushText((*it).second->getColorB()); auxp->CloseElement();auxp->CloseElement();
             auxp->OpenElement("intensity");auxp->PushText((*it).second->getIntensity());auxp->CloseElement();

@@ -40,6 +40,7 @@ root_folder:
 	mkdir build/examples/demo
 	mkdir build/examples/prueba/resources
 	mkdir build/examples/prueba/resources/shaders
+	mkdir build/examples/JumpnShoot
 		
 copy_dll: 
 	cp -R resources/ build/examples/prueba/
@@ -59,11 +60,11 @@ copy_dll:
 	cp dependencies/glew-1.10.0/lib/glew32.dll build/examples/audio/
 	
 build_libraries:
+	make -f src/Core/Makefile
 	make -f src/Animation/Makefile
 	make -f src/Audio/Makefile
 	make -f src/Collision/Makefile
 	make -f src/Command/Makefile
-	make -f src/Core/Makefile
 	make -f src/External/Makefile
 	make -f src/Input/Makefile
 	make -f src/Log/Makefile
@@ -86,6 +87,9 @@ else
 directories: root_folder
 
 endif
+
+example:
+	make -f examples/Makefile
 
 clean: 
 	rm -R build
