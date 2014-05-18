@@ -23,4 +23,4 @@ timeeventlistener.o:
 core: core.o clock.o timeeventlistener.o meshloader.o xmlloader.o
 	ar -r  -s build/lib/libcore.a build/Core/core.o build/Core/clock.o build/Core/timeeventlistener.o build/Core/meshloader.o build/Core/xmlloader.o
 
-#END libcore.a
+#END libcore.a  
