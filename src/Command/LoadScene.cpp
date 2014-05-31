@@ -21,8 +21,8 @@ LoadScene::~LoadScene() {
 }
 
 void LoadScene::execute(){
-    char* name;
+    std::string name;
     std::cin >> name; 
-    Core::getInstance()->loadScene(name);
+    Core::getInstance()->loadScene(name.c_str());
     std::cout<<"Scene Loaded.\n";
 }

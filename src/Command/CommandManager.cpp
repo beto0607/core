@@ -8,6 +8,10 @@
 #include <Command/CommandManager.h>
 #include <Command/Command.h>
 #include <Command/Escalar.h>
+#include <Command/EscalarZ.h>
+#include <Command/EscalarX.h>
+#include <Command/EscalarY.h>
+
 #include <Command/Cargar.h>
 #include <Command/Move.h>
 #include <Command/Salir.h>
@@ -27,6 +31,9 @@ CommandManager::CommandManager() {
     end_flag=true;
     commands.insert(std::pair<std::string,Command*>("cargar",new Cargar()));
     commands.insert(std::pair<std::string,Command*>("scale",new Escalar()));
+    commands.insert(std::pair<std::string,Command*>("scaley",new EscalarY()));
+    commands.insert(std::pair<std::string,Command*>("scalex",new EscalarX()));
+    commands.insert(std::pair<std::string,Command*>("scalez",new EscalarZ()));
     commands.insert(std::pair<std::string,Command*>("move",new Move()));
     commands.insert(std::pair<std::string,Command*>("exit",new Salir()));
     commands.insert(std::pair<std::string,Command*>("fps",new MostrarFPS()));

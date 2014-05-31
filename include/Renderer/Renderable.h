@@ -44,7 +44,14 @@ namespace kaikai
                         
                         GLvoid scale(GLfloat);
                         GLfloat* getScale();
-
+                        GLfloat getScaleFloat();
+                        GLvoid scaleX(GLfloat);
+                        GLvoid scaleY(GLfloat);
+                        GLvoid scaleZ(GLfloat);
+                        GLfloat getScaleX();
+                        GLfloat getScaleY();
+                        GLfloat getScaleZ();
+                        
                         GLvoid move(GLfloat, GLfloat);
                         GLvoid move(GLfloat, GLfloat, GLfloat);
                         

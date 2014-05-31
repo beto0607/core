@@ -1,0 +1,34 @@
+<Scene>
+    <camera1>
+        <position x="360" y="500" z="25"/>
+        <focus x="360" y="500" z="0"/>
+        <angle x="0" y="1" z="0"/>
+    </camera1>
+    <Renderables>
+        <background scale="1">
+            <position x="250" y="250" z="0"/>
+        </background>
+        <floor0 scale="1">
+            <position x="0" y="700" z="0"/>
+        </floor0>
+        <floor1 scale="1">
+            <position x="450" y="700" z="0"/>
+        </floor1>
+        <floor2 scale="1">
+            <position x="650" y="650" z="0"/>
+        </floor2>
+        <floor3 scale="1">
+            <position x="1000" y="700" z="0"/>
+        </floor3>
+        <floor4 scale="1">
+            <position x="1600" y="600" z="0"/>
+        </floor4>
+        <fps_info_show scale="1">
+            <position x="40" y="30" z="0"/>
+        </fps_info_show>
+        <shooter scale="1">
+            <position x="360" y="500" z="0"/>
+        </shooter>
+    </Renderables>
+    <Lights/>
+</Scene>

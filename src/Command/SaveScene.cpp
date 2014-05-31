@@ -22,8 +22,8 @@ SaveScene::~SaveScene() {
 }
 
 GLvoid SaveScene::execute(){
-    char* name;
+    std::string name;
     std::cin >> name; 
-    Core::getInstance()->saveScene(name);
+    (Core::getInstance())->saveScene(name.c_str());
     std::cout<<"Scene saved.\n";
 }

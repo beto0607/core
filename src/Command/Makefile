@@ -36,13 +36,22 @@ create.o:
 scale.o: 
 	g++ -O2 $(COMMAND_INCLUDE) -c src/Command/Escalar.cpp -o build/Command/escale.o
 
+scalex.o: 
+	g++ -O2 $(COMMAND_INCLUDE) -c src/Command/EscalarX.cpp -o build/Command/escalex.o
+
+scaley.o: 
+	g++ -O2 $(COMMAND_INCLUDE) -c src/Command/EscalarY.cpp -o build/Command/escaley.o
+
+scalez.o: 
+	g++ -O2 $(COMMAND_INCLUDE) -c src/Command/EscalarZ.cpp -o build/Command/escalez.o
+
 savescene.o:
 	g++ -O2 $(COMMAND_INCLUDE) -c src/Command/SaveScene.cpp -o build/Command/savescene.o
 
 loadscene.o:
 	g++ -O2 $(COMMAND_INCLUDE) -c src/Command/LoadScene.cpp -o build/Command/loadscene.o
 
-command: commandmanager.o command.o load.o create_rectangle.o salir.o mostrarfps.o move.o create.o scale.o setfps.o savescene.o loadscene.o
-	ar -r  -s build/lib/libcommand.a build/Command/command.o build/Command/salir.o build/Command/load.o build/Command/move.o build/Command/escale.o build/Command/commandmanager.o build/Command/mostrarfps.o build/Command/crear.o build/Command/rectanglecommand.o build/Command/setfps.o build/Command/savescene.o build/Command/loadscene.o
+command: commandmanager.o command.o load.o create_rectangle.o salir.o mostrarfps.o move.o create.o scale.o setfps.o savescene.o loadscene.o scalex.o scaley.o scalez.o 
+	ar -r  -s build/lib/libcommand.a build/Command/command.o build/Command/salir.o build/Command/load.o build/Command/move.o build/Command/escale.o build/Command/commandmanager.o build/Command/mostrarfps.o build/Command/crear.o build/Command/rectanglecommand.o build/Command/setfps.o build/Command/savescene.o build/Command/loadscene.o build/Command/escalex.o build/Command/escalez.o 
 
 #end of libcommand.a

@@ -91,5 +91,9 @@ endif
 example:
 	make -f examples/Makefile
 
+core: 
+	make -f src/Core/Makefile
+	ar -r  -s build/lib/libengine.a build/Animation/*.o build/Audio/*.o build/Collision/*.o build/Command/*.o build/Core/*.o build/Input/*.o build/Log/*.o build/Networking/*.o build/Renderer/*.o build/Scene/*.o build/Shader/*.o build/Texture/*.o build/Scripting/*.o
+	
 clean: 
 	rm -R build

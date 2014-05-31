@@ -2,8 +2,19 @@
 <configurationDescriptor version="94">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root="." name="0">
+      <df name="examples">
+        <df name="JumpnShoot">
+          <df name="material">
+            <in>SimpleMaterial.cpp</in>
+            <in>SimpleMaterial.h</in>
+          </df>
+        </df>
+      </df>
       <df name="include">
         <df name="Command">
+          <in>EscalarX.h</in>
+          <in>EscalarY.h</in>
+          <in>EscalarZ.h</in>
           <in>LoadScene.h</in>
           <in>SaveScene.h</in>
         </df>
@@ -37,6 +48,9 @@
           <in>CommandManager.cpp</in>
           <in>Create.cpp</in>
           <in>Escalar.cpp</in>
+          <in>EscalarX.cpp</in>
+          <in>EscalarY.cpp</in>
+          <in>EscalarZ.cpp</in>
           <in>LoadScene.cpp</in>
           <in>MostrarFPS.cpp</in>
           <in>Move.cpp</in>
@@ -162,6 +176,16 @@
           <executablePath></executablePath>
         </makeTool>
       </makefileType>
+      <item path="examples/JumpnShoot/material/SimpleMaterial.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="examples/JumpnShoot/material/SimpleMaterial.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <folder path="0/src/Animation">
         <ccTool>
           <incDir>
@@ -266,6 +290,12 @@
           </incDir>
         </ccTool>
       </folder>
+      <item path="include/Command/EscalarX.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Command/EscalarY.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Command/EscalarZ.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/Command/LoadScene.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/Command/SaveScene.h" ex="false" tool="3" flavor2="0">
@@ -314,6 +344,12 @@
       <item path="src/Command/Create.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Command/Escalar.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Command/EscalarX.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Command/EscalarY.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Command/EscalarZ.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Command/LoadScene.cpp" ex="false" tool="1" flavor2="0">
       </item>

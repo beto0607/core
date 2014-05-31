@@ -123,6 +123,15 @@ GLfloat* Renderable::getScale()
     return glm::value_ptr(this->scale_matrix);
 }
 
+GLfloat Renderable::getScaleFloat(){return this->scale_matrix[0][0];}
+
+GLvoid Renderable::scaleX(GLfloat _x){this->scale_matrix[0][0]=_x;}
+GLfloat Renderable::getScaleX(){return this->scale_matrix [0][0];}
+GLvoid Renderable::scaleY(GLfloat _y){this->scale_matrix[1][1]=_y;}
+GLfloat Renderable::getScaleY(){return this->scale_matrix [1][1];}
+GLvoid Renderable::scaleZ(GLfloat _z){this->scale_matrix[2][2]=_z;}
+GLfloat Renderable::getScaleZ(){return this->scale_matrix [2][2];}
+
 GLfloat* Renderable::getRotation()
 {
     return glm::value_ptr(this->angle_matrix);

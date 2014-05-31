@@ -26,6 +26,9 @@ namespace kaikai{
             const char* getString(const char *);
             void saveScene(const char * _file, Scene* _scene);
             void loadScene(const char * _file, Scene* _scene);
+
+
+            void saveScene2(const char * _file, Scene* _scene);//No sirve
         private:
             const char * file;
             std::map<std::string,std::string> data;
