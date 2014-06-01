@@ -108,6 +108,7 @@ void XMLLoader::loadScene(const char* _file, Scene* _scene){
                 rr->setY(ele->FloatAttribute("y"));
                 rr->setZ(ele->FloatAttribute("z"));
                 nodeR = nodeR->NextSibling();
+                
             }
         }
         node = node->NextSibling();
