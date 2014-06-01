@@ -88,8 +88,7 @@ void XMLLoader::loadScene(const char* _file, Scene* _scene){
             ele = node->FirstChildElement("focus");
             cam->setFocusX(ele->FloatAttribute("x"));
             cam->setFocusY(ele->FloatAttribute("y"));
-            cam->setFocusZ(ele->FloatAttribute("z")); 
-        }
+            cam->setFocusZ(ele->FloatAttribute("z")); }
         node = node->NextSibling();
         ele = node->ToElement();    
         if(ele->Value(), "Renderables"){
@@ -217,27 +216,8 @@ void XMLLoader::saveScene2(const char* _file, Scene* _scene){
     auxp->OpenElement("Scene");
 //Camera-----------------------------------------
     auxp->OpenElement((_scene->getCamera()->getName().c_str()));
-        auxp->OpenElement("position");auxp->OpenElement("x");auxp->PushText(_scene->getCamera()->getPositionX()); auxp->CloseElement(); auxp->OpenElement("y");auxp->PushText(_scene->getCamera()->getPositionY()); auxp->CloseElement();auxp->OpenElement("z");auxp->PushText(_scene->getCamera()->getPositionZ()); auxp->CloseElement();auxp->CloseElement();
-        auxp->OpenElement("focus");auxp->OpenElement("x");auxp->PushText(_scene->getCamera()->getFocusX()); auxp->CloseElement();auxp->OpenElement("y");auxp->PushText(_scene->getCamera()->getFocusY()); auxp->CloseElement();auxp->OpenElement("z");auxp->PushText(_scene->getCamera()->getFocusZ()); auxp->CloseElement();auxp->CloseElement();
-        auxp->OpenElement("angle");auxp->OpenElement("x");auxp->PushText(_scene->getCamera()->getAngleX()); auxp->CloseElement();auxp->OpenElement("y");auxp->PushText(_scene->getCamera()->getAngleY()); auxp->CloseElement();auxp->OpenElement("z");auxp->PushText(_scene->getCamera()->getAngleZ()); auxp->CloseElement();auxp->CloseElement();
-    auxp->CloseElement();    
-//-----------------------------------------------
-//Renderables------------------------------------
-    auxp->OpenElement("Renderables");
-    std::map<std::string,Renderable*>* aux = _scene->getRenderables();
-    for(std::map<std::string,Renderable*>::iterator it = aux->begin(); it != aux->end();++it){
-        auxp->OpenElement(((*it).second->getName().c_str()));
-            auxp->OpenElement("position");
-            
-                auxp->OpenElement("x");auxp->PushText((*it).second->getX()); auxp->CloseElement(); 
-                auxp->OpenElement("y");auxp->PushText((*it).second->getY()); auxp->CloseElement();
-                auxp->OpenElement("z");auxp->PushText((*it).second->getZ()); auxp->CloseElement();
-            auxp->CloseElement();
-            auxp->OpenElement("scale");auxp->PushText((*it).second->getScale());auxp->CloseElement();
-        auxp->CloseElement();
-    }
-    auxp->CloseElement();
-//-----------------------------------------------    
+=======
+            auxp->OpenElement("position");auxp->OpenElement("x");auxp->PushText((*it).second->getX()); auxp->CloseElement(); auxp->OpenElement("y");auxp->PushText((*it).second->getY()); auxp->CloseElement();auxp->OpenElement("z");auxp->PushText((*it).second->getZ()); auxp->CloseElement();auxp->CloseElement();
 //Lights-----------------------------------------
     auxp->OpenElement("Lights");
     std::map<std::string,Ligth*>  auxL = _scene->getLights();
